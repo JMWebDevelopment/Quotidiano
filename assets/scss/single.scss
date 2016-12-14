@@ -6,8 +6,8 @@
 * @version 1.0
 */
 //* Define the variables to be used in this stylesheet
-@import "mixins";
 @import "settings";
+@import "mixins";
  .single {
    .post-comments {
     ul {
@@ -17,3 +17,30 @@
     }
    }
  }
+blockquote {
+  border-left: 0;
+  position: relative;
+  p {
+    @include playfair(21px, 400, $qblack, none);
+    font-style: italic;
+  }
+  &:before {
+    position: absolute;
+    @include playfair(300px, 400, $medium-grey);
+    top: -153px;
+    left: 0;
+    content: "\201C";
+    display: block;
+    opacity: .40;
+  }
+}
+cite {
+  font-size: 18px;
+  color: $dark-grey;
+}
+pre, code {
+  background-color: $off-black;
+  color: $off-white;
+  border: 0;
+  padding: 3px;
+}

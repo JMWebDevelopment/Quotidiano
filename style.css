@@ -4421,13 +4421,13 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 300;
-  color: #0a0a0a;
+  color: #212121;
   text-transform: none;
   margin: 0;
-  background-color: #EAE9E9; }
+  background-color: #EAE9E9 !important; }
 
 .off-canvas-content {
-  background-color: #EAE9E9; }
+  background-color: #EAE9E9 !important; }
 
 a,
 button,
@@ -4444,15 +4444,15 @@ textarea:focus,
   transition: all 0.1s ease-in-out; }
 
 ::-moz-selection {
-  background-color: #000000;
-  color: #ffffff; }
+  background-color: #212121;
+  color: #EAE9E9 !important; }
 
 ::selection {
-  background-color: #000000;
-  color: #ffffff; }
+  background-color: #212121;
+  color: #EAE9E9 !important; }
 
 a, a:link, a:visited, a:hover {
-  color: #8a8a8a;
+  color: #616161;
   text-decoration: none; }
 
 a img {
@@ -4465,7 +4465,7 @@ p {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 300;
-  color: #0a0a0a;
+  color: #212121;
   text-transform: none; }
 
 strong {
@@ -4550,8 +4550,8 @@ input,
 select,
 textarea {
   background-color: #ffffff;
-  border: 1px solid #000000;
-  color: #000000;
+  border: 1px solid #151515;
+  color: #212121;
   font-size: 16px;
   padding: 3px;
   max-width: 100%;
@@ -4596,18 +4596,18 @@ textarea:focus {
   outline: none; }
 
 ::-moz-placeholder {
-  color: #cacaca;
+  color: #999999;
   opacity: 1; }
 
 ::-webkit-input-placeholder {
-  color: #cacaca; }
+  color: #999999; }
 
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button, .button {
-  background-color: #cacaca;
+  background-color: #999999;
   font-family: 'Cutive', serif;
   font-size: 18px;
   font-weight: 400;
@@ -4628,7 +4628,7 @@ input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover,
 .button:hover {
-  background-color: #8a8a8a;
+  background-color: #616161;
   color: #fefefe; }
 
 .button:hover {
@@ -4652,7 +4652,6 @@ table {
   border-spacing: 0;
   line-height: 2;
   margin-bottom: 40px;
-  margin-bottom: 4rem;
   width: 100%;
   border: 0; }
   table thead {
@@ -4664,7 +4663,7 @@ table {
         font-family: 'Cutive', serif;
         font-size: 18px;
         font-weight: 700;
-        color: #0a0a0a;
+        color: #212121;
         text-transform: none;
         padding: 2px 0;
         text-align: center;
@@ -4731,13 +4730,13 @@ COLORS
 A. By Author
 ------------------------------------------- */
 .bypostauthor {
-  background-color: #AFAFAF; }
+  background-color: #CBC7C7; }
 
 /*
 B. Sticky
 ------------------------------------------- */
 .sticky {
-  background-color: #AFAFAF;
+  background-color: #CBC7C7;
   position: relative; }
 
 /*
@@ -4746,9 +4745,9 @@ C. Photos
 .aligncenter {
   display: block;
   margin: 0 auto !important;
-  border: solid 1px #505050;
-  background-color: #AFAFAF;
-  padding: 6px;
+  border: 0;
+  background-color: #999999;
+  padding: 0;
   max-width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4757,9 +4756,9 @@ C. Photos
 .alignright {
   float: right;
   margin: 0 0 1em 1em;
-  border: solid 1px #505050;
-  background-color: #AFAFAF;
-  padding: 6px;
+  border: 0;
+  background-color: #999999;
+  padding: 0;
   max-width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4768,9 +4767,9 @@ C. Photos
 .alignleft {
   float: left;
   margin: 0 1em 1em 0;
-  border: solid 1px #505050;
-  background-color: #AFAFAF;
-  padding: 6px;
+  border: 0;
+  background-color: #999999;
+  padding: 0;
   max-width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4779,9 +4778,9 @@ C. Photos
 .alignnone {
   float: left;
   margin: 0 1em 1em 0;
-  border: solid 1px #505050;
-  background-color: #AFAFAF;
-  padding: 6px;
+  border: 0;
+  background-color: #999999;
+  padding: 0;
   max-width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4794,8 +4793,12 @@ C. Photos
   float: right; }
 
 p.wp-caption-text {
-  font-family: Arial;
-  font-size: 12px; }
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #212121;
+  text-transform: none;
+  padding: 0 4px; }
 
 /*
 D. Gallery
@@ -4917,6 +4920,39 @@ COLORS
 *********************/
 .single .post-comments ul li {
   list-style: none; }
+
+blockquote {
+  border-left: 0;
+  position: relative; }
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #212121;
+    text-transform: none;
+    font-style: italic; }
+  blockquote:before {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 300px;
+    font-weight: 400;
+    color: #999999;
+    text-transform: none;
+    top: -153px;
+    left: 0;
+    content: "\201C";
+    display: block;
+    opacity: .40; }
+
+cite {
+  font-size: 18px;
+  color: #616161; }
+
+pre, code {
+  background-color: #151515;
+  color: #EAE9E9 !important;
+  border: 0;
+  padding: 3px; }
 
 /**
 ***************** V. Comments ************************

@@ -19,33 +19,33 @@
 A. By Author
 ------------------------------------------- */
 .bypostauthor {
-  background-color: #AFAFAF;
+  background-color: $light-grey;
 }
 /*
 B. Sticky
 ------------------------------------------- */
 .sticky {
-  background-color: #AFAFAF; position: relative;
+  background-color: $light-grey; position: relative;
 }
 /*
 C. Photos
 ------------------------------------------- */
 .aligncenter  { display: block;
   margin: 0 auto !important;
-  border: solid 1px #505050;
-  background-color: #AFAFAF;
-  padding: 6px;
+  border: 0;
+  background-color: $medium-grey;
+  padding: 0;
   max-width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.alignright  { float: right; margin: 0 0 1em 1em; border: solid 1px #505050; background-color: #AFAFAF; padding: 6px; max-width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
-.alignleft  { float: left; margin: 0 1em 1em 0; border: solid 1px #505050; background-color: #AFAFAF; padding: 6px; max-width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
-.alignnone { float: left; margin: 0 1em 1em 0; border: solid 1px #505050; background-color: #AFAFAF; padding: 6px; max-width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.alignright  { float: right; margin: 0 0 1em 1em; border: 0; background-color: $medium-grey; padding: 0; max-width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.alignleft  { float: left; margin: 0 1em 1em 0; border: 0; background-color: $medium-grey; padding: 0; max-width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+.alignnone { float: left; margin: 0 1em 1em 0; border: 0; background-color: $medium-grey; padding: 0; max-width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
 .floatleft  { float: left; }
 .floatright  { float: right; }
-p.wp-caption-text {font-family: Arial; font-size: 12px;}
+p.wp-caption-text {@include playfair(16px, 400, $qblack, none); padding: 0 4px;}
 /*
 D. Gallery
 ------------------------------------------- */
