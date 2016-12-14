@@ -8,12 +8,69 @@
 //* Define the variables to be used in this stylesheet
 @import "mixins";
 @import "settings";
-$black: #000000;
 /**
 ***************** A. Top Menu ************************ 
 */
 .header {
+	background-color: rgba($qblack, .5);
+	height: 50px;
+	padding: 0 10px;
 	.top-bar {
+		background-color: transparent;
+		padding: 0;
+		.site-title {
+			float: left;
+			margin-top: 12px;
+			@include cutive(24px, 400, $off-white, none);
+			a {
+				color: $off-white;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+		.menu.dropdown {
+			background-color: transparent;
+			margin-top: 7px;
+			li {
+				a {
+					@include cutive(18px, 400, $off-white, none);
+					border-bottom: 3px solid transparent;
+					&:hover {
+						color: $off-white;
+					}
+					&:after {
+						content: '';
+						display: none !important;
+					}
+				}
+				&:hover {
+					a {
+						color: $off-white;
+						border-bottom: 3px solid $off-white;
+					}
+					ul {
+						li {
+							a {
+								border-bottom: 0;
+							}
+						}
+					}
+				}
+				.submenu {
+					background-color: rgba($qblack, .5);
+					border: 0;
+					li {
+						a {
+							color: $off-white;
+							&:hover {
+								color: $light-grey;
+							}
+						}
+					}
+				}
+			}
+		}
 		.menu-icon {
 			border: 0px;
 			background-color: transparent;
@@ -21,26 +78,12 @@ $black: #000000;
 				background-color: transparent;
 			}
 		}
-		.current-item {
-			a {
-				color: #00ffff;
-			}
-		}
 	}
 }
 /**
 ***************** B. Header ************************ 
 */
-.site-title a:link, .site-title a:visited {
-	font-family: Georgia;
-	font-size: 28px;
-	color: $black;
-}
-.site-description a:link, .site-description a:visited {
-	font-family: Georgia;
-	font-size: 22px;
-	color: $black;
-}
+
 /**
 ***************** C. Main Menu ************************ 
 */

@@ -48,6 +48,7 @@
 						 <!-- This navs will be applied to the topbar, above all content 
 							  To see additional nav styles, visit the /parts directory -->
 						<div class="top-bar show-for-large" id="main-menu">
+                            <h1 class="site-title"><a href="<?php echo esc_url(get_home_url()); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
 							<div class="top-bar-right">
 								<nav id="theme-slug-top-menu" class="theme-slug-menu">
 									<?php wp_nav_menu(array(
@@ -68,17 +69,6 @@
 									<li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li>
 									<!--<li><a data-toggle="off-canvas">Menu</a></li>-->
 								</ul>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="masthead large-12 medium-12 columns">
-								<?php if (get_header_image()) { ?>
-							 			<img src="<?php echo get_header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>'" alt="<?php echo get_bloginfo('name' ); ?> Header Image" /></a>'
-							 		<?php } else { ?>
-							 			<h1 class="site-title"><a href="<?php echo esc_url(get_home_url()); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
-										<h2 class="site-description"><a href="<?php echo esc_url(get_home_url()); ?>"><?php echo get_bloginfo('description'); ?></a></h2>
-							 		<?php } ?>
 							</div>
 						</div>
 		 	

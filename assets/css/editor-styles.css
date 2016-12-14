@@ -181,10 +181,10 @@ body {
   color: #212121;
   text-transform: none;
   margin: 0;
-  background-color: #EAE9E9 !important; }
+  background-color: #EAE9E9; }
 
 .off-canvas-content {
-  background-color: #EAE9E9 !important; }
+  background-color: #EAE9E9; }
 
 a,
 button,
@@ -202,11 +202,11 @@ textarea:focus,
 
 ::-moz-selection {
   background-color: #212121;
-  color: #EAE9E9 !important; }
+  color: #EAE9E9; }
 
 ::selection {
   background-color: #212121;
-  color: #EAE9E9 !important; }
+  color: #EAE9E9; }
 
 a, a:link, a:visited, a:hover {
   color: #616161;

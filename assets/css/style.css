@@ -4424,10 +4424,10 @@ body {
   color: #212121;
   text-transform: none;
   margin: 0;
-  background-color: #EAE9E9 !important; }
+  background-color: #EAE9E9; }
 
 .off-canvas-content {
-  background-color: #EAE9E9 !important; }
+  background-color: #EAE9E9; }
 
 a,
 button,
@@ -4445,11 +4445,11 @@ textarea:focus,
 
 ::-moz-selection {
   background-color: #212121;
-  color: #EAE9E9 !important; }
+  color: #EAE9E9; }
 
 ::selection {
   background-color: #212121;
-  color: #EAE9E9 !important; }
+  color: #EAE9E9; }
 
 a, a:link, a:visited, a:hover {
   color: #616161;
@@ -4846,27 +4846,61 @@ COLORS
 /**
 ***************** A. Top Menu ************************ 
 */
-.header .top-bar .menu-icon {
-  border: 0px;
-  background-color: transparent; }
-  .header .top-bar .menu-icon:hover {
-    background-color: transparent; }
-.header .top-bar .current-item a {
-  color: #00ffff; }
+.header {
+  background-color: rgba(33, 33, 33, 0.5);
+  height: 50px;
+  padding: 0 10px; }
+  .header .top-bar {
+    background-color: transparent;
+    padding: 0; }
+    .header .top-bar .site-title {
+      float: left;
+      margin-top: 12px;
+      font-family: 'Cutive', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #EAE9E9;
+      text-transform: none; }
+      .header .top-bar .site-title a {
+        color: #EAE9E9; }
+        .header .top-bar .site-title a:hover {
+          text-decoration: underline; }
+    .header .top-bar .menu.dropdown {
+      background-color: transparent;
+      margin-top: 7px; }
+      .header .top-bar .menu.dropdown li a {
+        font-family: 'Cutive', serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none;
+        border-bottom: 3px solid transparent; }
+        .header .top-bar .menu.dropdown li a:hover {
+          color: #EAE9E9; }
+        .header .top-bar .menu.dropdown li a:after {
+          content: '';
+          display: none !important; }
+      .header .top-bar .menu.dropdown li:hover a {
+        color: #EAE9E9;
+        border-bottom: 3px solid #EAE9E9; }
+      .header .top-bar .menu.dropdown li:hover ul li a {
+        border-bottom: 0; }
+      .header .top-bar .menu.dropdown li .submenu {
+        background-color: rgba(33, 33, 33, 0.5);
+        border: 0; }
+        .header .top-bar .menu.dropdown li .submenu li a {
+          color: #EAE9E9; }
+          .header .top-bar .menu.dropdown li .submenu li a:hover {
+            color: #CBC7C7; }
+    .header .top-bar .menu-icon {
+      border: 0px;
+      background-color: transparent; }
+      .header .top-bar .menu-icon:hover {
+        background-color: transparent; }
 
 /**
 ***************** B. Header ************************ 
 */
-.site-title a:link, .site-title a:visited {
-  font-family: Georgia;
-  font-size: 28px;
-  color: #000000; }
-
-.site-description a:link, .site-description a:visited {
-  font-family: Georgia;
-  font-size: 22px;
-  color: #000000; }
-
 /**
 ***************** C. Main Menu ************************ 
 */
@@ -4950,7 +4984,7 @@ cite {
 
 pre, code {
   background-color: #151515;
-  color: #EAE9E9 !important;
+  color: #EAE9E9;
   border: 0;
   padding: 3px; }
 
