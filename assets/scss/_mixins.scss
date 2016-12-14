@@ -1,0 +1,44 @@
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+
+/*********************
+FONTS
+*********************/
+@mixin roboto($fontSize, $fontWeight, $color, $text-transform: none) {
+	font-family: 'Roboto', sans-serif;
+	font-size: $fontSize;
+	font-weight: $fontWeight;
+	color: $color;
+	text-transform: $text-transform;
+}
+@mixin cutive($fontSize, $fontWeight, $color, $text-transform: none) {
+	font-family: 'Cutive', serif;
+	font-size: $fontSize;
+	font-weight: $fontWeight;
+	color: $color;
+	text-transform: $text-transform;
+}
+@mixin playfair($fontSize, $fontWeight, $color, $text-transform: none) {
+	font-family: 'Playfair Display', serif;
+	font-size: $fontSize;
+	font-weight: $fontWeight;
+	color: $color;
+	text-transform: $text-transform;
+}
+
+/*********************
+COLORS
+*********************/
+$black: #212121;
+$light-gray: #CBC7C7;
+$medium-gray: #999999;
+$dark-gray: #616161;
+$off-black: #151515;
+$off-white: #EAE9E9;
+$white: #ffffff;

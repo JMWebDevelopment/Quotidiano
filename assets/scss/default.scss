@@ -1,0 +1,274 @@
+/**
+* Theme Default Styles
+*
+* @package ***Theme Name***
+* @author Jacob Martella
+* @version 1.0
+*/
+//* Define the variables to be used in this stylesheet
+@import "mixins";
+@import "settings";
+
+textarea {
+     overflow:auto;
+     vertical-align:top
+}
+table {
+     border-collapse:collapse;
+     border-spacing:0
+}
+/*
+B. Typographical Elements
+------------------------------------------- */
+html {
+     font-size: 100%;
+}
+body{
+	@include playfair(18px, 300, $black, none);
+	margin: 0;
+	background-color: $off-white;
+}
+.off-canvas-content {
+  background-color: $off-white;
+}
+a,
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button {
+     -webkit-transition: all 0.1s ease-in-out;
+     -moz-transition:    all 0.1s ease-in-out;
+     -ms-transition:     all 0.1s ease-in-out;
+     -o-transition:      all 0.1s ease-in-out;
+     transition:         all 0.1s ease-in-out;
+}
+
+::-moz-selection {
+     background-color: #000000;
+     color: #ffffff;
+}
+
+::selection {
+     background-color: #000000;
+     color: #ffffff;
+}
+a, a:link, a:visited, a:hover{
+	color: $dark-gray;
+	text-decoration: none;
+}
+a img{
+	border: 0;
+}
+a:hover {
+     color: $off-black;
+}
+p{
+	@include playfair(18px, 300, $black, none);
+}
+strong {
+     font-weight: 700;
+}
+ol,
+ul {
+     margin: 0;
+     padding: 0;
+}
+/*
+C. Headings
+------------------------------------------- */
+h6{
+  @include cutive(20px, 700, $off-black, none);
+     margin: 3px;
+}
+h5{
+  @include cutive(24px, 700, $off-black, none);
+	margin: 3px;
+}
+h4{
+  @include cutive(28px, 400, $off-black, none);
+	margin: 3px;
+}
+h3{
+  @include cutive(30px, 700, $off-black, none);
+	margin: 4px;
+}
+h2{
+  @include cutive(35px, 700, $off-black, none);
+	margin: 4px;
+}
+h1{
+	@include cutive(40px, 700, $off-black, none);
+	margin: 5px;
+}
+/*
+D. Objects
+------------------------------------------- */
+embed,
+iframe,
+img,
+object,
+video,
+.wp-caption {
+     max-width: 100%;
+}
+img {
+     height: auto;
+     width: auto; /* IE8 */
+}
+/*
+E. Forms
+------------------------------------------- */
+input,
+select,
+textarea {
+     background-color: #ffffff;
+     border: 1px solid #000000;
+     color: #000000;
+     font-size: 16px;
+     padding: 3px;
+     max-width: 100%;
+     margin-top: 5px;
+     margin-bottom: 5px;
+}
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'], textarea {
+  border-color: $off-black;
+  border-radius: 3px;
+}
+[type='text']:focus,
+[type='password']:focus,
+[type='date']:focus,
+[type='datetime']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='week']:focus,
+[type='email']:focus,
+[type='number']:focus,
+[type='search']:focus,
+[type='tel']:focus,
+[type='time']:focus,
+[type='url']:focus,
+[type='color']:focus, textarea:focus,
+input:focus,
+textarea:focus {
+     border: 1px solid $off-black;
+     background-color: #E8E8E8;
+     outline: none;
+}
+::-moz-placeholder {
+     color: $medium-gray;
+     opacity: 1;
+}
+::-webkit-input-placeholder {
+     color: $medium-gray;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button, .button {
+     background-color: $medium-gray;
+     @include cutive(18px, 400, $white, none);
+     border: 0;
+     border-radius: 2px;
+     box-shadow: none;
+     cursor: pointer;
+     padding: 18px 10px 15px;
+     width: auto;
+     margin-top: 5px;
+     margin-bottom: 5px;
+}
+button:hover,
+input:hover[type="button"],
+input:hover[type="reset"],
+input:hover[type="submit"],
+.button:hover,
+.button:hover {
+     background-color: $dark-gray;
+     color: $white;
+}
+.button:hover {
+     color: $white;
+}
+.button {
+     display: inline-block;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button {
+     display: none;
+}
+input[type="checkbox"],input[type="radio"] {
+     margin-right: 5px;
+}
+/*
+F. Tables
+------------------------------------------- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 2;
+  margin-bottom: 40px;
+  margin-bottom: 4rem;
+  width: 100%;
+  border: 0;
+  thead {
+    background-color: transparent;
+    border: 0;
+    tr {
+      border-bottom: 1px solid $off-black;
+      th {
+        @include cutive(18px, 700, $black, none);
+        padding: 2px 0;
+        text-align: center;
+        border: 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+  tbody {
+    border: 0;
+    background-color: transparent;
+    tr {
+      border-top: 1px solid $off-black;
+      background-color: transparent;
+      td {
+        text-align: left;
+        border: 0;
+        padding: 2px 0;
+      }
+      &:first-child {
+        border-top: 0;
+      }
+      &:nth-child(even) {
+        background-color: transparent;
+      }
+    }
+  }
+}
+/*
+H. Lists
+------------------------------------------- */
+ul > li {
+    margin-left: 10px;
+}
+ol > li {
+    margin-left: 10px;
+}
+ul, ol {
+     list-style-position: inside;
+}
