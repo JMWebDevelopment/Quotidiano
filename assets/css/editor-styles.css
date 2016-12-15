@@ -181,7 +181,8 @@ body {
   color: #212121;
   text-transform: none;
   margin: 0;
-  background-color: #EAE9E9; }
+  background-color: #EAE9E9;
+  position: relative; }
 
 .off-canvas-content {
   background-color: #EAE9E9; }

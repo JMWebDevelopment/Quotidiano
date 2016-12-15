@@ -15,6 +15,11 @@
 	background-color: rgba($qblack, .5);
 	height: 50px;
 	padding: 0 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
 	.top-bar {
 		background-color: transparent;
 		padding: 0;
@@ -45,6 +50,19 @@
 					}
 				}
 				&:hover {
+					a {
+						color: $off-white;
+						border-bottom: 3px solid $off-white;
+					}
+					ul {
+						li {
+							a {
+								border-bottom: 0;
+							}
+						}
+					}
+				}
+				&.current-item {
 					a {
 						color: $off-white;
 						border-bottom: 3px solid $off-white;

@@ -229,6 +229,9 @@ function getMonthName( month ) {
 		})
 		.controller('Home', ['$scope', '$http', '$stateParams', function ($scope, $http) {
 			$scope.translations = quotidiano.translations;
+			$scope.page_header = quotidiano.custom_header;
+			$scope.site_header = quotidiano.site_title;
+			$scope.site_description = quotidiano.site_description;
 			$http({
 				url: quotidiano.api_url + 'posts/',
 				cache: true
@@ -240,7 +243,6 @@ function getMonthName( month ) {
 		}])
 		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', function ($scope, $http, $stateParams, Comments) {
             $scope.translations = quotidiano.translations;
-            console.log($scope.translations.reply);
 			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').success(function(res){
 				$scope.post = res[0];
 				$scope.post.comments = arrangeComments( $scope.post.comments );
@@ -344,7 +346,7 @@ function getMonthName( month ) {
 				.state('Home', {
 					url: '/',
 					controller: 'Home',
-					templateUrl: quotidiano.partials + 'main.html'
+					templateUrl: quotidiano.partials + 'home.html'
 				})
 				.state('Category', {
 					url: '/category/:endpoint/',

@@ -1,0 +1,29 @@
+<div ng-controller="Home" class="home">
+    <header class="page-header">
+        <div ng-bind-html="page_header | unsafe"></div>
+        <div class="page-header-text-outer">
+            <div class="page-header-text-inner">
+                <h1 class="page-header-title">{{site_header}}</h1>
+                <h3 class="page-header-description">{{site_description}}</h3>
+            </div>
+        </div>
+    </header>
+    <section class="social-media">
+
+    </section>
+    <div id="inner-content" class="row">
+        <h3 class="home-date">August 2016</h3>
+        <div class="post-container row small-up-2 medium-up-5 large-up-5">
+            <div class="post column" ng-repeat="post in posts">
+                <a href="{{post.link}}">
+                    <img ng-src="{{post.featured_image}}" />
+                    <div class="post-overlay">
+                        <span class="day">{{ post.date | date:"dd" }}</span>
+                        <span class="month">{{ post.date | date:"MMMM" }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button id="load-more">{{translations.load_more}}</button>
+    </div> <!-- end #inner-content -->
+</div>

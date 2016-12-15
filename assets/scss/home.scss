@@ -8,3 +8,108 @@
 //* Define the variables to be used in this stylesheet
 @import "mixins";
 @import "settings";
+
+.home {
+  .page-header {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: $dark-grey;
+    &:after {
+      padding-top: 39.10%;
+      display: block;
+      content: '';
+    }
+    .wp-custom-header {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .page-header-text-outer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba($qblack, .5);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      .page-header-title {
+        border: 5px solid $off-white;
+        @include roboto(50px, 700, $off-white, uppercase);
+        display: inline-block;
+        margin-bottom: 30px;
+        padding: 0 10px;
+      }
+      .page-header-description {
+        @include cutive(40px, 400, $off-white, none);
+      }
+    }
+  }
+  .social-media {
+    background-color: $off-black;
+    height: 40px;
+    position: relative;
+    margin-top: -7px;
+  }
+  #inner-content {
+    padding: 50px 0;
+    text-align: center;
+    .home-date {
+      @include cutive(30px, 400, $off-black, none);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .post-container {
+      margin-bottom: 40px;
+      .post {
+        border-radius: 5px;
+        border: 1px solid $off-black;
+        margin: 0 5px 10px;
+        padding: 0;
+        width: 19.1%;
+        position: relative;
+        &:hover {
+          .post-overlay {
+            display: block;
+            background-color: rgba($qblack, .7);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            .day {
+              @include cutive(73px, 400, $off-white, none);
+              line-height: 1;
+              margin-top: 5px;
+            }
+            .month {
+              @include cutive(35px, 400, $off-white, none);
+              line-height: 1;
+            }
+          }
+        }
+        img {
+          border-radius: 4px;
+        }
+        .post-overlay {
+          display: none;
+        }
+      }
+    }
+    #load-more {
+      text-align: center;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}

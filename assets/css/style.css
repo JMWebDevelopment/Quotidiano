@@ -9,7 +9,7 @@ Version: 1.0
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags:
-Theme Slug: quotidiano  
+Theme Slug: quotidiano  v
 */
 /**
 * Table of Contents
@@ -32,7 +32,7 @@ Theme Slug: quotidiano
 * NOTE: Theme specific styles begin on line ---.
 */
 /**
-***************** I. Global Styles ************************
+***************** I. Global Styles *****************************
 */
 /**
 ***************** A. Founation Defaults ************************
@@ -4424,7 +4424,11 @@ body {
   color: #212121;
   text-transform: none;
   margin: 0;
-  background-color: #EAE9E9; }
+  background-color: #EAE9E9;
+  position: relative; }
+
+#content #inner-content {
+  padding: 50px 0; }
 
 .off-canvas-content {
   background-color: #EAE9E9; }
@@ -4849,7 +4853,12 @@ COLORS
 .header {
   background-color: rgba(33, 33, 33, 0.5);
   height: 50px;
-  padding: 0 10px; }
+  padding: 0 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9; }
   .header .top-bar {
     background-color: transparent;
     padding: 0; }
@@ -4884,6 +4893,11 @@ COLORS
         color: #EAE9E9;
         border-bottom: 3px solid #EAE9E9; }
       .header .top-bar .menu.dropdown li:hover ul li a {
+        border-bottom: 0; }
+      .header .top-bar .menu.dropdown li.current-item a {
+        color: #EAE9E9;
+        border-bottom: 3px solid #EAE9E9; }
+      .header .top-bar .menu.dropdown li.current-item ul li a {
         border-bottom: 0; }
       .header .top-bar .menu.dropdown li .submenu {
         background-color: rgba(33, 33, 33, 0.5);
@@ -4928,6 +4942,110 @@ FONTS
 /*********************
 COLORS
 *********************/
+.home .page-header {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-color: #616161; }
+  .home .page-header:after {
+    padding-top: 39.10%;
+    display: block;
+    content: ''; }
+  .home .page-header .wp-custom-header {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  .home .page-header .page-header-text-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(33, 33, 33, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; }
+    .home .page-header .page-header-text-outer .page-header-title {
+      border: 5px solid #EAE9E9;
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      color: #EAE9E9;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 0 10px; }
+    .home .page-header .page-header-text-outer .page-header-description {
+      font-family: 'Cutive', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: #EAE9E9;
+      text-transform: none; }
+.home .social-media {
+  background-color: #151515;
+  height: 40px;
+  position: relative;
+  margin-top: -7px; }
+.home #inner-content {
+  padding: 50px 0;
+  text-align: center; }
+  .home #inner-content .home-date {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #151515;
+    text-transform: none;
+    text-align: center;
+    margin-bottom: 20px; }
+  .home #inner-content .post-container {
+    margin-bottom: 40px; }
+    .home #inner-content .post-container .post {
+      border-radius: 5px;
+      border: 1px solid #151515;
+      margin: 0 5px 10px;
+      padding: 0;
+      width: 19.1%;
+      position: relative; }
+      .home #inner-content .post-container .post:hover .post-overlay {
+        display: block;
+        background-color: rgba(33, 33, 33, 0.7);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .home #inner-content .post-container .post:hover .post-overlay .day {
+          font-family: 'Cutive', serif;
+          font-size: 73px;
+          font-weight: 400;
+          color: #EAE9E9;
+          text-transform: none;
+          line-height: 1;
+          margin-top: 5px; }
+        .home #inner-content .post-container .post:hover .post-overlay .month {
+          font-family: 'Cutive', serif;
+          font-size: 35px;
+          font-weight: 400;
+          color: #EAE9E9;
+          text-transform: none;
+          line-height: 1; }
+      .home #inner-content .post-container .post img {
+        border-radius: 4px; }
+      .home #inner-content .post-container .post .post-overlay {
+        display: none; }
+  .home #inner-content #load-more {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px; }
+
 /**
 ***************** IV. Single ************************
 */

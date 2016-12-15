@@ -27,6 +27,12 @@ body{
 	@include playfair(18px, 300, $qblack, none);
 	margin: 0;
 	background-color: $off-white;
+    position: relative;
+}
+#content {
+  #inner-content {
+    padding: 50px 0;
+  }
 }
 .off-canvas-content {
   background-color: $off-white;
