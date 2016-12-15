@@ -27,7 +27,7 @@
             </div>
         </header>
         <section class="social-media">
-
+            <?php echo quotidiano_social_media_links(); ?>
         </section>
 
         <main ui-view>

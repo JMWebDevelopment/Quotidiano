@@ -4979,9 +4979,123 @@ COLORS
 .social-media {
   background-color: #151515;
   height: 40px;
+  padding: 5px 0;
   position: relative;
-  margin-top: -7px; }
+  margin-top: -7px;
+  text-align: center; }
+  .social-media .social-links-inner {
+    width: auto;
+    position: relative;
+    margin: auto;
+    display: inline-block; }
+    .social-media .social-links-inner .quotidiano-social-link {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      float: left;
+      text-align: left;
+      height: 30px;
+      width: 30px;
+      padding-top: 3px;
+      -webkit-transition: width 100ms;
+      transition: width 100ms;
+      margin-right: 5px;
+      overflow: hidden; }
+      .social-media .social-links-inner .quotidiano-social-link img {
+        width: 30px;
+        height: auto;
+        margin-top: -6px; }
+      .social-media .social-links-inner .quotidiano-social-link .social-link-title {
+        display: none;
+        /*-webkit-transition: anim 200ms;
+        transition: anim 200ms;*/
+        font-family: 'Cutive', serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none;
+        padding: 0 3px;
+        opacity: 0;
+        -webkit-animation: fadeInFromNone 0.5s ease-out;
+        -moz-animation: fadeInFromNone 0.5s ease-out;
+        -o-animation: fadeInFromNone 0.5s ease-out;
+        animation: fadeInFromNone 0.5s ease-out; }
+      .social-media .social-links-inner .quotidiano-social-link:hover {
+        width: 133px; }
+        .social-media .social-links-inner .quotidiano-social-link:hover .social-link-title {
+          display: inline;
+          opacity: 1; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-facebook-link {
+        background-color: #3B5998; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-twitter-link {
+        background-color: #29A7DF; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-instagram-link {
+        background-color: #326699; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-tumblr-link {
+        background-color: #44546B; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-youtube-link {
+        background-color: #CD332C; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-pinterest-link {
+        background-color: #CA2128; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-google-plus-link {
+        background-color: #CC3731; }
+      .social-media .social-links-inner .quotidiano-social-link#quotidiano-linkedin-link {
+        background-color: #027BB5; }
+      .social-media .social-links-inner .quotidiano-social-link:last-child {
+        margin-right: 0; }
 
+@-webkit-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+@-moz-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+@-o-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
 #wp-a11y-speak-polite {
   display: none; }
 

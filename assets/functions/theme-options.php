@@ -5,8 +5,8 @@
  * Theme options file, using the Customizer, for Fotographia
  *
  * @author Jacob Martella
- * @package Fotographia
- * @version 1.1
+ * @package Quotidiano
+ * @version 1.0
  */
 
 //* Create the general settings section
@@ -20,38 +20,156 @@ function theme_slug_general_customizer( $wp_customize ) {
 		)
 	);
 
-	//* Get the categories for the home page options
-	$cats = get_categories();
-	$cat_args['none'] = __('None', 'fotographia');
-	foreach($cats as $cat) {
-		$cat_args[$cat->term_id] = $cat->name;
-	}
-
-	//* Home Slider Category
+	//* Facebook Link
 	$wp_customize->add_setting(
-		'theme-slug-home-slider-cat',
+		'quotidiano-facebook',
 		array(
-			'default' => 'None',
-			'sanitize_callback' => 'theme_slug_sanitize_category',
+			'default' => '',
+			'sanitize_callback' => 'quotidiano_sanitize_link',
 		)
 	);
 
 	$wp_customize->add_control(
-		'theme-slug-home-slider-cat',
+		'quotidiano-facebook',
 		array(
-			'label' => __('Home Slider Category', 'theme-slug'),
+			'label' => __('Link to Facebook Profile/Page', 'quotidiano'),
 			'section' => 'general',
-			'type' => 'select',
-			'choices' => $cat_args
+			'type' => 'text',
 		)
 	);
+
+    //* Twitter Link
+    $wp_customize->add_setting(
+        'quotidiano-twitter',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-twitter',
+        array(
+            'label' => __('Link to Twitter Profile', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
+
+    //* Instagram Link
+    $wp_customize->add_setting(
+        'quotidiano-instagram',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-instagram',
+        array(
+            'label' => __('Link to Instagram Profile', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
+
+    //* Tubmlr Link
+    $wp_customize->add_setting(
+        'quotidiano-tumblr',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-tumblr',
+        array(
+            'label' => __('Link to Tumblr Blog', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
+
+    //* YouTube Link
+    $wp_customize->add_setting(
+        'quotidiano-youtube',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-youtube',
+        array(
+            'label' => __('Link to YouTube Page', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
+
+    //* Pinterest Link
+    $wp_customize->add_setting(
+        'quotidiano-pinterest',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-pinterest',
+        array(
+            'label' => __('Link to Pinterest Profile', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
+
+    //* Google+ Link
+    $wp_customize->add_setting(
+        'quotidiano-google-plus',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-google-plus',
+        array(
+            'label' => __('Link to Google+ Profile', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
+
+    //* Instagram Link
+    $wp_customize->add_setting(
+        'quotidiano-linkedin',
+        array(
+            'default' => '',
+            'sanitize_callback' => 'quotidiano_sanitize_link',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-linkedin',
+        array(
+            'label' => __('Link to LinkedIn Profile', 'quotidiano'),
+            'section' => 'general',
+            'type' => 'text',
+        )
+    );
 
 }
 add_action( 'customize_register', 'theme_slug_general_customizer' );
 
 
 //* Sanitize Links
-function theme_slug_sanitize_link($input) {
+function quotidiano_sanitize_link($input) {
 	return esc_url_raw( $input );
 }
 
