@@ -4,7 +4,7 @@ Theme Name: Quotidiano
 Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
 Description:
 Author: Jacob Martella
-Author URI: http://www.jacobmartella.com/ de
+Author URI: http://www.jacobmartella.com/njnj
 Version: 1.0
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -4913,8 +4913,78 @@ COLORS
         background-color: transparent; }
 
 /**
-***************** B. Header ************************ 
+***************** B. Home Page Header ************************
 */
+.page-home-header {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-color: #616161; }
+  .page-home-header:after {
+    padding-top: 39.10%;
+    display: block;
+    content: ''; }
+  .page-home-header .wp-custom-header {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  .page-home-header .header-video-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .page-home-header .header-video-container .wp-custom-header {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; }
+      .page-home-header .header-video-container .wp-custom-header iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important; }
+  .page-home-header .page-header-text-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(33, 33, 33, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; }
+    .page-home-header .page-header-text-outer .page-header-title {
+      border: 5px solid #EAE9E9;
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      color: #EAE9E9;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 0 10px; }
+    .page-home-header .page-header-text-outer .page-header-description {
+      font-family: 'Cutive', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: #EAE9E9;
+      text-transform: none; }
+
+.social-media {
+  background-color: #151515;
+  height: 40px;
+  position: relative;
+  margin-top: -7px; }
+
+#wp-a11y-speak-polite {
+  display: none; }
+
 /**
 ***************** C. Main Menu ************************ 
 */
@@ -4942,54 +5012,6 @@ FONTS
 /*********************
 COLORS
 *********************/
-.home .page-header {
-  width: 100%;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  background-color: #616161; }
-  .home .page-header:after {
-    padding-top: 39.10%;
-    display: block;
-    content: ''; }
-  .home .page-header .wp-custom-header {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; }
-  .home .page-header .page-header-text-outer {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(33, 33, 33, 0.5);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center; }
-    .home .page-header .page-header-text-outer .page-header-title {
-      border: 5px solid #EAE9E9;
-      font-family: 'Roboto', sans-serif;
-      font-size: 50px;
-      font-weight: 700;
-      color: #EAE9E9;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-bottom: 30px;
-      padding: 0 10px; }
-    .home .page-header .page-header-text-outer .page-header-description {
-      font-family: 'Cutive', serif;
-      font-size: 40px;
-      font-weight: 400;
-      color: #EAE9E9;
-      text-transform: none; }
-.home .social-media {
-  background-color: #151515;
-  height: 40px;
-  position: relative;
-  margin-top: -7px; }
 .home #inner-content {
   padding: 50px 0;
   text-align: center; }

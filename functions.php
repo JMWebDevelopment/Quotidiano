@@ -46,11 +46,6 @@ function quotidiano_scripts() {
 	} else {
 		$user = '';
 	}
-	if ( get_custom_header_markup() ) {
-	    $header = get_custom_header_markup();
-    } else {
-	    $header = '';
-    }
 	$args = array(
 		'partials' 				=> trailingslashit( get_template_directory_uri() ) . 'partials/',
 		'api_url' 				=> rest_get_url_prefix() . '/wp/v2/',
@@ -63,7 +58,6 @@ function quotidiano_scripts() {
 		'logged_in' 			=> is_user_logged_in(),
 		'logged_in_user'		=> $user,
         'months'                => quotidiano_get_months(),
-        'custom_header'         => $header,
         'translations'          => [
             'page_404_title'    => __( 'Post or Page Not Found!', 'quotidiano' ),
             'page_404_content'  => __( 'The post or page you are looking for isn\'t here . Please return to the < a href = "/" > homepage</a >', 'quotidiano' ),
@@ -135,6 +129,10 @@ function quotidiano_theme_support() {
 	//* Add support for custom header media
     add_theme_support( 'custom-header', array(
         'video' => true,
+        'width'              => 2000,
+        'height'             => 781,
+        'flex-width'         => true,
+        'flex-height'        => true,
     ) );
 
 	//* Add Support for Translation
@@ -407,6 +405,12 @@ register_nav_menus(
 				'top-nav' 		=> __( 'Top Menu', 'quotidiano' ),   // Main nav in header
 		)
 );
+function quotidiano_social_media_links() {
+    $html = '';
+    
+
+    return $html;
+}
 /**
  ******************** IV. Home Functions *********************************
  */

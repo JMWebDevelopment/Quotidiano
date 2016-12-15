@@ -229,9 +229,7 @@ function getMonthName( month ) {
 		})
 		.controller('Home', ['$scope', '$http', '$stateParams', function ($scope, $http) {
 			$scope.translations = quotidiano.translations;
-			$scope.page_header = quotidiano.custom_header;
-			$scope.site_header = quotidiano.site_title;
-			$scope.site_description = quotidiano.site_description;
+            jQuery('.page-home-header').show();
 			$http({
 				url: quotidiano.api_url + 'posts/',
 				cache: true
@@ -243,6 +241,7 @@ function getMonthName( month ) {
 		}])
 		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', function ($scope, $http, $stateParams, Comments) {
             $scope.translations = quotidiano.translations;
+            jQuery('.page-home-header').hide();
 			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').success(function(res){
 				$scope.post = res[0];
 				$scope.post.comments = arrangeComments( $scope.post.comments );
@@ -276,6 +275,7 @@ function getMonthName( month ) {
 		}])
 		.controller('Page', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
             $scope.translations = quotidiano.translations;
+            jQuery('.page-home-header').hide();
 			$http.get( quotidiano.api_url + 'pages?slug=' + $stateParams.slug ).success(function(res){
 				$scope.post = res[0];
 				document.querySelector('title').innerHTML = res[0].title.rendered + ' | ' + quotidiano.site_title
@@ -284,6 +284,7 @@ function getMonthName( month ) {
 		}])
 		.controller('Archive', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
             $scope.translations = quotidiano.translations;
+            jQuery('.page-home-header').hide();
 			var url = '';
 			var pagedUrl = '';
 			if ( $stateParams.archiveType == 'Day' || $stateParams.archiveType == 'Month' ) {
@@ -340,6 +341,7 @@ function getMonthName( month ) {
 		}])
 		.controller('NotFound', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
             $scope.translations = quotidiano.translations;
+            jQuery('.page-home-header').hide();
 		}])
 		.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			$stateProvider

@@ -10,53 +10,6 @@
 @import "settings";
 
 .home {
-  .page-header {
-    width: 100%;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    background-color: $dark-grey;
-    &:after {
-      padding-top: 39.10%;
-      display: block;
-      content: '';
-    }
-    .wp-custom-header {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    .page-header-text-outer {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba($qblack, .5);
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      .page-header-title {
-        border: 5px solid $off-white;
-        @include roboto(50px, 700, $off-white, uppercase);
-        display: inline-block;
-        margin-bottom: 30px;
-        padding: 0 10px;
-      }
-      .page-header-description {
-        @include cutive(40px, 400, $off-white, none);
-      }
-    }
-  }
-  .social-media {
-    background-color: $off-black;
-    height: 40px;
-    position: relative;
-    margin-top: -7px;
-  }
   #inner-content {
     padding: 50px 0;
     text-align: center;
