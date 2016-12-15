@@ -184,6 +184,9 @@ body {
   background-color: #EAE9E9;
   position: relative; }
 
+#content #inner-content {
+  padding: 50px 0; }
+
 .off-canvas-content {
   background-color: #EAE9E9; }
 

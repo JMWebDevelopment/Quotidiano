@@ -1,26 +1,35 @@
 /**
 * Footer Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
 * @version 1.0
 */
 //* Define the variables to be used in this stylesheet
 @import "mixins";
 @import "settings";
-$background_color: #252525;
-$color: #ffffff;
+
 
 .footer {
-	background-color: $background_color;
-	color: $color;
+	background-color: $off-black;
+	color: $off-white;
 	text-align: center;
+	padding: 5px 0;
+	#inner-footer {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		p {
+			@include cutive(16px, 300, $off-white, none);
+			margin-bottom: 0;
+		}
+	}
 }
 
 .footer a, .footer a:link, .footer a:visited {
-	color: $color;
+	color: $off-white;
 }
 
 .footer a:hover {
-	color: #000000;
+	color: $medium-grey;
 }

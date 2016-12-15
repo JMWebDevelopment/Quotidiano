@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: Quotidiano
-Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/{theme-slug}-wordpress-theme
+Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
 Description:
 Author: Jacob Martella
 Author URI: http://www.jacobmartella.com/
@@ -4876,10 +4876,10 @@ COLORS
           text-decoration: underline; }
     .header .top-bar .menu.dropdown {
       background-color: transparent;
-      margin-top: 7px; }
+      margin-top: 9px; }
       .header .top-bar .menu.dropdown li a {
         font-family: 'Cutive', serif;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 400;
         color: #EAE9E9;
         text-transform: none;
@@ -5216,7 +5216,7 @@ COLORS
 /**
 * Footer Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
 * @version 1.0
 */
@@ -5235,12 +5235,24 @@ FONTS
 COLORS
 *********************/
 .footer {
-  background-color: #252525;
-  color: #ffffff;
-  text-align: center; }
+  background-color: #151515;
+  color: #EAE9E9;
+  text-align: center;
+  padding: 5px 0; }
+  .footer #inner-footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .footer #inner-footer p {
+      font-family: 'Cutive', serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #EAE9E9;
+      text-transform: none;
+      margin-bottom: 0; }
 
 .footer a, .footer a:link, .footer a:visited {
-  color: #ffffff; }
+  color: #EAE9E9; }
 
 .footer a:hover {
-  color: #000000; }
+  color: #999999; }
