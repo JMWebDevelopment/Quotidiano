@@ -1,6 +1,6 @@
 <div ng-controller="Home" class="home">
     <div id="inner-content" class="row">
-        <h3 class="home-date">August 2016</h3>
+        <h3 class="home-date">{{month_section_title}}</h3>
         <div class="post-container row small-up-2 medium-up-5 large-up-5">
             <div class="post column" ng-repeat="post in posts">
                 <a href="{{post.link}}">
@@ -12,6 +12,12 @@
                 </a>
             </div>
         </div>
-        <button id="load-more">{{translations.load_more}}</button>
+        <div id="new-posts">
+            <h3 class="home-date"></h3>
+            <div class="post-container row small-up-2 medium-up-5 large-up-5">
+
+            </div>
+        </div>
+        <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
     </div> <!-- end #inner-content -->
 </div>

@@ -227,17 +227,98 @@ function getMonthName( month ) {
 				}
 			});
 		})
-		.controller('Home', ['$scope', '$http', '$stateParams', function ($scope, $http) {
+        .service('homePosts', ['$http', function ($http) {
+            this.getHomePosts = function ( currentYear, currentMonth ) {
+            	if ( currentYear == '' || currentMonth == '' ) {
+            		console.log('null variables');
+                    var promise = $http({
+                        method: 'GET',
+                        url: quotidiano.api_url + 'posts?per_page=1'
+                    })
+                        .success(function (res, status, headers, config) {
+                            return res;
+                        })
+                        .error(function (data, status, headers, config) {
+                            return {"status": false};
+                        });
+				} else {
+            		console.log('grabbing posts');
+                    var promise = $http({
+                        method: 'GET',
+                        url: quotidiano.api_url + 'posts?year=' + currentYear + '&monthnum=' + currentMonth + '&per_page=31'
+                    })
+                        .success(function (res, status, headers, config) {
+                            return res;
+                        })
+                        .error(function (data, status, headers, config) {
+                            return {"status": false};
+                        });
+                }
+                return promise;
+            }
+            this.getMorePosts = function ( excludePosts ) {
+                var promise = $http({
+                    method: 'GET',
+                    url: quotidiano.api_url + 'posts?exclude=' + excludePosts + '&per_page=1'
+                })
+                    .success(function (res, status, headers, config) {
+                        return res;
+                    })
+                    .error(function (data, status, headers, config) {
+                        return {"status": false};
+                    });
+                return promise;
+            }
+        }])
+		.controller('Home', ['$scope', '$http', '$stateParams', 'homePosts', function ($scope, $http, $stateParams, homePosts) {
 			$scope.translations = quotidiano.translations;
+            var loadedPosts = [];
             jQuery('.page-home-header').show();
-			$http({
-				url: quotidiano.api_url + 'posts/',
-				cache: true
-			}).success(function (res) {
-				$scope.posts = res;
-				document.querySelector('title').innerHTML = quotidiano.site_title + ' | ' + quotidiano.site_description;
-				changeCurrentNavItem();
+            homePosts.getHomePosts( '', '' ).then( function( promise ) {
+            	var post = promise.data[0];
+            	var date = new Date( post.date );
+            	var month = date.getMonth() + 1;
+            	if ( month < 10 ) {
+                    month = '0' + month;
+                }
+            	var year = date.getFullYear();
+            	var loadedPosts = [];
+                homePosts.getHomePosts( year, month ).then( function( promise ) {
+					$scope.posts = promise.data;
+                    month = getMonthName( month );
+                    $scope.month_section_title = month + ' ' + year;
+                    document.querySelector('title').innerHTML = quotidiano.site_title + ' | ' + quotidiano.site_description;
+                    changeCurrentNavItem();
+                    for ( i = 0; i < $scope.posts.length; i++ ) {
+                    	loadedPosts.push( $scope.posts[i].id );
+					}
+				});
 			});
+            $scope.loadMorePosts = function () {
+            	console.log('button clicked');
+                var ignorePosts = '';
+                for ( i = 0; i < loadedPosts.length; i++ ) {
+                    if ( i == loadedPosts.length - 1) {
+                        var sep = '';
+                    } else {
+                        var sep = ',';
+                    }
+                    ignorePosts = ignorePosts + '' + id + sep;
+                }
+				homePosts.getMorePosts( ignorePosts ).then( function( promise) {
+					console.log(promise.data);
+                    var post = promise.data[0];
+                    var date = new Date( post.date );
+                    var month = date.getMonth() + 1;
+                    if ( month < 10 ) {
+                        month = '0' + month;
+                    }
+                    var year = date.getFullYear();
+                    homePosts.getHomePosts( year, month ).then( function( promise ) {
+                    	console.log(promise.data);
+					});
+				});
+            }
 		}])
 		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', function ($scope, $http, $stateParams, Comments) {
             $scope.translations = quotidiano.translations;

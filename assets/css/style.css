@@ -4,7 +4,7 @@ Theme Name: Quotidiano
 Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
 Description:
 Author: Jacob Martella
-Author URI: http://www.jacobmartella.com/ fefe
+Author URI: http://www.jacobmartella.com/nn
 Version: 1.0
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -4931,6 +4931,15 @@ COLORS
     bottom: 0;
     left: 0;
     right: 0; }
+    .page-home-header .wp-custom-header .wp-custom-header-video-button {
+      position: absolute;
+      top: 60%;
+      z-index: 9;
+      right: 2%;
+      background-color: rgba(21, 21, 21, 0.5);
+      border-radius: 2px; }
+      .page-home-header .wp-custom-header .wp-custom-header-video-button:hover {
+        background-color: rgba(21, 21, 21, 0.8); }
   .page-home-header .header-video-container {
     position: absolute;
     top: 0;
@@ -5206,8 +5215,10 @@ FONTS
 /*********************
 COLORS
 *********************/
-.single .post-comments ul li {
-  list-style: none; }
+.single #inner-content {
+  text-align: left; }
+  .single #inner-content .post-comments ul li {
+    list-style: none; }
 
 blockquote {
   border-left: 0;
