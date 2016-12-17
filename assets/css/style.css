@@ -4,7 +4,7 @@ Theme Name: Quotidiano
 Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
 Description:
 Author: Jacob Martella
-Author URI: http://www.jacobmartella.com/nn
+Author URI: http://www.jacobmartella.com/ 
 Version: 1.0
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -5215,6 +5215,45 @@ FONTS
 /*********************
 COLORS
 *********************/
+.single .social-media {
+  display: none; }
+.single .post-header {
+  color: #EAE9E9;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  position: relative; }
+  .single .post-header:after {
+    padding-top: 39.10%;
+    display: block;
+    content: ''; }
+  .single .post-header .post-header-text-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(33, 33, 33, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; }
+    .single .post-header .post-header-text-outer .single-post-header-date {
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      color: #EAE9E9;
+      text-transform: uppercase;
+      border: 5px solid #EAE9E9;
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 0 10px; }
+    .single .post-header .post-header-text-outer .single-post-header-title {
+      font-family: 'Cutive', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: #EAE9E9;
+      text-transform: none; }
 .single #inner-content {
   text-align: left; }
   .single #inner-content .post-comments ul li {

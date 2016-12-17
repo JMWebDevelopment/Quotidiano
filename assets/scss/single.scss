@@ -9,12 +9,52 @@
 @import "settings";
 @import "mixins";
  .single {
-   .post-comments {
-    ul {
-      li {
-        list-style: none;
-      }
-    }
+   .social-media {
+     display: none;
+   }
+   .post-header {
+     color: $off-white;
+     text-align: center;
+     width: 100%;
+     display: inline-block;
+     position: relative;
+     &:after {
+       padding-top: 39.10%;
+       display: block;
+       content: '';
+     }
+     .post-header-text-outer {
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       background-color: rgba($qblack, .5);
+       display: flex;
+       justify-content: center;
+       flex-direction: column;
+       text-align: center;
+       .single-post-header-date {
+         @include roboto(50px, 700, $off-white, uppercase);
+         border: 5px solid $off-white;
+         display: inline-block;
+         margin-bottom: 30px;
+         padding: 0 10px;
+       }
+       .single-post-header-title {
+         @include cutive(40px, 400, $off-white, none);
+       }
+     }
+   }
+   #inner-content {
+     text-align: left;
+     .post-comments {
+       ul {
+         li {
+           list-style: none;
+         }
+       }
+     }
    }
  }
 blockquote {
