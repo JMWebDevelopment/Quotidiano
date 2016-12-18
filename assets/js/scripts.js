@@ -342,14 +342,14 @@ function getMonthName( month ) {
 			if ( $stateParams.archiveType == 'Day' || $stateParams.archiveType == 'Month' ) {
 				var endpoints = [];
 				if ( $stateParams.archiveType == 'Day' ) {
-					endpoints = [ $stateParams.year, $stateParams.month, $stateParams.endpoint ];
+                    $scope.endpoints = [ $stateParams.year, $stateParams.month, $stateParams.endpoint ];
 				} else {
-                    endpoints = [ $stateParams.year, $stateParams.endpoint ];
+                    $scope.endpoints = [ $stateParams.year, $stateParams.endpoint ];
 				}
 			} else {
-				endpoints = [ $stateParams.endpoint ];
+                $scope.endpoints = [ $stateParams.endpoint ];
 			}
-			var urls = getArchiveUrl( $stateParams.archiveType, endpoints, $stateParams.page  );
+			var urls = getArchiveUrl( $stateParams.archiveType, $scope.endpoints, $stateParams.page  );
 			url = urls[0];
 			pagedUrl = urls[1];
 			if ( $stateParams.archiveType != 'Search' && $stateParams.archiveType != 'Year' && $stateParams.archiveType != 'Month' && $stateParams.archiveType != 'Day' ) {
@@ -363,11 +363,10 @@ function getMonthName( month ) {
                         $scope.archiveTitle = $scope.term.name;
                     }
 					changeCurrentNavItem();
-					var url = getArchivePosts( $stateParams.archiveType, $stateParams.page, endpoints[0], $scope.term.id );
+					var url = getArchivePosts( $stateParams.archiveType, $stateParams.page, $scope.endpoints[0], $scope.term.id );
                     $http.get(url).success(function (res, status, headers) {
 						$scope.posts = res;
 						$scope.totalPages = headers( 'X-WP-Total' );
-						setPaginationLinks( $stateParams.page, pagedUrl, headers, $scope.totalPages );
                     });
 
 				});
@@ -387,7 +386,6 @@ function getMonthName( month ) {
                         document.querySelector('title').innerHTML = getMonthName (endpoints[1] ) + ' ' + endpoints[2] + ', ' + endpoints[0] + ' | ' + quotidiano.site_title;
                         $scope.archiveTitle = getMonthName( endpoints[1] ) + ' ' + endpoints[2] + ', ' + endpoints[0];
 					}
-                    setPaginationLinks( $stateParams.page, pagedUrl, headers, $scope.totalPages );
 				});
 			}
 		}])
@@ -623,28 +621,46 @@ function getMonthName( month ) {
             return {
                 restrict: 'E',
                 replace: true,
-                transclude: true,
                 templateUrl: quotidiano.partials + 'loaded-archive-post.html',
                 link: function($scope, element, attrs) {
-                    var j = 0;
+                    var paged = 2;
                     $scope.loadMorePosts= function() {
-                        $http.get(quotidiano.api_url + 'posts?exclude=' + exclude + '&per_page=1')
-                                    .success(function(data) {
-                                        month = getMonthName( month );
-                                        console.log(data);
-                                        $scope.j = j;
-                                        $scope.new_section_date = month + ' ' + year;
-                                        $scope.new_posts = data;
-                                        $compile(element)($scope, function(cloned, $scope) {
-                                            element.parent().append(cloned);
-                                            element.parent().append(element);
-                                        });
-                                        jQuery('.post').each( function() {
-                                            console.log(jQuery(this).attr('ng-repeat'));
-                                            jQuery(this).removeAttr("ng-repeat");
-                                            jQuery(this).addClass('removed');
-                                        })
-                                    })
+                        var url = '';
+                        var archiveType = jQuery('.archive-template').attr('id');
+                        if ( archiveType == 'Category' ) {
+                            url = quotidiano.api_url + 'posts?categories=' + $scope.$parent.endpoints[0] + '&page=' + paged;
+                        } else if ( archiveType == 'Tag' ) {
+                            url = quotidiano.api_url + 'posts?tags=' + $scope.$parent.endpoints[0] + '&page=' + paged;
+                        } else if ( archiveType == 'Author' ) {
+                            url = quotidiano.api_url + 'posts?author=' + $scope.$parent.endpoints[0] + '&page=' + paged;
+                        } else if ( archiveType == 'Search' ) {
+                            url = quotidiano.api_url + 'posts?search=' + $scope.$parent.endpoints[0] + '&page=' + paged;
+                        } else if ( archiveType == 'Year' ) {
+                            url = quotidiano.api_url + 'posts?year=' + $scope.$parent.endpoints[0] + '&page=' + paged;
+                        } else if ( archiveType == 'Month' ) {
+                            url = quotidiano.api_url + 'posts?year=' + $scope.$parent.endpoints[0] + '&monthnum=' + endpoints[1] + '&page=' + paged;
+                        } else if ( archiveType == 'Day' ) {
+                            url = quotidiano.api_url + 'posts?year=' + $scope.$parent.endpoints[0] + '&monthnum=' + endpoints[1] + '&day=' + endpoints[2] + '&page=' + paged;
+                        }
+                        $http.get(url)
+                        	.success(function(data, status, headers) {
+                                $scope.new_archive_posts = data;
+                                $compile(element)($scope, function(cloned, $scope) {
+                                    element.parent().append(cloned);
+                                    element.parent().append(element);
+                                });
+                                jQuery('.post').each( function() {
+                                    console.log(jQuery(this).attr('ng-repeat'));
+                                    jQuery(this).removeAttr("ng-repeat");
+                                    jQuery(this).addClass('removed');
+                                })
+                                var totalPages = headers( 'X-WP-Total' );
+                                if ( paged == totalPages ) {
+
+								} else {
+                                    paged += 1;
+                                }
+                            })
                     }
                 }
             }

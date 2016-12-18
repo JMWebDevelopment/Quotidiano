@@ -1,0 +1,12 @@
+<div class="post-container row small-up-2 medium-up-5 large-up-5">
+    <h3 class="home-date">{{new_section_date}}</h3>
+    <div id={{post.id}} class="post column" ng-repeat="post in new_posts">
+        <a href="{{post.link}}">
+            <img ng-src="{{post.featured_image}}" />
+            <div class="post-overlay">
+                <span class="day">{{ post.date | date:"dd" }}</span>
+                <span class="month">{{ post.date | date:"MMMM" }}</span>
+            </div>
+        </a>
+    </div>
+</div>

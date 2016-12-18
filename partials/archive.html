@@ -1,4 +1,4 @@
-<div ng-controller="Archive">
+<div ng-controller="Archive" id="{{archiveType}}" class="archive-template">
     <div class="author-bio row" ng-if="archiveType == 'Author'">
         <div class="large-2 medium-2 small-2 columns" ng-if="term.avatar_urls[96]">
             <img ng-src="{{term.avatar_urls[96]}}" />
@@ -11,16 +11,19 @@
     <div class="row">
         <h1>{{archiveTitle}}</h1>
     </div>
-    <div class="post row" ng-repeat="post in posts">
-        <h3><a href="{{post.link}}">{{post.title.rendered}}</a></h3>
-        <div ng-bind-html="post.excerpt.rendered | unsafe"></div>
-    </div>
-    <div id="posts-navigation" class="row">
-        <div class="large-6 medium-6 small-6 columns">
-            <a id="previous-posts" href="">{{translations.archive_previous}}</a>
+    <div class="post-area">
+        <div class="post-container row small-up-2 medium-up-5 large-up-5">
+            <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
+                <a href="{{post.link}}">
+                    <img ng-src="{{post.featured_image}}" />
+                    <div class="post-overlay">
+                        <span class="day">{{ post.date | date:"dd" }}</span>
+                        <span class="month">{{ post.date | date:"MMMM" }}</span>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class="large-6 medium-6 small-6 columns" style="text-align: right;">
-            <a id="next-posts" href="">{{translations.archive_next}}</a>
-        </div>
+        <archive-load-more></archive-load-more>
     </div>
+    <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
 </div>
