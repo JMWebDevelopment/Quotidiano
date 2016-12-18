@@ -1,22 +1,19 @@
 <div ng-controller="Home" class="home">
     <div id="inner-content" class="row">
-        <h3 class="home-date">{{month_section_title}}</h3>
-        <div class="post-container row small-up-2 medium-up-5 large-up-5">
-            <div class="post column" ng-repeat="post in posts">
-                <a href="{{post.link}}">
-                    <img ng-src="{{post.featured_image}}" />
-                    <div class="post-overlay">
-                        <span class="day">{{ post.date | date:"dd" }}</span>
-                        <span class="month">{{ post.date | date:"MMMM" }}</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div id="new-posts">
-            <h3 class="home-date"></h3>
+        <div class="post-area">
+            <h3 class="home-date">{{month_section_title}}</h3>
             <div class="post-container row small-up-2 medium-up-5 large-up-5">
-
+                <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
+                    <a href="{{post.link}}">
+                        <img ng-src="{{post.featured_image}}" />
+                        <div class="post-overlay">
+                            <span class="day">{{ post.date | date:"dd" }}</span>
+                            <span class="month">{{ post.date | date:"MMMM" }}</span>
+                        </div>
+                    </a>
+                </div>
             </div>
+            <mydirc></mydirc>
         </div>
         <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
     </div> <!-- end #inner-content -->

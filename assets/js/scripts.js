@@ -230,7 +230,6 @@ function getMonthName( month ) {
         .service('homePosts', ['$http', function ($http) {
             this.getHomePosts = function ( currentYear, currentMonth ) {
             	if ( currentYear == '' || currentMonth == '' ) {
-            		console.log('null variables');
                     var promise = $http({
                         method: 'GET',
                         url: quotidiano.api_url + 'posts?per_page=1'
@@ -242,7 +241,6 @@ function getMonthName( month ) {
                             return {"status": false};
                         });
 				} else {
-            		console.log('grabbing posts');
                     var promise = $http({
                         method: 'GET',
                         url: quotidiano.api_url + 'posts?year=' + currentYear + '&monthnum=' + currentMonth + '&per_page=31'
@@ -256,24 +254,12 @@ function getMonthName( month ) {
                 }
                 return promise;
             }
-            this.getMorePosts = function ( excludePosts ) {
-                var promise = $http({
-                    method: 'GET',
-                    url: quotidiano.api_url + 'posts?exclude=' + excludePosts + '&per_page=1'
-                })
-                    .success(function (res, status, headers, config) {
-                        return res;
-                    })
-                    .error(function (data, status, headers, config) {
-                        return {"status": false};
-                    });
-                return promise;
-            }
         }])
 		.controller('Home', ['$scope', '$http', '$stateParams', 'homePosts', function ($scope, $http, $stateParams, homePosts) {
 			$scope.translations = quotidiano.translations;
             var loadedPosts = [];
             jQuery('.page-home-header').show();
+            jQuery('.social-media').show();
             homePosts.getHomePosts( '', '' ).then( function( promise ) {
             	var post = promise.data[0];
             	var date = new Date( post.date );
@@ -294,35 +280,11 @@ function getMonthName( month ) {
 					}
 				});
 			});
-            $scope.loadMorePosts = function () {
-            	console.log('button clicked');
-                var ignorePosts = '';
-                for ( i = 0; i < loadedPosts.length; i++ ) {
-                    if ( i == loadedPosts.length - 1) {
-                        var sep = '';
-                    } else {
-                        var sep = ',';
-                    }
-                    ignorePosts = ignorePosts + '' + id + sep;
-                }
-				homePosts.getMorePosts( ignorePosts ).then( function( promise) {
-					console.log(promise.data);
-                    var post = promise.data[0];
-                    var date = new Date( post.date );
-                    var month = date.getMonth() + 1;
-                    if ( month < 10 ) {
-                        month = '0' + month;
-                    }
-                    var year = date.getFullYear();
-                    homePosts.getHomePosts( year, month ).then( function( promise ) {
-                    	console.log(promise.data);
-					});
-				});
-            }
 		}])
 		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', function ($scope, $http, $stateParams, Comments) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
+            jQuery('.social-media').hide();
 			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').success(function(res){
 				$scope.post = res[0];
 				$scope.post.comments = arrangeComments( $scope.post.comments );
@@ -357,6 +319,7 @@ function getMonthName( month ) {
 		.controller('Page', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
+            jQuery('.social-media').hide();
 			$http.get( quotidiano.api_url + 'pages?slug=' + $stateParams.slug ).success(function(res){
 				$scope.post = res[0];
 				document.querySelector('title').innerHTML = res[0].title.rendered + ' | ' + quotidiano.site_title
@@ -366,6 +329,7 @@ function getMonthName( month ) {
 		.controller('Archive', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
+            jQuery('.social-media').hide();
 			var url = '';
 			var pagedUrl = '';
 			if ( $stateParams.archiveType == 'Day' || $stateParams.archiveType == 'Month' ) {
@@ -592,6 +556,88 @@ function getMonthName( month ) {
 				}
 			}
 		})
+        .directive('mydirc', ['$compile', '$http', function($compile, $http) {
+            return {
+                restrict: 'E',
+                replace: true,
+				transclude: true,
+                templateUrl: quotidiano.partials + 'loaded-post.html',
+                link: function($scope, element, attrs) {
+                	var j = 0;
+                    $scope.loadMorePosts= function() {
+                    	var ids = []
+                        jQuery('.post').each( function () {
+                        	ids.push(jQuery(this).attr('id').replace('post-', ''));
+                            jQuery(this).removeAttr("ng-repeat");
+						});
+                    	var exclude = '';
+						for ( i = 0; i < ids.length; i++ ) {
+							if (i == ids.length - 1) {
+								var sep = '';
+							} else {
+								var sep = ',';
+							}
+
+							exclude = exclude + '' + ids[i] + sep;
+						}
+                        $http.get(quotidiano.api_url + 'posts?exclude=' + exclude + '&per_page=1')
+                            .success(function(data) {
+                                var post = data[0];
+                                var date = new Date( post.date );
+                                var month = date.getMonth() + 1;
+                                if ( month < 10 ) {
+                                    month = '0' + month;
+                                }
+                                console.log(exclude)
+                                var year = date.getFullYear();
+                                $http.get(quotidiano.api_url + 'posts?year=' + year + '&monthnum=' + month + '&per_page=31')
+                                    .success(function(data) {
+                                        month = getMonthName( month );
+                                        console.log(data);
+                                        $scope.j = j;
+                                    	$scope.new_section_date = month + ' ' + year;
+                                    	$scope.new_posts = data;
+                                    	$compile(element)($scope, function(cloned, $scope) {
+                                    		element.parent().append(cloned);
+                                    		element.parent().append(element);
+										});
+                                        jQuery('.post').each( function() {
+                                            console.log(jQuery(this).attr('ng-repeat'));
+                                            jQuery(this).removeAttr("ng-repeat");
+                                            jQuery(this).addClass('removed');
+                                        })
+									})
+							})
+                    }
+                }
+            }
+        }])
+        .filter('unique', function() {
+            // we will return a function which will take in a collection
+            // and a keyname
+            return function(collection, keyname) {
+                // we define our output and keys array;
+                var output = [],
+                    keys = [];
+
+                // we utilize angular's foreach function
+                // this takes in our original collection and an iterator function
+                angular.forEach(collection, function(item) {
+                    // we check to see whether our object exists
+                    var key = item[keyname];
+                    // if it's not already part of our keys array
+                    if(keys.indexOf(key) === -1) {
+                        // add it to our keys array
+                        keys.push(key);
+                        // push this item to our final output array
+                        output.push(item);
+                    }
+                });
+                // return our array which should be devoid of
+                // any duplicates
+                return output;
+            };
+        })
 		.filter('unsafe', function($sce) {
 			return function(val) {
 				return $sce.trustAsHtml(val);

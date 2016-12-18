@@ -20,6 +20,12 @@
     }
     .post-container {
       margin-bottom: 40px;
+      &:nth-child(2) {
+        margin-bottom: 0;
+        h3 {
+          margin-bottom: 0;
+        }
+      }
       .post {
         border-radius: 5px;
         border: 1px solid $off-black;
