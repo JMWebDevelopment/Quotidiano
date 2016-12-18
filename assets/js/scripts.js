@@ -361,7 +361,7 @@ function getMonthName( month ) {
 					$scope.archiveType = $stateParams.archiveType;
 					document.querySelector('title').innerHTML = $scope.term.name + ' | ' + quotidiano.site_title;
 					if ( $stateParams.archiveType == 'Author' ) {
-                        $scope.archiveTitle = 'Posts by: ' + $scope.term.name;
+                        $scope.archiveTitle = $scope.term.name;
 					} else {
                         $scope.archiveTitle = $scope.term.name;
                     }
@@ -376,18 +376,19 @@ function getMonthName( month ) {
 			} else {
 				$http.get(url).success(function (res, status, headers) {
 					$scope.posts = res;
+                    $scope.archiveType = $stateParams.archiveType;
 					if ( $stateParams.archiveType == 'Search' ) {
-                        document.querySelector('title').innerHTML = endpoints[0] + ' | ' + quotidiano.site_title;
-                        $scope.archiveTitle = 'Search: ' + endpoints[0];
+                        document.querySelector('title').innerHTML = $scope.endpoints[0] + ' | ' + quotidiano.site_title;
+                        $scope.archiveTitle = 'Search: ' + $scope.endpoints[0];
                     } else if ( $stateParams.archiveType == 'Year' ) {
-                        document.querySelector('title').innerHTML = endpoints[0] + ' | ' + quotidiano.site_title;
-                        $scope.archiveTitle = endpoints[0];
+                        document.querySelector('title').innerHTML = $scope.endpoints[0] + ' | ' + quotidiano.site_title;
+                        $scope.archiveTitle =$scope. endpoints[0];
 					} else if ( $stateParams.archiveType == 'Month' ) {
-                        document.querySelector('title').innerHTML = getMonthName( endpoints[1] ) + ' ' + endpoints[0] + ' | ' + quotidiano.site_title;
-                        $scope.archiveTitle = getMonthName( endpoints[1] ) + ' ' + endpoints[0];
+                        document.querySelector('title').innerHTML = getMonthName( $scope.endpoints[1] ) + ' ' + $scope.endpoints[0] + ' | ' + quotidiano.site_title;
+                        $scope.archiveTitle = getMonthName( $scope.endpoints[1] ) + ' ' + $scope.endpoints[0];
                     } else {
-                        document.querySelector('title').innerHTML = getMonthName (endpoints[1] ) + ' ' + endpoints[2] + ', ' + endpoints[0] + ' | ' + quotidiano.site_title;
-                        $scope.archiveTitle = getMonthName( endpoints[1] ) + ' ' + endpoints[2] + ', ' + endpoints[0];
+                        document.querySelector('title').innerHTML = getMonthName ($scope.endpoints[1] ) + ' ' + $scope.endpoints[2] + ', ' + $scope.endpoints[0] + ' | ' + quotidiano.site_title;
+                        $scope.archiveTitle = getMonthName( $scope.endpoints[1] ) + ' ' + $scope.endpoints[2] + ', ' +$scope. endpoints[0];
 					}
 				});
 			}
@@ -633,9 +634,9 @@ function getMonthName( month ) {
                             console.log(jQuery(this).attr('ng-repeat'));
                         })
                         var archiveType = jQuery('.archive-template').attr('id');
+                        console.log($scope.$parent.endpoints);
                         var url = getArchiveUrl( archiveType, $scope.$parent.endpoints, $scope.paged  );
                         if ( archiveType == 'Category' || archiveType == 'Tag' || archiveType == 'Author' ) {
-                            console.log('two');
                             $http.get(url[0]).success(function (res) {
                                 var term = res[0];
                                 var url = getArchivePosts( archiveType, $scope.paged, $scope.$parent.endpoints[0], term.id );
