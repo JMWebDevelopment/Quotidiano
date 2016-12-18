@@ -4557,10 +4557,13 @@ textarea {
   border: 1px solid #151515;
   color: #212121;
   font-size: 16px;
-  padding: 3px;
+  padding: 0.5rem;
   max-width: 100%;
   margin-top: 5px;
   margin-bottom: 5px; }
+
+textarea {
+  height: 150px; }
 
 [type='text'],
 [type='password'],
@@ -4647,6 +4650,15 @@ input[type="search"]::-webkit-search-results-button {
 
 input[type="checkbox"], input[type="radio"] {
   margin-right: 5px; }
+
+input.ng-invalid, textarea.ng-invalid {
+  border-color: #853535; }
+
+input.ng-pristine, textarea.ng-pristine {
+  border-color: #151515; }
+
+input.ng-valid, textarea.ng-valid {
+  background-color: #C5C5C5; }
 
 /*
 F. Tables
@@ -5137,7 +5149,7 @@ COLORS
 *********************/
 .home #inner-content {
   padding: 50px 0;
-  text-align: center; }
+  text-align: center !important; }
   .home #inner-content .home-date {
     font-family: 'Cutive', serif;
     font-size: 30px;
@@ -5327,8 +5339,42 @@ COLORS
         margin-right: 0; }
 .single #inner-content {
   text-align: left; }
-  .single #inner-content .post-comments ul li {
-    list-style: none; }
+  .single #inner-content .post-meta {
+    width: 50%;
+    position: relative;
+    margin: 0 auto 50px; }
+    .single #inner-content .post-meta .author-photo {
+      width: 20%;
+      float: left;
+      position: relative;
+      text-align: center; }
+      .single #inner-content .post-meta .author-photo img {
+        border-radius: 96px; }
+    .single #inner-content .post-meta .post-info {
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+      .single #inner-content .post-meta .post-info h5 {
+        font-family: 'Cutive', serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #212121;
+        text-transform: none;
+        text-align: left;
+        margin-bottom: 5px;
+        line-height: 1.1; }
+        .single #inner-content .post-meta .post-info h5:last-child {
+          margin-bottom: 0; }
+  .single #inner-content .post-content {
+    margin-bottom: 50px;
+    text-align: left; }
+  .single #inner-content .post-footer {
+    text-align: left; }
 
 blockquote {
   border-left: 0;
@@ -5443,6 +5489,63 @@ FONTS
 /*********************
 COLORS
 *********************/
+#inner-content .post-comments h3 {
+  font-family: 'Cutive', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #151515;
+  text-transform: none;
+  border-bottom: 1px solid #151515;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 20px; }
+  #inner-content .post-comments h3 span {
+    font-size: 24px;
+    font-weight: 400; }
+    #inner-content .post-comments h3 span:hover {
+      cursor: pointer; }
+#inner-content .post-comments .comment-success {
+  background-color: #616161;
+  font-family: 'Cutive', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #EAE9E9;
+  text-transform: none;
+  border-radius: 2px;
+  text-align: center;
+  padding: 10px 0 5px;
+  margin-bottom: 50px;
+  display: none; }
+#inner-content .post-comments #comment-form {
+  margin-bottom: 50px; }
+  #inner-content .post-comments #comment-form input {
+    width: 33.3%; }
+  #inner-content .post-comments #comment-form textarea {
+    width: 50%; }
+  #inner-content .post-comments #comment-form input[type="submit"] {
+    width: auto; }
+#inner-content .post-comments ul li {
+  list-style: none;
+  margin-left: 0; }
+  #inner-content .post-comments ul li h4 {
+    font-family: 'Cutive', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #151515;
+    text-transform: none; }
+  #inner-content .post-comments ul li h5 {
+    font-family: 'Cutive', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #151515;
+    text-transform: none; }
+  #inner-content .post-comments ul li .comment-content {
+    margin-bottom: 20px; }
+  #inner-content .post-comments ul li .reply {
+    text-align: right; }
+  #inner-content .post-comments ul li ul li {
+    margin-left: 10px; }
+
 /**
 ***************** VI. Index ************************
 */
@@ -5493,9 +5596,240 @@ FONTS
 /*********************
 COLORS
 *********************/
-/**
-***************** A. 404 ************************ 
-*/
+.single-page .social-media {
+  display: none; }
+.single-page .post-header {
+  color: #EAE9E9;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  position: relative; }
+  .single-page .post-header:after {
+    padding-top: 39.10%;
+    display: block;
+    content: ''; }
+  .single-page .post-header .post-header-text-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(33, 33, 33, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; }
+    .single-page .post-header .post-header-text-outer .single-post-header-date {
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      color: #EAE9E9;
+      text-transform: uppercase;
+      border: 5px solid #EAE9E9;
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 0 10px; }
+    .single-page .post-header .post-header-text-outer .single-post-header-title {
+      font-family: 'Cutive', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: #EAE9E9;
+      text-transform: none; }
+.single-page .single-post-social-media-links {
+  background-color: #151515;
+  height: 40px;
+  padding: 5px 0;
+  position: relative;
+  margin-top: -7px;
+  text-align: center; }
+  .single-page .single-post-social-media-links .social-links-inner {
+    width: auto;
+    position: relative;
+    margin: auto;
+    display: inline-block; }
+    .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      float: left;
+      text-align: left;
+      height: 30px;
+      width: 30px;
+      padding-top: 3px;
+      -webkit-transition: width 100ms;
+      transition: width 100ms;
+      margin-right: 5px;
+      overflow: hidden; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link img {
+        width: 30px;
+        height: auto;
+        margin-top: -6px; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+        display: none;
+        /*-webkit-transition: anim 200ms;
+        transition: anim 200ms;*/
+        font-family: 'Cutive', serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none;
+        padding: 0 3px;
+        opacity: 0;
+        -webkit-animation: fadeInFromNone 0.5s ease-out;
+        -moz-animation: fadeInFromNone 0.5s ease-out;
+        -o-animation: fadeInFromNone 0.5s ease-out;
+        animation: fadeInFromNone 0.5s ease-out; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover {
+        width: 139px; }
+        .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+          display: inline;
+          opacity: 1; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-facebook-link {
+        background-color: #3B5998; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-twitter-link {
+        background-color: #29A7DF; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-instagram-link {
+        background-color: #326699; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-tumblr-link {
+        background-color: #44546B; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-youtube-link {
+        background-color: #CD332C; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-pinterest-link {
+        background-color: #CA2128; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-google-plus-link {
+        background-color: #CC3731; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link#quotidiano-linkedin-link {
+        background-color: #027BB5; }
+      .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:last-child {
+        margin-right: 0; }
+.single-page #inner-content {
+  text-align: left; }
+  .single-page #inner-content .post-meta {
+    width: 50%;
+    position: relative;
+    margin: 0 auto 50px; }
+    .single-page #inner-content .post-meta .author-photo {
+      width: 20%;
+      float: left;
+      position: relative;
+      text-align: center; }
+      .single-page #inner-content .post-meta .author-photo img {
+        border-radius: 96px; }
+    .single-page #inner-content .post-meta .post-info {
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+      .single-page #inner-content .post-meta .post-info h5 {
+        font-family: 'Cutive', serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #212121;
+        text-transform: none;
+        text-align: left;
+        margin-bottom: 5px;
+        line-height: 1.1; }
+        .single-page #inner-content .post-meta .post-info h5:last-child {
+          margin-bottom: 0; }
+  .single-page #inner-content .post-content {
+    margin-bottom: 50px;
+    text-align: left; }
+  .single-page #inner-content .post-footer {
+    text-align: left; }
+
+blockquote {
+  border-left: 0;
+  position: relative; }
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #212121;
+    text-transform: none;
+    font-style: italic;
+    position: relative; }
+  blockquote:before {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 300px;
+    font-weight: 400;
+    color: #999999;
+    text-transform: none;
+    top: -153px;
+    left: 0;
+    content: "\201C";
+    display: block;
+    opacity: .40; }
+
+cite {
+  font-size: 18px;
+  color: #616161; }
+
+pre, code {
+  background-color: #151515;
+  color: #EAE9E9;
+  border: 0;
+  padding: 3px; }
+
+@-webkit-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+@-moz-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+@-o-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: none;
+    opacity: 0; }
+  50% {
+    display: inline;
+    opacity: 0; }
+  100% {
+    display: inline;
+    opacity: 1; } }
+#wp-a11y-speak-polite {
+  display: none; }
+
 /**
 ***************** IX. Sidebars ************************
 */

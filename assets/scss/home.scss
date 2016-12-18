@@ -12,7 +12,7 @@
 .home {
   #inner-content {
     padding: 50px 0;
-    text-align: center;
+    text-align: center !important;
     .home-date {
       @include cutive(30px, 400, $off-black, none);
       text-align: center;

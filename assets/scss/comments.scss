@@ -8,3 +8,65 @@
 //* Define the variables to be used in this stylesheet
 @import "mixins";
 @import "settings";
+  #inner-content {
+    .post-comments {
+      h3 {
+        @include cutive(30px, 700, $off-black, none);
+        border-bottom: 1px solid $off-black;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+        span {
+          font-size: 24px;
+          font-weight: 400;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .comment-success {
+        background-color: #616161;
+        @include cutive(20px, 700, $off-white, none);
+        border-radius: 2px;
+        text-align: center;
+        padding: 10px 0 5px;
+        margin-bottom: 50px;
+        display: none;
+      }
+      #comment-form {
+        margin-bottom: 50px;
+        input {
+          width: 33.3%;
+        }
+        textarea {
+          width: 50%;
+        }
+        input[type="submit"] {
+          width: auto;
+        }
+      }
+      ul {
+        li {
+          list-style: none;
+          margin-left: 0;
+          h4 {
+            @include cutive(24px, 700, $off-black, none);
+          }
+          h5 {
+            @include cutive(20px, 300, $off-black, none);
+          }
+          .comment-content {
+            margin-bottom: 20px;
+          }
+          .reply {
+            text-align: right;
+          }
+          ul {
+            li {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }

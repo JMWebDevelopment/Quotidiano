@@ -106,7 +106,7 @@ function replyToComment( commentParentId ) {
 	commentParentId = commentParentId.split("-").pop();
 	jQuery( '#parent' ).val( commentParentId );
 	var replyTo = jQuery( '#comment-' + commentParentId + ' .comment-name' ).html();
-	jQuery('.add-comment').html( quotidiano.translations.replying_to + replyTo + '  <span onclick="removeReply()">quotidiano.translations.remove_reply</span>' );
+	jQuery('.add-comment').html( quotidiano.translations.replying_to + replyTo + '  <span onclick="removeReply()">' + quotidiano.translations.remove_reply + '</span>' );
 	jQuery('html, body').animate({
 		scrollTop: jQuery(".post-comments").offset().top
 	}, 500);
@@ -220,10 +220,11 @@ function getMonthName( month ) {
 			},{
 				'update':{method:'PUT'},
 				'save':{
-					method:'POST',
-					headers: {
+					method:'POST'
+					/*headers: {
+						'Content-Type': 'application/json',
 						'X-WP-Nonce': quotidiano.nonce
-					}
+					}*/
 				}
 			});
 		})
@@ -303,18 +304,23 @@ function getMonthName( month ) {
 				$scope.openComment.author_email = jQuery('#email').val();
 				$scope.openComment.parent = jQuery('#parent').val();
 				$scope.openComment.content = jQuery('#comment-content').val();
-				$scope.openComment.post = $scope.post.id;
-				jQuery('#comment-content').val('');
-				if ( $scope.loggedIn == false ) {
-					jQuery('#name').val('');
-					jQuery('#email').val('');
-				}
-				Comments.save($scope.openComment, function(res){
-					if( res.id ) {
-						$scope.openComment = {};
-						$scope.openComment.post = $scope.post.id;
-					}
-				});
+				$scope.openComment.status = 'hold';
+                $scope.openComment.post = jQuery('.single-view').attr('id').replace('post-', '');
+                $http({
+                    method: 'POST',
+                    url: '/wp-json/wp/v2/comments',
+                    params: $scope.openComment,
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': 'multipart/form-data', 'X-WP-Nonce': quotidiano.nonce }
+                })
+                    .success(function (result) {
+                        console.log('Success!');
+                    }).error(function (result) {
+                    console.log('Fail!');
+                    console.log(result);
+                });
+				jQuery('#comment-form').hide();
+                jQuery('.comment-success').show();
 			}
 		}])
 		.controller('Page', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
@@ -557,12 +563,12 @@ function getMonthName( month ) {
 				}
 			}
 		})
-        .directive('mydirc', ['$compile', '$http', function($compile, $http) {
+        .directive('homeLoadMore', ['$compile', '$http', function($compile, $http) {
             return {
                 restrict: 'E',
                 replace: true,
 				transclude: true,
-                templateUrl: quotidiano.partials + 'loaded-post.html',
+                templateUrl: quotidiano.partials + 'loaded-home-post.html',
                 link: function($scope, element, attrs) {
                 	var j = 0;
                     $scope.loadMorePosts= function() {
@@ -613,32 +619,36 @@ function getMonthName( month ) {
                 }
             }
         }])
-        .filter('unique', function() {
-            // we will return a function which will take in a collection
-            // and a keyname
-            return function(collection, keyname) {
-                // we define our output and keys array;
-                var output = [],
-                    keys = [];
-
-                // we utilize angular's foreach function
-                // this takes in our original collection and an iterator function
-                angular.forEach(collection, function(item) {
-                    // we check to see whether our object exists
-                    var key = item[keyname];
-                    // if it's not already part of our keys array
-                    if(keys.indexOf(key) === -1) {
-                        // add it to our keys array
-                        keys.push(key);
-                        // push this item to our final output array
-                        output.push(item);
+        .directive('archiveLoadMore', ['$compile', '$http', function($compile, $http) {
+            return {
+                restrict: 'E',
+                replace: true,
+                transclude: true,
+                templateUrl: quotidiano.partials + 'loaded-archive-post.html',
+                link: function($scope, element, attrs) {
+                    var j = 0;
+                    $scope.loadMorePosts= function() {
+                        $http.get(quotidiano.api_url + 'posts?exclude=' + exclude + '&per_page=1')
+                                    .success(function(data) {
+                                        month = getMonthName( month );
+                                        console.log(data);
+                                        $scope.j = j;
+                                        $scope.new_section_date = month + ' ' + year;
+                                        $scope.new_posts = data;
+                                        $compile(element)($scope, function(cloned, $scope) {
+                                            element.parent().append(cloned);
+                                            element.parent().append(element);
+                                        });
+                                        jQuery('.post').each( function() {
+                                            console.log(jQuery(this).attr('ng-repeat'));
+                                            jQuery(this).removeAttr("ng-repeat");
+                                            jQuery(this).addClass('removed');
+                                        })
+                                    })
                     }
-                });
-                // return our array which should be devoid of
-                // any duplicates
-                return output;
-            };
-        })
+                }
+            }
+        }])
 		.filter('unsafe', function($sce) {
 			return function(val) {
 				return $sce.trustAsHtml(val);

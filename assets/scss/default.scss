@@ -134,10 +134,13 @@ textarea {
      border: 1px solid $off-black;
      color: $qblack;
      font-size: 16px;
-     padding: 3px;
+     padding: 0.5rem;
      max-width: 100%;
      margin-top: 5px;
      margin-bottom: 5px;
+}
+textarea {
+  height: 150px;
 }
 [type='text'],
 [type='password'],
@@ -220,6 +223,15 @@ input[type="search"]::-webkit-search-results-button {
 }
 input[type="checkbox"],input[type="radio"] {
      margin-right: 5px;
+}
+input.ng-invalid, textarea.ng-invalid {
+  border-color: #853535;
+}
+input.ng-pristine, textarea.ng-pristine {
+  border-color: $off-black;
+}
+input.ng-valid, textarea.ng-valid {
+  background-color: #C5C5C5;
 }
 /*
 F. Tables

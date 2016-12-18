@@ -128,12 +128,45 @@
    }
    #inner-content {
      text-align: left;
-     .post-comments {
-       ul {
-         li {
-           list-style: none;
+     .post-meta {
+       width: 50%;
+       position: relative;
+       margin: 0 auto 50px;
+       .author-photo {
+         width: 20%;
+         float: left;
+         position: relative;
+         text-align: center;
+         img {
+           border-radius: 96px;
          }
        }
+       .post-info {
+         width: 80%;
+         height: 100%;
+         position: absolute;
+         right: 0;
+         top: 0;
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         h5 {
+           @include cutive(20px, 400, $qblack, none);
+           text-align: left;
+           margin-bottom: 5px;
+           line-height: 1.1;
+           &:last-child {
+             margin-bottom: 0;
+           }
+         }
+       }
+     }
+     .post-content {
+       margin-bottom: 50px;
+       text-align: left;
+     }
+     .post-footer {
+       text-align: left;
      }
    }
  }

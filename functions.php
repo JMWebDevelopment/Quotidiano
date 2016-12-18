@@ -69,16 +69,19 @@ function quotidiano_scripts() {
             'comments'          => __( 'Comments', 'quotidiano' ),
             'comment'           => __( 'Comment', 'quotidiano' ),
             'on'                => __( 'On', 'quotidiano' ),
-            'add_comment'       => __( 'Add Comment', 'quotidiano' ),
+            'leave_comment'     => __( 'Leave a Comment', 'quotidiano' ),
             'required'          => __( 'Required', 'quotidiano' ),
             'your_comment'      => __( 'You\'re comment...', 'quotidiano' ),
+            'add_comment'       => __( 'Leave Your Comment', 'quotidiano' ),
             'replying_to'       => __( 'Replying to ', 'quotidiano' ),
             'remove_reply'      => __( 'Remove reply', 'quotidiano' ),
             'written_by'        => __( 'Written by: ', 'quotidiano' ),
-            'categories'        => __( 'Categories: ', 'quotidiano' ),
+            'filed_under'       => __( 'Filed under: ', 'quotidiano' ),
             'tags'              => __( 'Tags: ', 'quotidiano' ),
             'load_more'         => __( 'Load More', 'quotidiano' ),
-            'load'              => __( 'Load', 'quotidiano' )
+            'load'              => __( 'Load', 'quotidiano' ),
+            'posted_at'         => __( 'Posted at', 'quotidiano' ),
+            'comment_success'   => __( 'Thank you for submitting your comment', 'quotidiano' )
         ]
 	);
 	wp_enqueue_script( 'quotidiano-site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery', 'angularjs', 'angularjs-route' ), '', true );
