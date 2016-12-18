@@ -395,7 +395,10 @@ function getMonthName( month ) {
 		}])
 		.controller('NotFound', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
             $scope.translations = quotidiano.translations;
+            $scope.social_links = quotidiano.social_media_links;
+            $scope.header_image = quotidiano.header_image;
             jQuery('.page-home-header').hide();
+            jQuery('.social-media').hide();
 		}])
 		.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			$stateProvider
@@ -685,6 +688,22 @@ function getMonthName( month ) {
                 }
             }
         }])
+        .directive('searchForm', function() {
+            return {
+                restrict: 'EA',
+                template: '<input type="text" name="s" ng-model="filter.s" ng-change="search()">',
+                controller: function ( $scope, $http ) {
+                    $scope.filter = {
+                        s: ''
+                    };
+                    $scope.search = function() {
+                        $http.get(quotidiano.api_url + 'posts?search=' + $scope.filter.s).success(function(res){
+                            $scope.searched_posts = res;
+                        });
+                    };
+                }
+            };
+        })
 		.filter('unsafe', function($sce) {
 			return function(val) {
 				return $sce.trustAsHtml(val);

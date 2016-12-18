@@ -1,5 +1,34 @@
-<div ng-controller="NotFound">
-    <h3>{{translations.page_404_title}}</h3>
-    <p>{{translations.page_404_content}}</p>
-    <search-form></search-form>
+<div ng-controller="NotFound" class="page-404">
+    <header class="error-header" style="background: url({{header_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
+        <div class="error-header-text-outer">
+            <div class="error-header-text-inner">
+                <h1 class="error-page-title">{{translations.page_404_title}}</h1>
+            </div>
+        </div>
+    </header>
+    <section class="error-social-media-links">
+        <div class="social-links-inner clearfix">
+            <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                <a href="{{social_link.link}}">
+                    <img ng-src="{{social_link.image}}" />
+                    <div class="social-link-title">{{social_link.title}}</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div id="inner-content" class="row">
+        <p>{{translations.page_404_content_first}} <a href="/">{{translations.page_404_homepage}}</a> {{translations.page_404_content_second}}</p>
+        <search-form></search-form>
+        <div class="post-container row small-up-2 medium-up-5 large-up-5">
+            <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in searched_posts">
+                <a href="{{post.link}}">
+                    <img ng-src="{{post.featured_image}}" />
+                    <div class="post-overlay">
+                        <span class="day">{{ post.date | date:"dd" }}</span>
+                        <span class="month">{{ post.date | date:"MMMM" }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
