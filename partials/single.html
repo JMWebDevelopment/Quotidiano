@@ -7,6 +7,16 @@
             </div>
         </div>
     </header>
+    <section class="single-post-social-media-links">
+        <div class="social-links-inner clearfix">
+            <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                <a href="{{social_link.link}}">
+                    <img ng-src="{{social_link.image}}" />
+                    <div class="social-link-title">{{social_link.title}}</div>
+                </a>
+            </div>
+        </div>
+    </section>
     <div id="inner-content" class="row">
         <div class="post-content" ng-bind-html="post.content.rendered | unsafe"></div>
         <footer class="post-footer">

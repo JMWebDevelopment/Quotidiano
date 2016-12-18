@@ -243,7 +243,7 @@ C. Headings
 h6 {
   font-family: 'Cutive', serif;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   color: #151515;
   text-transform: none;
   margin: 3px; }
@@ -251,7 +251,7 @@ h6 {
 h5 {
   font-family: 'Cutive', serif;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 400;
   color: #151515;
   text-transform: none;
   margin: 3px; }

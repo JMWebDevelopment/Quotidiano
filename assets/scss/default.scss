@@ -86,11 +86,11 @@ ul {
 C. Headings
 ------------------------------------------- */
 h6{
-  @include cutive(20px, 700, $off-black, none);
+  @include cutive(20px, 400, $off-black, none);
      margin: 3px;
 }
 h5{
-  @include cutive(24px, 700, $off-black, none);
+  @include cutive(24px, 400, $off-black, none);
 	margin: 3px;
 }
 h4{

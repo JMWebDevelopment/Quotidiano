@@ -290,6 +290,7 @@ function getMonthName( month ) {
 				$scope.post.comments = arrangeComments( $scope.post.comments );
 				$scope.numComments = $scope.post.comments.length;
 				$scope.loggedIn = quotidiano.logged_in;
+				$scope.social_links = quotidiano.social_media_links;
 				if ( $scope.loggedIn == true ) {
 					$scope.currentUser = quotidiano.logged_in_user;
 				}

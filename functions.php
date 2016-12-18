@@ -58,6 +58,7 @@ function quotidiano_scripts() {
 		'logged_in' 			=> is_user_logged_in(),
 		'logged_in_user'		=> $user,
         'months'                => quotidiano_get_months(),
+        'social_media_links'    => quotidiano_social_media_rest_api(),
         'translations'          => [
             'page_404_title'    => __( 'Post or Page Not Found!', 'quotidiano' ),
             'page_404_content'  => __( 'The post or page you are looking for isn\'t here . Please return to the < a href = "/" > homepage</a >', 'quotidiano' ),
@@ -413,11 +414,37 @@ function quotidiano_social_media_links() {
     if ( get_theme_mod( 'quotidiano-tumblr' ) ) { $html .= '<div id="quotidiano-tumblr-link" class="quotidiano-social-link"><a href="' . get_theme_mod( 'quotidiano-tumblr' ) . '"><img src=" ' . get_template_directory_uri() . '/assets/images/tumblr.png" /><div class="social-link-title">' . __( 'Tumblr', 'quotidiano' ) . '</div></a></div>'; }
     if ( get_theme_mod( 'quotidiano-youtube' ) ) { $html .= '<div id="quotidiano-youtube-link" class="quotidiano-social-link"><a href="' . get_theme_mod( 'quotidiano-youtube' ) . '"><img src=" ' . get_template_directory_uri() . '/assets/images/youtube.png" /><div class="social-link-title">' . __( 'YouTube', 'quotidiano' ) . '</div></a></div>'; }
     if ( get_theme_mod( 'quotidiano-pinterest' ) ) { $html .= '<div id="quotidiano-pinterest-link" class="quotidiano-social-link"><a href="' . get_theme_mod( 'quotidiano-pinterest' ) . '"><img src=" ' . get_template_directory_uri() . '/assets/images/pinterest.png" /><div class="social-link-title">' . __( 'Pinterest', 'quotidiano' ) . '</div></a></div>'; }
-    if ( get_theme_mod( 'quotidiano-google-plus' ) ) { $html .= '<div id="quotidiano-google-plus-link" class="quotidiano-social-link"><a href="' . get_theme_mod( 'quotidiano-google-plus' ) . '"><img src=" ' . get_template_directory_uri() . '/assets/images/googleplus.png" /><div class="social-link-title">' . __( 'Google+', 'quotidiano' ) . '</div></a></div>'; }
+    if ( get_theme_mod( 'quotidiano-google-plus' ) ) { $html .= '<div id="quotidiano-google-plus-link" class="quotidiano-social-link"><a href="' . get_theme_mod( 'quotidiano-google-plus' ) . '"><img src=" ' . get_template_directory_uri() . '/assets/images/google-plus.png" /><div class="social-link-title">' . __( 'Google+', 'quotidiano' ) . '</div></a></div>'; }
     if ( get_theme_mod( 'quotidiano-linkedin' ) ) { $html .= '<div id="quotidiano-linkedin-link" class="quotidiano-social-link"><a href="' . get_theme_mod( 'quotidiano-linkedin' ) . '"><img src=" ' . get_template_directory_uri() . '/assets/images/linkedin.png" /><div class="social-link-title">' . __( 'LinkedIn', 'quotidiano' ) . '</div></a></div>'; }
     $html .= '</div>';
 
     return $html;
+}
+function quotidiano_social_media_rest_api() {
+    $links = [];
+    $social_sites = array( 'facebook', 'twitter', 'instagram', 'tumblr', 'youtube', 'pinterest', 'google-plus', 'linkedin' );
+    foreach ( $social_sites as $site ) {
+        if ( get_theme_mod( 'quotidiano-' . $site ) ) {
+            if ( $site == 'google-plus' ) {
+                $title = __( 'Google+', 'quotidiano' );
+            } else if ( $site == 'youtube' ) {
+                $title = __( 'YouTube', 'quotidiano' );
+            } else if ( $site == 'linkedin' ) {
+                $title = __( 'LinkedIn', 'quotidiano' );
+            } else {
+                $title = __( ucfirst( $site ), 'quotidiano' );
+            }
+            $site_array = array(
+                'slug'  => $site,
+                'link'  => get_theme_mod( 'quotidiano-' . $site ),
+                'title' => $title,
+                'image' => get_template_directory_uri() . '/assets/images/' . $site . '.png'
+            );
+            array_push( $links, $site_array );
+        }
+    }
+
+    return $links;
 }
 /**
  ******************** IV. Home Functions *********************************
