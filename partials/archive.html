@@ -1,29 +1,36 @@
 <div ng-controller="Archive" id="{{archiveType}}" class="archive-template">
-    <div class="author-bio row" ng-if="archiveType == 'Author'">
-        <div class="large-2 medium-2 small-2 columns" ng-if="term.avatar_urls[96]">
-            <img ng-src="{{term.avatar_urls[96]}}" />
+    <header class="archive-header" style="background: url({{header_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
+        <div class="archive-header-text-outer">
+            <div class="archive-header-text-inner">
+                <h1 class="archive-page-title">{{archiveTitle}}</h1>
+            </div>
         </div>
-        <div class="{{ term.avatar_urls[96] ? 'large-10 medium-10' : 'large-12 medium-12'}} small-12 columns">
-            <h3>{{term.name}}</h3>
-            <p>{{term.description}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <h1>{{archiveTitle}}</h1>
-    </div>
-    <div class="post-area">
-        <div class="post-container row small-up-2 medium-up-5 large-up-5">
-            <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
-                <a href="{{post.link}}">
-                    <img ng-src="{{post.featured_image}}" />
-                    <div class="post-overlay">
-                        <span class="day">{{ post.date | date:"dd" }}</span>
-                        <span class="month">{{ post.date | date:"MMMM" }}</span>
-                    </div>
+    </header>
+    <section class="archive-social-media-links">
+        <div class="social-links-inner clearfix">
+            <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                <a href="{{social_link.link}}">
+                    <img ng-src="{{social_link.image}}" />
+                    <div class="social-link-title">{{social_link.title}}</div>
                 </a>
             </div>
         </div>
-        <archive-load-more></archive-load-more>
+    </section>
+    <div id="inner-content" class="row">
+        <div class="post-area">
+            <div class="post-container row small-up-2 medium-up-5 large-up-5">
+                <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
+                    <a href="{{post.link}}">
+                        <img ng-src="{{post.featured_image}}" />
+                        <div class="post-overlay">
+                            <span class="day">{{ post.date | date:"dd" }}</span>
+                            <span class="month">{{ post.date | date:"MMMM" }}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <archive-load-more></archive-load-more>
+        </div>
+        <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
     </div>
-    <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
 </div>

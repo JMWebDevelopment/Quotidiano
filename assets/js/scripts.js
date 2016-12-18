@@ -329,6 +329,7 @@ function getMonthName( month ) {
             jQuery('.social-media').hide();
 			$http.get( quotidiano.api_url + 'pages?slug=' + $stateParams.slug ).success(function(res){
 				$scope.post = res[0];
+                $scope.social_links = quotidiano.social_media_links;
 				document.querySelector('title').innerHTML = res[0].title.rendered + ' | ' + quotidiano.site_title
 				changeCurrentNavItem();
 			});
@@ -337,6 +338,7 @@ function getMonthName( month ) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
+            $scope.social_links = quotidiano.social_media_links;
 			var url = '';
 			var pagedUrl = '';
 			if ( $stateParams.archiveType == 'Day' || $stateParams.archiveType == 'Month' ) {
@@ -349,6 +351,7 @@ function getMonthName( month ) {
 			} else {
                 $scope.endpoints = [ $stateParams.endpoint ];
 			}
+			$scope.header_image = quotidiano.header_image;
 			var urls = getArchiveUrl( $stateParams.archiveType, $scope.endpoints, $stateParams.page  );
 			url = urls[0];
 			pagedUrl = urls[1];
@@ -623,44 +626,60 @@ function getMonthName( month ) {
                 replace: true,
                 templateUrl: quotidiano.partials + 'loaded-archive-post.html',
                 link: function($scope, element, attrs) {
-                    var paged = 2;
+                    $scope.paged = 2;
                     $scope.loadMorePosts= function() {
-                        var url = '';
+                        jQuery('.post').each( function() {
+                            jQuery(this).removeAttr("ng-repeat");
+                            console.log(jQuery(this).attr('ng-repeat'));
+                        })
                         var archiveType = jQuery('.archive-template').attr('id');
-                        if ( archiveType == 'Category' ) {
-                            url = quotidiano.api_url + 'posts?categories=' + $scope.$parent.endpoints[0] + '&page=' + paged;
-                        } else if ( archiveType == 'Tag' ) {
-                            url = quotidiano.api_url + 'posts?tags=' + $scope.$parent.endpoints[0] + '&page=' + paged;
-                        } else if ( archiveType == 'Author' ) {
-                            url = quotidiano.api_url + 'posts?author=' + $scope.$parent.endpoints[0] + '&page=' + paged;
-                        } else if ( archiveType == 'Search' ) {
-                            url = quotidiano.api_url + 'posts?search=' + $scope.$parent.endpoints[0] + '&page=' + paged;
-                        } else if ( archiveType == 'Year' ) {
-                            url = quotidiano.api_url + 'posts?year=' + $scope.$parent.endpoints[0] + '&page=' + paged;
-                        } else if ( archiveType == 'Month' ) {
-                            url = quotidiano.api_url + 'posts?year=' + $scope.$parent.endpoints[0] + '&monthnum=' + endpoints[1] + '&page=' + paged;
-                        } else if ( archiveType == 'Day' ) {
-                            url = quotidiano.api_url + 'posts?year=' + $scope.$parent.endpoints[0] + '&monthnum=' + endpoints[1] + '&day=' + endpoints[2] + '&page=' + paged;
-                        }
-                        $http.get(url)
-                        	.success(function(data, status, headers) {
-                                $scope.new_archive_posts = data;
-                                $compile(element)($scope, function(cloned, $scope) {
-                                    element.parent().append(cloned);
-                                    element.parent().append(element);
-                                });
-                                jQuery('.post').each( function() {
-                                    console.log(jQuery(this).attr('ng-repeat'));
-                                    jQuery(this).removeAttr("ng-repeat");
-                                    jQuery(this).addClass('removed');
-                                })
-                                var totalPages = headers( 'X-WP-Total' );
-                                if ( paged == totalPages ) {
+                        var url = getArchiveUrl( archiveType, $scope.$parent.endpoints, $scope.paged  );
+                        if ( archiveType == 'Category' || archiveType == 'Tag' || archiveType == 'Author' ) {
+                            console.log('two');
+                            $http.get(url[0]).success(function (res) {
+                                var term = res[0];
+                                var url = getArchivePosts( archiveType, $scope.paged, $scope.$parent.endpoints[0], term.id );
+                                $http.get(url).success(function (data, status, headers) {
+                                    $scope.new_archive_posts = data;
+                                    $compile(element)($scope, function(cloned, $scope) {
+                                        element.parent().append(cloned);
+                                        element.parent().append(element);
+                                    });
+                                    jQuery('.post').each( function() {
+                                        console.log(jQuery(this).attr('ng-repeat'));
+                                        jQuery(this).removeAttr("ng-repeat");
+                                        jQuery(this).addClass('removed');
+                                    })
+                                    var totalPages = headers( 'X-WP-Total' );
+                                    if ( $scope.paged == totalPages ) {
 
-								} else {
-                                    paged += 1;
-                                }
+                                    } else {
+                                        $scope.paged += 1;
+                                    }
+                                });
                             })
+                        } else {
+                        	url[0] = url[0] + '&page=' + $scope.paged;
+                            $http.get(url[0])
+                                .success(function(data, status, headers) {
+                                    $scope.new_archive_posts = data;
+                                    $compile(element)($scope, function(cloned, $scope) {
+                                        element.parent().append(cloned);
+                                        element.parent().append(element);
+                                    });
+                                    jQuery('.post').each( function() {
+                                        console.log(jQuery(this).attr('ng-repeat'));
+                                        jQuery(this).removeAttr("ng-repeat");
+                                        jQuery(this).addClass('removed');
+                                    })
+                                    var totalPages = headers( 'X-WP-Total' );
+                                    if ( $scope.paged == totalPages ) {
+
+                                    } else {
+                                        $scope.paged += 1;
+                                    }
+                                })
+						}
                     }
                 }
             }

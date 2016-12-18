@@ -57,6 +57,7 @@ function quotidiano_scripts() {
 		'site_description' 		=> get_bloginfo( 'description' ),
 		'logged_in' 			=> is_user_logged_in(),
 		'logged_in_user'		=> $user,
+        'header_image'          => get_header_image(),
         'months'                => quotidiano_get_months(),
         'social_media_links'    => quotidiano_social_media_rest_api(),
         'translations'          => [
