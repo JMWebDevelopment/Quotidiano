@@ -2,7 +2,7 @@
     <header class="post-header" style="background: url({{post.featured_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
         <div class="post-header-text-outer">
             <div class="post-header-text-inner">
-                <h1 class="single-post-header-date">{{ post.date | date:"MMMM dd, yyyy" }}</h1>
+                <h1 class="single-post-header-date">{{post.title.rendered}}</h1>
             </div>
         </div>
     </header>

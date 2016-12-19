@@ -5120,9 +5120,63 @@ COLORS
 #wp-a11y-speak-polite {
   display: none; }
 
-/**
-***************** C. Main Menu ************************ 
-*/
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .header .top-bar .site-title {
+    font-family: 'Cutive', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none;
+    margin-top: 15px; }
+  .header .top-bar ul {
+    background-color: transparent; }
+    .header .top-bar ul li button {
+      padding: 0;
+      margin-top: 16px; }
+
+  .page-home-header .page-header-text-outer .page-header-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  .page-home-header .page-header-text-outer .page-header-description {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .header {
+    background-color: #212121;
+    position: relative; }
+    .header .top-bar .site-title {
+      font-family: 'Cutive', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #EAE9E9;
+      text-transform: none;
+      margin-top: 15px; }
+    .header .top-bar ul {
+      background-color: transparent; }
+      .header .top-bar ul li button {
+        padding: 0;
+        margin-top: 16px; }
+
+  .page-home-header .page-header-text-outer .page-header-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 10px; }
+  .page-home-header .page-header-text-outer .page-header-description {
+    font-family: 'Cutive', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none; } }
 /**
 ***************** III. Home ************************
 */

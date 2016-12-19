@@ -64,6 +64,7 @@
 							</div>
 						</div>
 						<div class="top-bar hide-for-large show-for-medium-down" id="top-bar-menu">
+                            <h1 class="site-title"><a href="<?php echo esc_url(get_home_url()); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
 							<div class="float-right">
 								<ul class="menu">
 									<li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li>

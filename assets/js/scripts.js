@@ -16,6 +16,7 @@ jQuery(document).ready(function() {
 	jQuery('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]').wrap("<div class='flex-video'/>");
 
 	jQuery( 'a' ).click( function() {
+	    console.log('linked clicked');
 		jQuery('html, body').animate({
 			scrollTop: jQuery("html").offset().top
 		}, 500);
@@ -51,57 +52,6 @@ function changeCurrentNavItem() {
 }
 changeCurrentNavItem();
 
-function getCommentById( commentID, comments_list ) {
-	for ( j = 0; j < comments_list.length; j++ ) {
-		if ( comments_list[j].comment_ID == commentID ) {
-			return comments_list[j];
-		}
-	}
-}
-function getCommentDepth( theComment, comments_list ) {
-	var depthLevel = 0;
-	while ( theComment.comment_parent > 0 ) {
-		theComment = getCommentById( theComment.comment_parent, comments_list );
-		depthLevel++;
-	}
-	return depthLevel;
-}
-function arrangeComments( commentsList ) {
-	var maxDepth = 0;
-	for ( i = commentsList.length - 1; i >= 0; i-- ) {
-		if ( commentsList[i].comment_approved != 1 ) {
-			commentsList.splice( i, 1 );
-		}
-	}
-	for ( i = 0; i < commentsList.length; i += 1 ) {
-		commentsList[i].comment_children = [];
-		var date = commentsList[i].comment_date.split(" ").join("T").concat("Z");
-		commentsList[i].comment_date = new Date(date);
-		commentsList[i].comment_depth = getCommentDepth( commentsList[i], commentsList );
-		if ( getCommentDepth( commentsList[i], commentsList ) > maxDepth ) {
-			maxDepth = getCommentDepth( commentsList[i], commentsList );
-		}
-	}
-	for ( i = maxDepth; i > 0; i-- ) {
-		for ( j = 0; j < commentsList.length; j++ ) {
-			if ( commentsList[j].comment_depth == i ) {
-				for ( k = 0; k < commentsList.length; k++ ) {
-					if ( commentsList[j].comment_parent == commentsList[k].comment_ID ) {
-						commentsList[k].comment_children.push( commentsList[j] )
-					}
-				}
-			}
-		}
-	}
-	for ( i = commentsList.length - 1; i >= 0; i-- ) {
-		if ( commentsList[i].comment_parent > 0 ) {
-			commentsList.splice( i, 1 );
-		}
-	}
-
-	return commentsList;
-}
-
 function replyToComment( commentParentId ) {
 	commentParentId = commentParentId.split("-").pop();
 	jQuery( '#parent' ).val( commentParentId );
@@ -114,40 +64,6 @@ function replyToComment( commentParentId ) {
 function removeReply() {
 	jQuery( '#parent' ).val('0');
 	jQuery('.add-comment').html( quotidiano.translations.add_comment );
-}
-
-function setPaginationLinks( page, pagedUrl, headers, totalPages ) {
-    if ( page ) {
-        var currentPage = page;
-    } else {
-        var currentPage = 1;
-    }
-
-    if ( pagedUrl ) {
-        var previousUrl = pagedUrl + ( currentPage - 1 ) + '/';
-        var nextUrl = pagedUrl + ( currentPage + 1 ) + '/';
-        jQuery( 'a#previous-posts' ).attr( 'href', previousUrl );
-        jQuery( 'a#next-posts' ).attr( 'href', nextUrl );
-        jQuery( 'a#previous-posts' ).click( function() {
-            jQuery('html, body').animate({
-                scrollTop: jQuery("html").offset().top
-            }, 500);
-        });
-        jQuery( 'a#next-posts' ).click( function() {
-            jQuery('html, body').animate({
-                scrollTop: jQuery("html").offset().top
-            }, 500);
-        });
-    }
-
-    totalPages = headers('X-WP-TotalPages');
-
-    if ( currentPage == 1 ) {
-        jQuery( 'a#previous-posts' ).css( 'visibility', 'hidden' );
-    }
-    if ( currentPage == totalPages ) {
-        jQuery( 'a#next-posts' ).css( 'visibility', 'hidden' );
-    }
 }
 
 function getArchiveUrl( archiveType, endpoints, page  ) {
@@ -212,6 +128,14 @@ function getMonthName( month ) {
 	return quotidiano.months[month];
 }
 
+function showSiteTitle( home ) {
+    if ( home == false ) {
+        jQuery('.site-title').show();
+    } else {
+        jQuery('.site-title').hide();
+    }
+}
+
 (function() {
 	angular.module('myapp', ['ui.router', 'ngResource'])
 		.factory('Comments',function($resource){
@@ -256,11 +180,64 @@ function getMonthName( month ) {
                 return promise;
             }
         }])
+        .service('SortComments', function () {
+            this.getCommentById = function ( commentID, comments_list ) {
+                for ( j = 0; j < comments_list.length; j++ ) {
+                    if ( comments_list[j].comment_ID == commentID ) {
+                        return comments_list[j];
+                    }
+                }
+            }
+            this.getCommentDepth = function ( theComment, comments_list ) {
+                var depthLevel = 0;
+                while ( theComment.comment_parent > 0 ) {
+                    theComment = this.getCommentById( theComment.comment_parent, comments_list );
+                    depthLevel++;
+                }
+                return depthLevel;
+            }
+            this.arrangeComments = function ( commentsList ) {
+                var maxDepth = 0;
+                for ( i = commentsList.length - 1; i >= 0; i-- ) {
+                    if ( commentsList[i].comment_approved != 1 ) {
+                        commentsList.splice( i, 1 );
+                    }
+                }
+                for ( i = 0; i < commentsList.length; i += 1 ) {
+                    commentsList[i].comment_children = [];
+                    var date = commentsList[i].comment_date.split(" ").join("T").concat("Z");
+                    commentsList[i].comment_date = new Date(date);
+                    commentsList[i].comment_depth = this.getCommentDepth( commentsList[i], commentsList );
+                    if ( this.getCommentDepth( commentsList[i], commentsList ) > maxDepth ) {
+                        maxDepth = this.getCommentDepth( commentsList[i], commentsList );
+                    }
+                }
+                for ( i = maxDepth; i > 0; i-- ) {
+                    for ( j = 0; j < commentsList.length; j++ ) {
+                        if ( commentsList[j].comment_depth == i ) {
+                            for ( k = 0; k < commentsList.length; k++ ) {
+                                if ( commentsList[j].comment_parent == commentsList[k].comment_ID ) {
+                                    commentsList[k].comment_children.push( commentsList[j] )
+                                }
+                            }
+                        }
+                    }
+                }
+                for ( i = commentsList.length - 1; i >= 0; i-- ) {
+                    if ( commentsList[i].comment_parent > 0 ) {
+                        commentsList.splice( i, 1 );
+                    }
+                }
+
+                return commentsList;
+            }
+        })
 		.controller('Home', ['$scope', '$http', '$stateParams', 'homePosts', function ($scope, $http, $stateParams, homePosts) {
 			$scope.translations = quotidiano.translations;
             var loadedPosts = [];
             jQuery('.page-home-header').show();
             jQuery('.social-media').show();
+            showSiteTitle(true);
             homePosts.getHomePosts( '', '' ).then( function( promise ) {
             	var post = promise.data[0];
             	var date = new Date( post.date );
@@ -282,13 +259,14 @@ function getMonthName( month ) {
 				});
 			});
 		}])
-		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', function ($scope, $http, $stateParams, Comments) {
+		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', 'SortComments', function ($scope, $http, $stateParams, Comments, SortComments) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
+            showSiteTitle(false);
 			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').success(function(res){
 				$scope.post = res[0];
-				$scope.post.comments = arrangeComments( $scope.post.comments );
+				$scope.post.comments = SortComments.arrangeComments( $scope.post.comments );
 				$scope.numComments = $scope.post.comments.length;
 				$scope.loggedIn = quotidiano.logged_in;
 				$scope.social_links = quotidiano.social_media_links;
@@ -327,6 +305,7 @@ function getMonthName( month ) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
+            showSiteTitle(false);
 			$http.get( quotidiano.api_url + 'pages?slug=' + $stateParams.slug ).success(function(res){
 				$scope.post = res[0];
                 $scope.social_links = quotidiano.social_media_links;
@@ -338,6 +317,7 @@ function getMonthName( month ) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
+            showSiteTitle(false);
             $scope.social_links = quotidiano.social_media_links;
 			var url = '';
 			var pagedUrl = '';
@@ -399,6 +379,7 @@ function getMonthName( month ) {
             $scope.header_image = quotidiano.header_image;
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
+            showSiteTitle(false);
 		}])
 		.config([ '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			$stateProvider
