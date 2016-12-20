@@ -98,6 +98,12 @@ function quotidiano_scripts() {
 	// Register main stylesheet
 	wp_enqueue_style( 'quotidiano-site-css', get_template_directory_uri() . '/style.css', array(), '', 'all' );
 
+	//* Register the color stylesheet if need be
+    if ( get_theme_mod( 'quotidiano-color-scheme' ) != 'default' ) {
+        $color = get_theme_mod( 'quotidiano-color-scheme' );
+        wp_enqueue_style( 'quotidiano-' . $color . '-css', get_template_directory_uri() . '/assets/css/' . $color . '.css', array(), '', 'all' );
+    }
+
 	// Comment reply script for threaded comments
 	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
 		wp_enqueue_script( 'comment-reply' );

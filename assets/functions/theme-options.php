@@ -20,6 +20,33 @@ function theme_slug_general_customizer( $wp_customize ) {
 		)
 	);
 
+    //* Get the categories for the home page options
+    $schemes[ 'default' ] = __( 'Default', 'quotidiano' );
+    $schemes[ 'red' ] = __( 'Red', 'quotidiano' );
+    $schemes[ 'yellow' ] = __( 'Yellow', 'quotidiano' );
+    $schemes[ 'green' ] = __( 'Green', 'quotidiano' );
+    $schemes[ 'blue' ] = __( 'Blue', 'quotidiano' );
+    $schemes[ 'purple' ] = __( 'Purple', 'quotidiano' );
+
+    //* Home Slider Category
+    $wp_customize->add_setting(
+        'quotidiano-color-scheme',
+        array(
+            'default'           => 'default',
+            'sanitize_callback' => 'quotidiano_slug_sanitize_select',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-color-scheme',
+        array(
+            'label'     => __( 'Color Scheme', 'quotidiano' ),
+            'section'   => 'general',
+            'type'      => 'select',
+            'choices'   => $schemes
+        )
+    );
+
 	//* Facebook Link
 	$wp_customize->add_setting(
 		'quotidiano-facebook',
@@ -174,7 +201,7 @@ function quotidiano_sanitize_link($input) {
 }
 
 //* Sanitize Layout Option
-function theme_slug_sanitize_select( $input, $setting ) {
+function quotidiano_slug_sanitize_select( $input, $setting ) {
 	$input = sanitize_key( $input );
 	$choices = $setting->manager->get_control( $setting->id )->choices;
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
