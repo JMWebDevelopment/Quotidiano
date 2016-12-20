@@ -6740,3 +6740,7 @@ COLORS
 
 .footer a:hover {
   color: #999999; }
+
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .footer #inner-footer p {
+    font-size: 14px; } }

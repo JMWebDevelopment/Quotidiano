@@ -33,3 +33,12 @@
 .footer a:hover {
 	color: $medium-grey;
 }
+@include breakpoint(small only) {
+	.footer {
+		#inner-footer {
+			p {
+				font-size: 14px;
+			}
+		}
+	}
+}

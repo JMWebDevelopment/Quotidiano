@@ -4,7 +4,7 @@ Theme Name: Quotidiano
 Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
 Description:
 Author: Jacob Martella
-Author URI: http://www.jacobmartella.com/  bhbh
+Author URI: http://www.jacobmartella.com/
 Version: 1.0
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -5851,7 +5851,7 @@ COLORS
 * Index Styles
 *
 * This file contains the styles for both the index and archive templates
-* 
+*
 * @package ***Theme Name***
 * @author Jacob Martella
 * @version 1.0
@@ -6740,3 +6740,7 @@ COLORS
 
 .footer a:hover {
   color: #999999; }
+
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .footer #inner-footer p {
+    font-size: 14px; } }
