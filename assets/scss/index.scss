@@ -127,12 +127,14 @@
     padding: 50px 0;
     text-align: center !important;
     .post-container {
+      margin-left: auto;
+      margin-right: auto;
       .post {
         border-radius: 5px;
         border: 1px solid $off-black;
-        margin: 0 5px 10px;
+        margin: 0 0.5% 1.1%;
         padding: 0;
-        width: 19.1%;
+        width: 19%;
         position: relative;
         &:hover {
           .post-overlay {
@@ -262,4 +264,119 @@
 }
 #wp-a11y-speak-polite{
   display: none;
+}
+
+@include breakpoint(medium only) {
+  .archive-template {
+    .social-media {
+      display: none;
+    }
+    .archive-header {
+      .archive-header-text-outer {
+        .archive-page-title {
+          @include roboto(40px, 700, $off-white, uppercase);
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .archive-social-media-links {
+      .social-links-inner {
+        .quotidiano-social-link {
+          -webkit-transition: none;
+          transition: none;
+          .social-link-title {
+            display: none;
+            -webkit-animation: none;
+            -moz-animation: none;
+            -o-animation: none;
+            animation: none;
+          }
+          &:hover {
+            width: 30px;
+            .social-link-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    #inner-content {
+      margin: 0 5%;
+      .post-container {
+        .post {
+          margin: 0 0.5% 1.1%;
+          width: 24%;
+          &:hover {
+            .post-overlay {
+              .day {
+                @include cutive(50px, 400, $off-white, none);
+              }
+              .month {
+                @include cutive(24px, 400, $off-white, none);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(small only) {
+  .archive-template {
+    .social-media {
+      display: none;
+    }
+    .archive-header {
+      .archive-header-text-outer {
+        .archive-page-title {
+          @include roboto(30px, 700, $off-white, uppercase);
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .archive-social-media-links {
+      .social-links-inner {
+        .quotidiano-social-link {
+          -webkit-transition: none;
+          transition: none;
+          .social-link-title {
+            display: none;
+            -webkit-animation: none;
+            -moz-animation: none;
+            -o-animation: none;
+            animation: none;
+          }
+          &:hover {
+            width: 30px;
+            .social-link-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    #inner-content {
+      margin: 0 5%;
+      .post-container {
+        .post {
+          margin: 0 0.5% 1.1%;
+          width: 49%;
+          &:hover {
+            .post-overlay {
+              .day {
+                @include cutive(40px, 400, $off-white, none);
+              }
+              .month {
+                @include cutive(20px, 400, $off-white, none);
+              }
+            }
+          }
+        }
+      }
+      #load-more {
+        width: 100%;
+      }
+    }
+  }
 }

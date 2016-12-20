@@ -4,7 +4,7 @@ Theme Name: Quotidiano
 Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
 Description:
 Author: Jacob Martella
-Author URI: http://www.jacobmartella.com/
+Author URI: http://www.jacobmartella.com/  bhbh
 Version: 1.0
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -5851,7 +5851,7 @@ COLORS
 * Index Styles
 *
 * This file contains the styles for both the index and archive templates
-*
+* 
 * @package ***Theme Name***
 * @author Jacob Martella
 * @version 1.0
@@ -5971,44 +5971,47 @@ COLORS
 .archive-template #inner-content {
   padding: 50px 0;
   text-align: center !important; }
-  .archive-template #inner-content .post-container .post {
-    border-radius: 5px;
-    border: 1px solid #151515;
-    margin: 0 5px 10px;
-    padding: 0;
-    width: 19.1%;
-    position: relative; }
-    .archive-template #inner-content .post-container .post:hover .post-overlay {
-      display: block;
-      background-color: rgba(33, 33, 33, 0.7);
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center; }
-      .archive-template #inner-content .post-container .post:hover .post-overlay .day {
-        font-family: 'Cutive', serif;
-        font-size: 73px;
-        font-weight: 400;
-        color: #EAE9E9;
-        text-transform: none;
-        line-height: 1;
-        margin-top: 5px; }
-      .archive-template #inner-content .post-container .post:hover .post-overlay .month {
-        font-family: 'Cutive', serif;
-        font-size: 35px;
-        font-weight: 400;
-        color: #EAE9E9;
-        text-transform: none;
-        line-height: 1; }
-    .archive-template #inner-content .post-container .post img {
-      border-radius: 4px; }
-    .archive-template #inner-content .post-container .post .post-overlay {
-      display: none; }
+  .archive-template #inner-content .post-container {
+    margin-left: auto;
+    margin-right: auto; }
+    .archive-template #inner-content .post-container .post {
+      border-radius: 5px;
+      border: 1px solid #151515;
+      margin: 0 0.5% 1.1%;
+      padding: 0;
+      width: 19%;
+      position: relative; }
+      .archive-template #inner-content .post-container .post:hover .post-overlay {
+        display: block;
+        background-color: rgba(33, 33, 33, 0.7);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center; }
+        .archive-template #inner-content .post-container .post:hover .post-overlay .day {
+          font-family: 'Cutive', serif;
+          font-size: 73px;
+          font-weight: 400;
+          color: #EAE9E9;
+          text-transform: none;
+          line-height: 1;
+          margin-top: 5px; }
+        .archive-template #inner-content .post-container .post:hover .post-overlay .month {
+          font-family: 'Cutive', serif;
+          font-size: 35px;
+          font-weight: 400;
+          color: #EAE9E9;
+          text-transform: none;
+          line-height: 1; }
+      .archive-template #inner-content .post-container .post img {
+        border-radius: 4px; }
+      .archive-template #inner-content .post-container .post .post-overlay {
+        display: none; }
   .archive-template #inner-content #load-more {
     text-align: center;
     padding-left: 20px;
@@ -6069,6 +6072,88 @@ COLORS
 #wp-a11y-speak-polite {
   display: none; }
 
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .archive-template .social-media {
+    display: none; }
+  .archive-template .archive-header .archive-header-text-outer .archive-page-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  .archive-template #inner-content {
+    margin: 0 5%; }
+    .archive-template #inner-content .post-container .post {
+      margin: 0 0.5% 1.1%;
+      width: 24%; }
+      .archive-template #inner-content .post-container .post:hover .post-overlay .day {
+        font-family: 'Cutive', serif;
+        font-size: 50px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; }
+      .archive-template #inner-content .post-container .post:hover .post-overlay .month {
+        font-family: 'Cutive', serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .archive-template .social-media {
+    display: none; }
+  .archive-template .archive-header .archive-header-text-outer .archive-page-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      .archive-template .archive-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  .archive-template #inner-content {
+    margin: 0 5%; }
+    .archive-template #inner-content .post-container .post {
+      margin: 0 0.5% 1.1%;
+      width: 49%; }
+      .archive-template #inner-content .post-container .post:hover .post-overlay .day {
+        font-family: 'Cutive', serif;
+        font-size: 40px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; }
+      .archive-template #inner-content .post-container .post:hover .post-overlay .month {
+        font-family: 'Cutive', serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; }
+    .archive-template #inner-content #load-more {
+      width: 100%; } }
 /**
 ***************** VIII. Pages ************************
 */
