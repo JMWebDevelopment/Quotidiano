@@ -19,3 +19,117 @@ FONTS
 /*********************
 COLORS
 *********************/
+body {
+  background-color: #E0F5DC; }
+
+.off-canvas-content {
+  background-color: #E0F5DC; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #024B19; }
+
+a, a:link, a:visited {
+  color: #4DAF4B; }
+
+a:hover {
+  color: #024B19; }
+
+input,
+select,
+textarea,
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'] {
+  border-color: #024B19; }
+  input:focus,
+  select:focus,
+  textarea:focus,
+  [type='text']:focus,
+  [type='password']:focus,
+  [type='date']:focus,
+  [type='datetime']:focus,
+  [type='datetime-local']:focus,
+  [type='month']:focus,
+  [type='week']:focus,
+  [type='email']:focus,
+  [type='number']:focus,
+  [type='search']:focus,
+  [type='tel']:focus,
+  [type='time']:focus,
+  [type='url']:focus,
+  [type='color']:focus {
+    border-color: #024B19;
+    background-color: #E9FBE0; }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button, .button {
+  background-color: #86D690; }
+  button:hover,
+  input[type="button"]:hover,
+  input[type="reset"]:hover,
+  input[type="submit"]:hover,
+  .button:hover, .button:hover {
+    background-color: #4DAF4B; }
+
+input.ng-pristine, textarea.ng-pristine {
+  border-color: #024B19; }
+
+input.ng-valid, textarea.ng-valid {
+  background-color: #AEE3BE; }
+
+table thead tr {
+  border-bottom: 1px solid #024B19; }
+table tbody tr {
+  border-top: 1px solid #024B19; }
+
+.social-media, .single .single-post-social-media-links, .single-page .single-post-social-media-links, .archive-template .archive-social-media-links, .page-404 .error-social-media-links {
+  background-color: #024B19; }
+
+.home #inner-content .home-date {
+  color: #024B19; }
+.home #inner-content .post-container .post {
+  border: 1px solid #024B19; }
+
+.single #inner-content .post-meta .post-info h5 {
+  color: #024B19; }
+
+blockquote:before {
+  color: #86D690; }
+
+#inner-content .post-comments h3 {
+  color: #024B19;
+  border-bottom: 1px solid #024B19; }
+#inner-content .post-comments .comment-success {
+  background-color: #4DAF4B; }
+#inner-content .post-comments ul li {
+  list-style: none;
+  margin-left: 0; }
+  #inner-content .post-comments ul li h4 {
+    color: #024B19; }
+  #inner-content .post-comments ul li h5 {
+    color: #024B19; }
+
+.page-404 #inner-content {
+  text-align: left; }
+  .page-404 #inner-content input.ng-valid, .page-404 #inner-content textarea.ng-valid {
+    background-color: #ffffff; }
+
+.archive-template #inner-content .post-container .post {
+  border: 1px solid #024B19; }
+
+.footer {
+  background-color: #024B19; }
