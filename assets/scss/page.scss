@@ -454,3 +454,163 @@ pre, code {
     }
   }
 }
+@include breakpoint(medium only) {
+  #content {
+    .single-page {
+      .social-media {
+        display: none;
+      }
+      .post-header {
+        .post-header-text-outer {
+          .single-post-header-date {
+            @include roboto(40px, 700, $off-white, uppercase);
+            margin-bottom: 20px;
+          }
+          .single-post-header-title {
+            @include cutive(30px, 400, $off-white, none);
+          }
+        }
+      }
+      .single-post-social-media-links {
+        .social-links-inner {
+          .quotidiano-social-link {
+            -webkit-transition: none;
+            transition: none;
+            .social-link-title {
+              display: none;
+              -webkit-animation: none;
+              -moz-animation: none;
+              -o-animation: none;
+              animation: none;
+            }
+            &:hover {
+              width: 30px;
+              .social-link-title {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      #inner-content {
+        padding: 50px 5%;
+      }
+    }
+    .page-404 {
+      .social-media {
+        display: none;
+      }
+      .error-header {
+        .error-header-text-outer {
+          .error-page-title {
+            @include roboto(40px, 700, $off-white, uppercase);
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .error-social-media-links {
+        .social-links-inner {
+          .quotidiano-social-link {
+            -webkit-transition: none;
+            transition: none;
+            .social-link-title {
+              display: none;
+              -webkit-animation: none;
+              -moz-animation: none;
+              -o-animation: none;
+              animation: none;
+            }
+            &:hover {
+              width: 30px;
+              .social-link-title {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      #inner-content {
+        padding: 50px 5%;
+      }
+    }
+  }
+}
+
+@include breakpoint(small only) {
+  #content {
+    .single-page {
+      .post-header {
+        .post-header-text-outer {
+          .single-post-header-date {
+            @include roboto(30px, 700, $off-white, uppercase);
+            margin-bottom: 20px;
+          }
+          .single-post-header-title {
+            @include cutive(20px, 400, $off-white, none);
+          }
+        }
+      }
+      .single-post-social-media-links {
+        .social-links-inner {
+          .quotidiano-social-link {
+            -webkit-transition: none;
+            transition: none;
+            .social-link-title {
+              display: none;
+              -webkit-animation: none;
+              -moz-animation: none;
+              -o-animation: none;
+              animation: none;
+            }
+            &:hover {
+              width: 30px;
+              .social-link-title {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      #inner-content {
+        padding: 50px 5%;
+      }
+    }
+    .page-404 {
+      .social-media {
+        display: none;
+      }
+      .error-header {
+        .error-header-text-outer {
+          .error-page-title {
+            @include roboto(40px, 700, $off-white, uppercase);
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .error-social-media-links {
+        .social-links-inner {
+          .quotidiano-social-link {
+            -webkit-transition: none;
+            transition: none;
+            .social-link-title {
+              display: none;
+              -webkit-animation: none;
+              -moz-animation: none;
+              -o-animation: none;
+              animation: none;
+            }
+            &:hover {
+              width: 30px;
+              .social-link-title {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      #inner-content {
+        padding: 50px 5%;
+      }
+    }
+  }
+}

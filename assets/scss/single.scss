@@ -326,19 +326,22 @@ pre, code {
         }
       }
     }
-    #inner-content {
-      .post-meta {
-        width: 50%;
-        .author-photo {
-          width: 20%;
-          img {
-            border-radius: 96px;
+    #content {
+      #inner-content {
+        padding: 50px 5%;
+        .post-meta {
+          width: 50%;
+          .author-photo {
+            width: 20%;
+            img {
+              border-radius: 96px;
+            }
           }
-        }
-        .post-info {
-          width: 80%;
-          h5 {
-            @include cutive(16px, 400, $qblack, none);
+          .post-info {
+            width: 80%;
+            h5 {
+              @include cutive(16px, 400, $qblack, none);
+            }
           }
         }
       }

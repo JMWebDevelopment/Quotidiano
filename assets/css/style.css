@@ -5626,20 +5626,22 @@ pre, code {
       width: 30px; }
       .single .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
         display: none; }
-  .single #inner-content .post-meta {
-    width: 50%; }
-    .single #inner-content .post-meta .author-photo {
-      width: 20%; }
-      .single #inner-content .post-meta .author-photo img {
-        border-radius: 96px; }
-    .single #inner-content .post-meta .post-info {
-      width: 80%; }
-      .single #inner-content .post-meta .post-info h5 {
-        font-family: 'Cutive', serif;
-        font-size: 16px;
-        font-weight: 400;
-        color: #212121;
-        text-transform: none; } }
+  .single #content #inner-content {
+    padding: 50px 5%; }
+    .single #content #inner-content .post-meta {
+      width: 50%; }
+      .single #content #inner-content .post-meta .author-photo {
+        width: 20%; }
+        .single #content #inner-content .post-meta .author-photo img {
+          border-radius: 96px; }
+      .single #content #inner-content .post-meta .post-info {
+        width: 80%; }
+        .single #content #inner-content .post-meta .post-info h5 {
+          font-family: 'Cutive', serif;
+          font-size: 16px;
+          font-weight: 400;
+          color: #212121;
+          text-transform: none; } }
 @media screen and (min-width: 0em) and (max-width: 39.9375em) {
   .single .social-media {
     display: none; }
@@ -5766,6 +5768,82 @@ COLORS
   #inner-content .post-comments ul li ul li {
     margin-left: 10px; }
 
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  #inner-content .post-comments h3 {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #151515;
+    text-transform: none;
+    border-bottom: 1px solid #151515; }
+    #inner-content .post-comments h3 span {
+      font-size: 24px; }
+  #inner-content .post-comments #comment-form {
+    margin-bottom: 50px; }
+    #inner-content .post-comments #comment-form input {
+      width: 33.3%; }
+    #inner-content .post-comments #comment-form textarea {
+      width: 50%; }
+    #inner-content .post-comments #comment-form input[type="submit"] {
+      width: auto; }
+  #inner-content .post-comments ul li {
+    list-style: none;
+    margin-left: 0; }
+    #inner-content .post-comments ul li h4 {
+      font-family: 'Cutive', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #151515;
+      text-transform: none; }
+    #inner-content .post-comments ul li h5 {
+      font-family: 'Cutive', serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: #151515;
+      text-transform: none; }
+    #inner-content .post-comments ul li .comment-content {
+      margin-bottom: 20px; }
+    #inner-content .post-comments ul li .reply {
+      text-align: right; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  #inner-content .post-comments h3 {
+    font-family: 'Cutive', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #151515;
+    text-transform: none;
+    border-bottom: 1px solid #151515; }
+    #inner-content .post-comments h3 span {
+      font-size: 18px; }
+  #inner-content .post-comments #comment-form {
+    margin-bottom: 50px; }
+    #inner-content .post-comments #comment-form input {
+      width: 100%; }
+    #inner-content .post-comments #comment-form textarea {
+      width: 100%; }
+    #inner-content .post-comments #comment-form input[type="submit"] {
+      width: 100%; }
+  #inner-content .post-comments ul li {
+    list-style: none;
+    margin-left: 0; }
+    #inner-content .post-comments ul li h4 {
+      font-family: 'Cutive', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #151515;
+      text-transform: none; }
+    #inner-content .post-comments ul li h5 {
+      font-family: 'Cutive', serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #151515;
+      text-transform: none; }
+    #inner-content .post-comments ul li .comment-content {
+      margin-bottom: 20px; }
+    #inner-content .post-comments ul li .reply {
+      text-align: center; }
+      #inner-content .post-comments ul li .reply button {
+        width: 100%; } }
 /**
 ***************** VI. Index ************************
 */
@@ -6396,6 +6474,114 @@ pre, code {
       .page-404 #inner-content .post-container .post .post-overlay {
         display: none; }
 
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  #content .single-page .social-media {
+    display: none; }
+  #content .single-page .post-header .post-header-text-outer .single-post-header-date {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  #content .single-page .post-header .post-header-text-outer .single-post-header-title {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none; }
+  #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  #content .single-page #inner-content {
+    padding: 50px 5%; }
+  #content .page-404 .social-media {
+    display: none; }
+  #content .page-404 .error-header .error-header-text-outer .error-page-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  #content .page-404 #inner-content {
+    padding: 50px 5%; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  #content .single-page .post-header .post-header-text-outer .single-post-header-date {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  #content .single-page .post-header .post-header-text-outer .single-post-header-title {
+    font-family: 'Cutive', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none; }
+  #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      #content .single-page .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  #content .single-page #inner-content {
+    padding: 50px 5%; }
+  #content .page-404 .social-media {
+    display: none; }
+  #content .page-404 .error-header .error-header-text-outer .error-page-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      #content .page-404 .error-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  #content .page-404 #inner-content {
+    padding: 50px 5%; } }
 /**
 ***************** IX. Sidebars ************************
 */
