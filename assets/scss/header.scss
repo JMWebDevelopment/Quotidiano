@@ -374,6 +374,27 @@
 			}
 		}
 	}
+	.social-media {
+		.social-links-inner {
+			.quotidiano-social-link {
+				-webkit-transition: none;
+				transition: none;
+				.social-link-title {
+					display: none;
+					-webkit-animation: none;
+					-moz-animation: none;
+					-o-animation: none;
+					animation: none;
+				}
+				&:hover {
+					width: 30px;
+					.social-link-title {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }
 
 @include breakpoint(small only) {
@@ -404,6 +425,27 @@
 			}
 			.page-header-description {
 				@include cutive(20px, 400, $off-white, none);
+			}
+		}
+	}
+	.social-media {
+		.social-links-inner {
+			.quotidiano-social-link {
+				-webkit-transition: none;
+				transition: none;
+				.social-link-title {
+					display: none;
+					-webkit-animation: none;
+					-moz-animation: none;
+					-o-animation: none;
+					animation: none;
+				}
+				&:hover {
+					width: 30px;
+					.social-link-title {
+						display: none;
+					}
+				}
 			}
 		}
 	}

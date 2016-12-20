@@ -5130,6 +5130,9 @@ COLORS
     margin-top: 15px; }
   .header .top-bar ul {
     background-color: transparent; }
+    .header .top-bar ul li button {
+      padding: 0;
+      margin-top: 16px; }
 
   .page-home-header .page-header-text-outer .page-header-title {
     font-family: 'Roboto', sans-serif;
@@ -5143,7 +5146,21 @@ COLORS
     font-size: 30px;
     font-weight: 400;
     color: #EAE9E9;
-    text-transform: none; } }
+    text-transform: none; }
+
+  .social-media .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    .social-media .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    .social-media .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      .social-media .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; } }
 @media screen and (min-width: 0em) and (max-width: 39.9375em) {
   .header {
     background-color: #212121;
@@ -5173,7 +5190,21 @@ COLORS
     font-size: 20px;
     font-weight: 400;
     color: #EAE9E9;
-    text-transform: none; } }
+    text-transform: none; }
+
+  .social-media .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    .social-media .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    .social-media .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      .social-media .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; } }
 /**
 ***************** III. Home ************************
 */
@@ -5210,7 +5241,7 @@ COLORS
     text-align: center;
     margin-bottom: 20px; }
   .home #inner-content .post-container {
-    margin-bottom: 40px; }
+    margin: 0 auto 40px; }
     .home #inner-content .post-container:nth-child(2) {
       margin-bottom: 0; }
       .home #inner-content .post-container:nth-child(2) h3 {
@@ -5218,9 +5249,9 @@ COLORS
     .home #inner-content .post-container .post {
       border-radius: 5px;
       border: 1px solid #151515;
-      margin: 0 5px 10px;
+      margin: 0 0.5% 1.1%;
       padding: 0;
-      width: 19.1%;
+      width: 19%;
       position: relative; }
       .home #inner-content .post-container .post:hover .post-overlay {
         display: block;
@@ -5258,6 +5289,56 @@ COLORS
     padding-left: 20px;
     padding-right: 20px; }
 
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .home #inner-content {
+    margin: 0 5%; }
+    .home #inner-content .home-date {
+      font-family: 'Cutive', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #151515;
+      text-transform: none; }
+    .home #inner-content .post-container .post {
+      margin: 0 0.5% 1.1%;
+      width: 24%; }
+      .home #inner-content .post-container .post:hover .post-overlay .day {
+        font-family: 'Cutive', serif;
+        font-size: 50px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; }
+      .home #inner-content .post-container .post:hover .post-overlay .month {
+        font-family: 'Cutive', serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .home #inner-content {
+    margin: 0 5%; }
+    .home #inner-content .home-date {
+      font-family: 'Cutive', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #151515;
+      text-transform: none; }
+    .home #inner-content .post-container .post {
+      margin: 0 0.5% 1.1%;
+      width: 49%; }
+      .home #inner-content .post-container .post:hover .post-overlay .day {
+        font-family: 'Cutive', serif;
+        font-size: 40px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; }
+      .home #inner-content .post-container .post:hover .post-overlay .month {
+        font-family: 'Cutive', serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #EAE9E9;
+        text-transform: none; }
+    .home #inner-content #load-more {
+      width: 100%; } }
 /**
 ***************** IV. Single ************************
 */

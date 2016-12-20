@@ -19,7 +19,7 @@
       margin-bottom: 20px;
     }
     .post-container {
-      margin-bottom: 40px;
+      margin: 0 auto 40px;
       &:nth-child(2) {
         margin-bottom: 0;
         h3 {
@@ -29,9 +29,9 @@
       .post {
         border-radius: 5px;
         border: 1px solid $off-black;
-        margin: 0 5px 10px;
+        margin: 0 0.5% 1.1%;
         padding: 0;
-        width: 19.1%;
+        width: 19%;
         position: relative;
         &:hover {
           .post-overlay {
@@ -69,6 +69,63 @@
       text-align: center;
       padding-left: 20px;
       padding-right: 20px;
+    }
+  }
+}
+
+@include breakpoint(medium only) {
+  .home {
+    #inner-content {
+      margin: 0 5%;
+      .home-date {
+        @include cutive(26px, 400, $off-black, none);
+      }
+      .post-container {
+        .post {
+          margin: 0 0.5% 1.1%;
+          width: 24%;
+          &:hover {
+            .post-overlay {
+              .day {
+                @include cutive(50px, 400, $off-white, none);
+              }
+              .month {
+                @include cutive(24px, 400, $off-white, none);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(small only) {
+  .home {
+    #inner-content {
+      margin: 0 5%;
+      .home-date {
+        @include cutive(26px, 400, $off-black, none);
+      }
+      .post-container {
+        .post {
+          margin: 0 0.5% 1.1%;
+          width: 49%;
+          &:hover {
+            .post-overlay {
+              .day {
+                @include cutive(40px, 400, $off-white, none);
+              }
+              .month {
+                @include cutive(20px, 400, $off-white, none);
+              }
+            }
+          }
+        }
+      }
+      #load-more {
+        width: 100%;
+      }
     }
   }
 }
