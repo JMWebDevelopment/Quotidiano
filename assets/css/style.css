@@ -5597,6 +5597,94 @@ pre, code {
 #wp-a11y-speak-polite {
   display: none; }
 
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .single .social-media {
+    display: none; }
+  .single .post-header .post-header-text-outer .single-post-header-date {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  .single .post-header .post-header-text-outer .single-post-header-title {
+    font-family: 'Cutive', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none; }
+  .single .single-post-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    .single .single-post-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    .single .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      .single .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  .single #inner-content .post-meta {
+    width: 50%; }
+    .single #inner-content .post-meta .author-photo {
+      width: 20%; }
+      .single #inner-content .post-meta .author-photo img {
+        border-radius: 96px; }
+    .single #inner-content .post-meta .post-info {
+      width: 80%; }
+      .single #inner-content .post-meta .post-info h5 {
+        font-family: 'Cutive', serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #212121;
+        text-transform: none; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .single .social-media {
+    display: none; }
+  .single .post-header .post-header-text-outer .single-post-header-date {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #EAE9E9;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  .single .post-header .post-header-text-outer .single-post-header-title {
+    font-family: 'Cutive', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #EAE9E9;
+    text-transform: none; }
+  .single .single-post-social-media-links .social-links-inner .quotidiano-social-link {
+    -webkit-transition: none;
+    transition: none; }
+    .single .single-post-social-media-links .social-links-inner .quotidiano-social-link .social-link-title {
+      display: none;
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none; }
+    .single .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover {
+      width: 30px; }
+      .single .single-post-social-media-links .social-links-inner .quotidiano-social-link:hover .social-link-title {
+        display: none; }
+  .single #content #inner-content {
+    padding: 50px 5%; }
+    .single #content #inner-content .post-meta {
+      width: 50%; }
+      .single #content #inner-content .post-meta .author-photo {
+        width: 20%; }
+        .single #content #inner-content .post-meta .author-photo img {
+          border-radius: 96px; }
+      .single #content #inner-content .post-meta .post-info {
+        width: 80%; }
+        .single #content #inner-content .post-meta .post-info h5 {
+          font-family: 'Cutive', serif;
+          font-size: 14px;
+          font-weight: 400;
+          color: #212121;
+          text-transform: none; } }
 /**
 ***************** V. Comments ************************
 */

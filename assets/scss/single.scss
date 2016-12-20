@@ -288,3 +288,120 @@ pre, code {
 #wp-a11y-speak-polite{
   display: none;
 }
+
+@include breakpoint(medium only) {
+  .single {
+    .social-media {
+      display: none;
+    }
+    .post-header {
+      .post-header-text-outer {
+        .single-post-header-date {
+          @include roboto(40px, 700, $off-white, uppercase);
+          margin-bottom: 20px;
+        }
+        .single-post-header-title {
+          @include cutive(30px, 400, $off-white, none);
+        }
+      }
+    }
+    .single-post-social-media-links {
+      .social-links-inner {
+        .quotidiano-social-link {
+          -webkit-transition: none;
+          transition: none;
+          .social-link-title {
+            display: none;
+            -webkit-animation: none;
+            -moz-animation: none;
+            -o-animation: none;
+            animation: none;
+          }
+          &:hover {
+            width: 30px;
+            .social-link-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    #inner-content {
+      .post-meta {
+        width: 50%;
+        .author-photo {
+          width: 20%;
+          img {
+            border-radius: 96px;
+          }
+        }
+        .post-info {
+          width: 80%;
+          h5 {
+            @include cutive(16px, 400, $qblack, none);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(small only) {
+  .single {
+    .social-media {
+      display: none;
+    }
+    .post-header {
+      .post-header-text-outer {
+        .single-post-header-date {
+          @include roboto(30px, 700, $off-white, uppercase);
+          margin-bottom: 20px;
+        }
+        .single-post-header-title {
+          @include cutive(20px, 400, $off-white, none);
+        }
+      }
+    }
+    .single-post-social-media-links {
+      .social-links-inner {
+        .quotidiano-social-link {
+          -webkit-transition: none;
+          transition: none;
+          .social-link-title {
+            display: none;
+            -webkit-animation: none;
+            -moz-animation: none;
+            -o-animation: none;
+            animation: none;
+          }
+          &:hover {
+            width: 30px;
+            .social-link-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    #content {
+      #inner-content {
+        padding: 50px 5%;
+        .post-meta {
+          width: 50%;
+          .author-photo {
+            width: 20%;
+            img {
+              border-radius: 96px;
+            }
+          }
+          .post-info {
+            width: 80%;
+            h5 {
+              @include cutive(14px, 400, $qblack, none);
+            }
+          }
+        }
+      }
+    }
+  }
+}
