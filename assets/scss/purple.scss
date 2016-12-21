@@ -81,6 +81,16 @@ table {
     }
   }
 }
+//* WordPress Styles
+.bypostauthor {
+  background-color: $light-purple;
+}
+.sticky {
+  background-color: $light-purple; position: relative;
+}
+.aligncenter, .alignright, .alignleft, .alignnone {
+  background-color: $medium-purple;
+}
 //* Header Styles
 .social-media, .single .single-post-social-media-links, .single-page .single-post-social-media-links, .archive-template .archive-social-media-links, .page-404 .error-social-media-links {
   background-color: $deep-purple;

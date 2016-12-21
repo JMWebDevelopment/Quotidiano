@@ -96,6 +96,16 @@ table thead tr {
 table tbody tr {
   border-top: 1px solid #3C024B; }
 
+.bypostauthor {
+  background-color: #F3DCF5; }
+
+.sticky {
+  background-color: #F3DCF5;
+  position: relative; }
+
+.aligncenter, .alignright, .alignleft, .alignnone {
+  background-color: #C586D6; }
+
 .social-media, .single .single-post-social-media-links, .single-page .single-post-social-media-links, .archive-template .archive-social-media-links, .page-404 .error-social-media-links {
   background-color: #3C024B; }
 
