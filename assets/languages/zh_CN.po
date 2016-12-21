@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Project-Id-Version: Quotidiano\n"
+"POT-Creation-Date: 2016-12-20 16:41-0600\n"
+"PO-Revision-Date: 2016-12-20 16:43-0600\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: zh_CN\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: assets/functions/theme-options.php:17
+msgid "Theme Settings"
+msgstr "主题设置"
+
+#: assets/functions/theme-options.php:23
+msgid "Default"
+msgstr "默认"
+
+#: assets/functions/theme-options.php:24
+msgid "Red"
+msgstr "红色"
+
+#: assets/functions/theme-options.php:25
+msgid "Yellow"
+msgstr "黄"
+
+#: assets/functions/theme-options.php:26
+msgid "Green"
+msgstr "绿色"
+
+#: assets/functions/theme-options.php:27
+msgid "Blue"
+msgstr "蓝色"
+
+#: assets/functions/theme-options.php:28
+msgid "Purple"
+msgstr "紫色"
+
+#: assets/functions/theme-options.php:42
+msgid "Color Scheme"
+msgstr "配色方案"
+
+#: assets/functions/theme-options.php:61
+msgid "Allow not logged-in users to submit comments:"
+msgstr "允许不登录在用户提交的评论︰"
+
+#: assets/functions/theme-options.php:79
+msgid "Link to Facebook Profile/Page"
+msgstr "链接到 Facebook 专页 /"
+
+#: assets/functions/theme-options.php:97
+msgid "Link to Twitter Profile"
+msgstr "链接到 Twitter 的配置文件"
+
+#: assets/functions/theme-options.php:115
+msgid "Link to Instagram Profile"
+msgstr "链接指向 Instagram 配置文件"
+
+#: assets/functions/theme-options.php:133
+msgid "Link to Tumblr Blog"
+msgstr "Tumblr 博客链接"
+
+#: assets/functions/theme-options.php:151
+msgid "Link to YouTube Page"
+msgstr "YouTube 页面的链接"
+
+#: assets/functions/theme-options.php:169
+msgid "Link to Pinterest Profile"
+msgstr "链接到 Pinterest 配置文件"
+
+#: assets/functions/theme-options.php:187
+msgid "Link to Google+ Profile"
+msgstr "链接到 Google+ 配置文件"
+
+#: assets/functions/theme-options.php:205
+msgid "Link to LinkedIn Profile"
+msgstr "在 Linkedin 的链接"
+
+#: footer.php:12
+msgid "Copyright"
+msgstr "版权"
+
+#: functions.php:64
+msgid "Post or Page Not Found!"
+msgstr "文章或页面未找到！"
+
+#: functions.php:65
+msgid "The post or page you are looking for isn't here. Please return to the"
+msgstr "邮报 》 或你正在寻找的页面不在这里。请返回到"
+
+#: functions.php:66
+msgid "homepage"
+msgstr "首页"
+
+#: functions.php:67
+msgid "or use the search form below to find what you're looking for."
+msgstr "请使用下面的搜索框查找您需要的内容："
+
+#: functions.php:68
+msgid "Reply"
+msgstr "回复"
+
+#: functions.php:69
+msgid "No Comments on"
+msgstr "没有留言"
+
+#: functions.php:70
+msgid "Comments"
+msgstr "留言"
+
+#: functions.php:71
+msgid "Comment"
+msgstr "请留下您的评论..."
+
+#: functions.php:72
+msgid "On"
+msgstr "开"
+
+#: functions.php:73
+msgid "Leave a Comment"
+msgstr "留下你的评论"
+
+#: functions.php:74
+msgid "Required"
+msgstr "必需"
+
+#: functions.php:75
+msgid "Your comment..."
+msgstr "您的评论 ..."
+
+#: functions.php:76
+msgid "Leave Your Comment"
+msgstr "留下评论"
+
+#: functions.php:77
+msgid "Replying to "
+msgstr "回复"
+
+#: functions.php:78
+msgid "Remove reply"
+msgstr "删除回复"
+
+#: functions.php:79
+msgid "Written by: "
+msgstr "作者："
+
+#: functions.php:80
+msgid "Filed under: "
+msgstr "归档："
+
+#: functions.php:81
+msgid "Load More"
+msgstr "讀取更多"
+
+#: functions.php:82
+msgid "Load"
+msgstr "加载"
+
+#: functions.php:83
+msgid "Posted at"
+msgstr "发布在"
+
+#: functions.php:84
+msgid "Thank you for submitting your comment."
+msgstr "感谢您提交您的评论。"
+
+#: functions.php:408
+msgid "Top Menu"
+msgstr "顶部菜单"
+
+#: functions.php:413
+msgid "Facebook"
+msgstr "Facebook"
+
+#: functions.php:414
+msgid "Twitter"
+msgstr "Twitter"
+
+#: functions.php:415
+msgid "Instagram"
+msgstr "Instagram"
+
+#: functions.php:416
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: functions.php:417 functions.php:433
+msgid "YouTube"
+msgstr "YouTube"
+
+#: functions.php:418
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: functions.php:419 functions.php:431
+msgid "Google+"
+msgstr "Google+"
+
+#: functions.php:420 functions.php:435
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#. Theme Name of the plugin/theme
+msgid "Quotidiano"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid ""
+"http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-"
+"wordpress-theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Jacob Martella"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.jacobmartella.com/"
+msgstr ""

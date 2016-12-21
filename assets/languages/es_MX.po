@@ -1,0 +1,238 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Quotidiano\n"
+"POT-Creation-Date: 2016-12-20 16:20-0600\n"
+"PO-Revision-Date: 2016-12-20 16:21-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: assets/functions/theme-options.php:17
+msgid "Theme Settings"
+msgstr "Ajustes del Tema"
+
+#: assets/functions/theme-options.php:23
+msgid "Default"
+msgstr "Defecto"
+
+#: assets/functions/theme-options.php:24
+msgid "Red"
+msgstr "Rojo"
+
+#: assets/functions/theme-options.php:25
+msgid "Yellow"
+msgstr "Amarillo"
+
+#: assets/functions/theme-options.php:26
+msgid "Green"
+msgstr "Verde"
+
+#: assets/functions/theme-options.php:27
+msgid "Blue"
+msgstr "Azul"
+
+#: assets/functions/theme-options.php:28
+msgid "Purple"
+msgstr "Morado"
+
+#: assets/functions/theme-options.php:42
+msgid "Color Scheme"
+msgstr "Esquema de color"
+
+#: assets/functions/theme-options.php:61
+msgid "Allow not logged-in users to submit comments:"
+msgstr "Permiten no usuarios registrados enviar comentarios:"
+
+#: assets/functions/theme-options.php:79
+msgid "Link to Facebook Profile/Page"
+msgstr "Enlace a perfil/página de Facebook"
+
+#: assets/functions/theme-options.php:97
+msgid "Link to Twitter Profile"
+msgstr "Enlace al perfil de Twitter"
+
+#: assets/functions/theme-options.php:115
+msgid "Link to Instagram Profile"
+msgstr "Enlace al perfil de Instagram"
+
+#: assets/functions/theme-options.php:133
+msgid "Link to Tumblr Blog"
+msgstr "Enlace al Blog de Tumblr"
+
+#: assets/functions/theme-options.php:151
+msgid "Link to YouTube Page"
+msgstr "Enlace a la página de YouTube"
+
+#: assets/functions/theme-options.php:169
+msgid "Link to Pinterest Profile"
+msgstr "Enlace al perfil de Pinterest"
+
+#: assets/functions/theme-options.php:187
+msgid "Link to Google+ Profile"
+msgstr "Enlace a perfil Google+"
+
+#: assets/functions/theme-options.php:205
+msgid "Link to LinkedIn Profile"
+msgstr "Enlace a su perfil de Linkedin"
+
+#: footer.php:12
+msgid "Copyright"
+msgstr "Copyright"
+
+#: functions.php:64
+msgid "Post or Page Not Found!"
+msgstr "Post o página no encontrada!"
+
+#: functions.php:65
+msgid "The post or page you are looking for isn't here. Please return to the"
+msgstr "El post o la página que busca no está aquí. Por favor devuelva a la"
+
+#: functions.php:66
+msgid "homepage"
+msgstr "página principal"
+
+#: functions.php:67
+msgid "or use the search form below to find what you're looking for."
+msgstr ""
+"o utilizar el siguiente formulario de búsqueda para encontrar lo que buscas."
+
+#: functions.php:68
+msgid "Reply"
+msgstr "Responder"
+
+#: functions.php:69
+msgid "No Comments on"
+msgstr "No hay comentarios"
+
+#: functions.php:70
+msgid "Comments"
+msgstr "Comentarios"
+
+#: functions.php:71
+msgid "Comment"
+msgstr "Comentario"
+
+#: functions.php:72
+msgid "On"
+msgstr "Encendido"
+
+#: functions.php:73
+msgid "Leave a Comment"
+msgstr "Deja un Comentario"
+
+#: functions.php:74
+msgid "Required"
+msgstr "Requerido"
+
+#: functions.php:75
+msgid "Your comment..."
+msgstr "Su comentario..."
+
+#: functions.php:76
+msgid "Leave Your Comment"
+msgstr "Deja Sun Comentario"
+
+#: functions.php:77
+msgid "Replying to "
+msgstr "En respuesta a"
+
+#: functions.php:78
+msgid "Remove reply"
+msgstr "Eliminar la respuesta"
+
+#: functions.php:79
+msgid "Written by: "
+msgstr "Escrito por: "
+
+#: functions.php:80
+msgid "Filed under: "
+msgstr "Publicado en: "
+
+#: functions.php:81
+msgid "Load More"
+msgstr "Cargar Más"
+
+#: functions.php:82
+msgid "Load"
+msgstr "Cargar"
+
+#: functions.php:83
+msgid "Posted at"
+msgstr "Publicado en "
+
+#: functions.php:84
+msgid "Thank you for submitting your comment."
+msgstr "Gracias por su observación."
+
+#: functions.php:408
+msgid "Top Menu"
+msgstr "Menú Superior"
+
+#: functions.php:413
+msgid "Facebook"
+msgstr "Facebook"
+
+#: functions.php:414
+msgid "Twitter"
+msgstr "Twitter"
+
+#: functions.php:415
+msgid "Instagram"
+msgstr "Instagram"
+
+#: functions.php:416
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: functions.php:417 functions.php:433
+msgid "YouTube"
+msgstr "YouTube"
+
+#: functions.php:418
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: functions.php:419 functions.php:431
+msgid "Google+"
+msgstr "Google+"
+
+#: functions.php:420 functions.php:435
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#. Theme Name of the plugin/theme
+msgid "Quotidiano"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid ""
+"http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-"
+"theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Jacob Martella"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.jacobmartella.com/"
+msgstr ""
+
+#~ msgid "You're comment..."
+#~ msgstr "Eres el comentario..."
+
+#~ msgid "Thank you for submitting your comment"
+#~ msgstr "Gracias por su observación."

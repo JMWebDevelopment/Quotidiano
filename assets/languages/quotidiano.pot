@@ -1,0 +1,231 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Quotidiano\n"
+"POT-Creation-Date: 2016-12-20 16:20-0600\n"
+"PO-Revision-Date: 2016-12-20 16:07-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: assets/functions/theme-options.php:17
+msgid "Theme Settings"
+msgstr ""
+
+#: assets/functions/theme-options.php:23
+msgid "Default"
+msgstr ""
+
+#: assets/functions/theme-options.php:24
+msgid "Red"
+msgstr ""
+
+#: assets/functions/theme-options.php:25
+msgid "Yellow"
+msgstr ""
+
+#: assets/functions/theme-options.php:26
+msgid "Green"
+msgstr ""
+
+#: assets/functions/theme-options.php:27
+msgid "Blue"
+msgstr ""
+
+#: assets/functions/theme-options.php:28
+msgid "Purple"
+msgstr ""
+
+#: assets/functions/theme-options.php:42
+msgid "Color Scheme"
+msgstr ""
+
+#: assets/functions/theme-options.php:61
+msgid "Allow not logged-in users to submit comments:"
+msgstr ""
+
+#: assets/functions/theme-options.php:79
+msgid "Link to Facebook Profile/Page"
+msgstr ""
+
+#: assets/functions/theme-options.php:97
+msgid "Link to Twitter Profile"
+msgstr ""
+
+#: assets/functions/theme-options.php:115
+msgid "Link to Instagram Profile"
+msgstr ""
+
+#: assets/functions/theme-options.php:133
+msgid "Link to Tumblr Blog"
+msgstr ""
+
+#: assets/functions/theme-options.php:151
+msgid "Link to YouTube Page"
+msgstr ""
+
+#: assets/functions/theme-options.php:169
+msgid "Link to Pinterest Profile"
+msgstr ""
+
+#: assets/functions/theme-options.php:187
+msgid "Link to Google+ Profile"
+msgstr ""
+
+#: assets/functions/theme-options.php:205
+msgid "Link to LinkedIn Profile"
+msgstr ""
+
+#: footer.php:12
+msgid "Copyright"
+msgstr ""
+
+#: functions.php:64
+msgid "Post or Page Not Found!"
+msgstr ""
+
+#: functions.php:65
+msgid "The post or page you are looking for isn't here. Please return to the"
+msgstr ""
+
+#: functions.php:66
+msgid "homepage"
+msgstr ""
+
+#: functions.php:67
+msgid "or use the search form below to find what you're looking for."
+msgstr ""
+
+#: functions.php:68
+msgid "Reply"
+msgstr ""
+
+#: functions.php:69
+msgid "No Comments on"
+msgstr ""
+
+#: functions.php:70
+msgid "Comments"
+msgstr ""
+
+#: functions.php:71
+msgid "Comment"
+msgstr ""
+
+#: functions.php:72
+msgid "On"
+msgstr ""
+
+#: functions.php:73
+msgid "Leave a Comment"
+msgstr ""
+
+#: functions.php:74
+msgid "Required"
+msgstr ""
+
+#: functions.php:75
+msgid "Your comment..."
+msgstr ""
+
+#: functions.php:76
+msgid "Leave Your Comment"
+msgstr ""
+
+#: functions.php:77
+msgid "Replying to "
+msgstr ""
+
+#: functions.php:78
+msgid "Remove reply"
+msgstr ""
+
+#: functions.php:79
+msgid "Written by: "
+msgstr ""
+
+#: functions.php:80
+msgid "Filed under: "
+msgstr ""
+
+#: functions.php:81
+msgid "Load More"
+msgstr ""
+
+#: functions.php:82
+msgid "Load"
+msgstr ""
+
+#: functions.php:83
+msgid "Posted at"
+msgstr ""
+
+#: functions.php:84
+msgid "Thank you for submitting your comment."
+msgstr ""
+
+#: functions.php:408
+msgid "Top Menu"
+msgstr ""
+
+#: functions.php:413
+msgid "Facebook"
+msgstr ""
+
+#: functions.php:414
+msgid "Twitter"
+msgstr ""
+
+#: functions.php:415
+msgid "Instagram"
+msgstr ""
+
+#: functions.php:416
+msgid "Tumblr"
+msgstr ""
+
+#: functions.php:417 functions.php:433
+msgid "YouTube"
+msgstr ""
+
+#: functions.php:418
+msgid "Pinterest"
+msgstr ""
+
+#: functions.php:419 functions.php:431
+msgid "Google+"
+msgstr ""
+
+#: functions.php:420 functions.php:435
+msgid "LinkedIn"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Quotidiano"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid ""
+"http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-"
+"wordpress-theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Jacob Martella"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.jacobmartella.com/"
+msgstr ""
