@@ -14,8 +14,7 @@ function theme_slug_general_customizer( $wp_customize ) {
 	$wp_customize->add_section(
 		'general',
 		array(
-			'title' => __('Theme Settings', 'theme-slug'),
-			'description' => __('These are the theme options.', 'theme-slug'),
+			'title' => __('Theme Settings', 'quotidiano'),
 			'priority' => 35,
 		)
 	);
@@ -28,7 +27,7 @@ function theme_slug_general_customizer( $wp_customize ) {
     $schemes[ 'blue' ] = __( 'Blue', 'quotidiano' );
     $schemes[ 'purple' ] = __( 'Purple', 'quotidiano' );
 
-    //* Home Slider Category
+    //* Color Scheme
     $wp_customize->add_setting(
         'quotidiano-color-scheme',
         array(
@@ -44,6 +43,24 @@ function theme_slug_general_customizer( $wp_customize ) {
             'section'   => 'general',
             'type'      => 'select',
             'choices'   => $schemes
+        )
+    );
+
+    //* Allow Anonymous Comments
+    $wp_customize->add_setting(
+        'quotidiano-allow-anonymous-comments',
+        array(
+            'default'           => '',
+            'sanitize_callback' => 'quotidiano_sanitize_checkbox',
+        )
+    );
+
+    $wp_customize->add_control(
+        'quotidiano-allow-anonymous-comments',
+        array(
+            'label'     => __( 'Allow not logged-in users to submit comments:', 'fotographia' ),
+            'section'   => 'general',
+            'type'      => 'checkbox',
         )
     );
 
@@ -208,7 +225,7 @@ function quotidiano_slug_sanitize_select( $input, $setting ) {
 }
 
 //* Sanitize Checkboxes
-function theme_slug_sanitize_checkbox( $input ) {
+function quotidiano_sanitize_checkbox( $input ) {
 	return ( ( isset( $input ) && true == $input ) ? 1 : 0 );
 }
 

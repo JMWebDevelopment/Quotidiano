@@ -65,8 +65,6 @@ function quotidiano_scripts() {
             'page_404_content_first'    => __( 'The post or page you are looking for isn\'t here. Please return to the', 'quotidiano' ),
             'page_404_homepage'         => __( 'homepage', 'quotidiano' ),
             'page_404_content_second'   => __( 'or use the search form below to find what you\'re looking for.', 'quotidiano' ),
-            'archive_previous'          => __( '<<Previous Posts', 'quotidiano'),
-            'archive_next'              => __( 'Next Posts>>', 'quotidiano'),
             'reply'                     => __( 'Reply', 'quotidiano'),
             'no_comments'               => __( 'No Comments on', 'quotidiano' ),
             'comments'                  => __( 'Comments', 'quotidiano' ),
@@ -74,17 +72,16 @@ function quotidiano_scripts() {
             'on'                        => __( 'On', 'quotidiano' ),
             'leave_comment'             => __( 'Leave a Comment', 'quotidiano' ),
             'required'                  => __( 'Required', 'quotidiano' ),
-            'your_comment'              => __( 'You\'re comment...', 'quotidiano' ),
+            'your_comment'              => __( 'Your comment...', 'quotidiano' ),
             'add_comment'               => __( 'Leave Your Comment', 'quotidiano' ),
             'replying_to'               => __( 'Replying to ', 'quotidiano' ),
             'remove_reply'              => __( 'Remove reply', 'quotidiano' ),
             'written_by'                => __( 'Written by: ', 'quotidiano' ),
             'filed_under'               => __( 'Filed under: ', 'quotidiano' ),
-            'tags'                      => __( 'Tags: ', 'quotidiano' ),
             'load_more'                 => __( 'Load More', 'quotidiano' ),
             'load'                      => __( 'Load', 'quotidiano' ),
             'posted_at'                 => __( 'Posted at', 'quotidiano' ),
-            'comment_success'           => __( 'Thank you for submitting your comment', 'quotidiano' )
+            'comment_success'           => __( 'Thank you for submitting your comment.', 'quotidiano' )
         ]
 	);
 	wp_enqueue_script( 'quotidiano-site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery', 'angularjs', 'angularjs-route' ), '', true );
@@ -149,7 +146,7 @@ function quotidiano_theme_support() {
     ) );
 
 	//* Add Support for Translation
-	load_theme_textdomain( 'quotidiano', get_template_directory() .'/assets/translation' );
+	load_theme_textdomain( 'quotidiano', get_template_directory() . '/assets/languages' );
 
 	//* Adding post format support
 	/* add_theme_support( 'post-formats',
@@ -175,22 +172,6 @@ require('assets/functions/theme-options.php');
  * Include custom functions
  */
 require('assets/functions/menu-walkers.php');
-/**
- * Register Sidebar
- */
-function quotidiano_register_sidebars() {
-	register_sidebar(array(
-			'id' => 'sidebar1',
-			'name' => __('Sidebar', 'quotidiano'),
-			'description' => __('The first (primary) sidebar.', 'quotidiano'),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div>',
-			'before_title' => '<h4 class="widgettitle">',
-			'after_title' => '</h4>',
-	));
-}
-add_action( 'widgets_init', 'quotidiano_register_sidebars' );
-
 /**
  ******************** II. WP REST API Functions *********************************
  */
@@ -407,6 +388,15 @@ function quotidiano_get_months() {
 
     return $month_array;
 }
+
+function filter_rest_allow_anonymous_comments() {
+    if ( get_theme_mod( 'quotidiano-allow-anonymous-comments' ) == 1 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+add_filter( 'rest_allow_anonymous_comments', 'filter_rest_allow_anonymous_comments' );
 /**
  ******************** III. Header Functions *********************************
  */

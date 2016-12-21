@@ -282,23 +282,26 @@ function showSiteTitle( home ) {
 				$scope.openComment.author_email = jQuery('#email').val();
 				$scope.openComment.parent = jQuery('#parent').val();
 				$scope.openComment.content = jQuery('#comment-content').val();
-				$scope.openComment.status = 'hold';
                 $scope.openComment.post = jQuery('.single-view').attr('id').replace('post-', '');
                 $http({
                     method: 'POST',
                     url: '/wp-json/wp/v2/comments',
                     params: $scope.openComment,
-                    transformRequest: angular.identity,
                     headers: { 'Content-Type': 'multipart/form-data', 'X-WP-Nonce': quotidiano.nonce }
                 })
                     .success(function (result) {
-                        console.log('Success!');
+                        $scope.openComment = {};
+                        $scope.openComment.post = $scope.post.id;
+                        jQuery('#comment-content').val('');
+                        if ( $scope.loggedIn == false ) {
+                            jQuery('#name').val('');
+                            jQuery('#email').val('');
+                        }
+                        jQuery('#comment-form').hide();
+                        jQuery('.comment-success').show();
                     }).error(function (result) {
-                    console.log('Fail!');
                     console.log(result);
                 });
-				jQuery('#comment-form').hide();
-                jQuery('.comment-success').show();
 			}
 		}])
 		.controller('Page', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
