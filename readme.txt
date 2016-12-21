@@ -62,7 +62,7 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 - Initial release to the WordPress theme directory.
 
 == Licenses ==
-**Theme License**
+= Theme License =
 
 GNU General Public License
 http://www.gnu.org/licenses/gpl.html
