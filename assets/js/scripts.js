@@ -513,6 +513,16 @@ function showSiteTitle( home ) {
                     controller: 'Page',
                     templateUrl: quotidiano.partials + 'page.html'
                 })
+                .state('ChildPage', {
+                    url: '/{parentSlug:string}/{slug:string}/',
+                    controller: 'Page',
+                    templateUrl: quotidiano.partials + 'page.html'
+                })
+                .state('ChildChildPage', {
+                    url: '/{parentSlug:string}/{parentParentSlug:string}/{slug:string}/',
+                    controller: 'Page',
+                    templateUrl: quotidiano.partials + 'page.html'
+                })
 				.state('NotFound', {
 					url: '*path',
 					templateUrl: quotidiano.partials + '404.html',
