@@ -297,8 +297,9 @@ function showSiteTitle( home ) {
                             jQuery('#name').val('');
                             jQuery('#email').val('');
                         }
-                        jQuery('#comment-form').hide();
-                        jQuery('.comment-success').show();
+                        jQuery('#comment-form').hide(500, function() {
+                            jQuery('.comment-success').show(400);
+                        });
                     }).error(function (result) {
                     console.log(result);
                 });
