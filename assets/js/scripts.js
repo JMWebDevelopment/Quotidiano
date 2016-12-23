@@ -528,7 +528,12 @@ function showSiteTitle( home ) {
 					url: '*path',
 					templateUrl: quotidiano.partials + '404.html',
 					controller: 'NotFound'
-				});
+				})
+                .state('NotFoundMore', {
+                    url: '*slug/*path',
+                    templateUrl: quotidiano.partials + '404.html',
+                    controller: 'NotFound'
+                });
 
 			//Enable pretty permalinks, sans the #
 			$locationProvider.html5Mode(true);
@@ -692,7 +697,7 @@ function showSiteTitle( home ) {
                         s: ''
                     };
                     $scope.search = function() {
-                        $http.get(quotidiano.api_url + 'posts?search=' + $scope.filter.s).success(function(res){
+                        $http.get(quotidiano.api_url + 'posts?search=' + $scope.filter.s + '&per_page=99').success(function(res){
                             $scope.searched_posts = res;
                         });
                     };
