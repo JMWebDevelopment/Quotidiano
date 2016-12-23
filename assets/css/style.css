@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*
 Theme Name: Quotidiano
-Theme URI: http://www.jacobmartella.com/wordpress/wordpress-theme/quotidiano-wordpress-theme
-Description: 
+Theme URI: http://www.jacobmartella.com/wordpress/wordpress-themes/quotidiano-wordpress-theme
+Description: We, as humans, love to tell our stories. It's essentially second nature to us. And with the rise of Facebook, Twitter and other forms of social media, we love to tell our stories in a daily fashion. Quotidiano, Italian for daily, helps you do just that. Whether it's a 100-day photo challenge, a 100-day fitness challenge, a regular old daily blog or anything in between, Quotidiano is the perfect WordPress theme to tell and display your story to the world.
 Author: Jacob Martella
 Author URI: http://www.jacobmartella.com/
 Version: 1.0
@@ -5253,6 +5253,8 @@ COLORS
       padding: 0;
       width: 19%;
       position: relative; }
+      .home #inner-content .post-container .post a {
+        display: block; }
       .home #inner-content .post-container .post:hover .post-overlay {
         display: block;
         background-color: rgba(33, 33, 33, 0.7);
@@ -5264,7 +5266,8 @@ COLORS
         display: flex;
         justify-content: center;
         flex-direction: column;
-        text-align: center; }
+        text-align: center;
+        border-radius: 4px; }
         .home #inner-content .post-container .post:hover .post-overlay .day {
           font-family: 'Cutive', serif;
           font-size: 73px;
@@ -5981,6 +5984,8 @@ COLORS
       padding: 0;
       width: 19%;
       position: relative; }
+      .archive-template #inner-content .post-container .post a {
+        display: block; }
       .archive-template #inner-content .post-container .post:hover .post-overlay {
         display: block;
         background-color: rgba(33, 33, 33, 0.7);
@@ -5992,7 +5997,8 @@ COLORS
         display: flex;
         justify-content: center;
         flex-direction: column;
-        text-align: center; }
+        text-align: center;
+        border-radius: 4px; }
         .archive-template #inner-content .post-container .post:hover .post-overlay .day {
           font-family: 'Cutive', serif;
           font-size: 73px;

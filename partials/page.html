@@ -1,51 +1,87 @@
-<div ng-controller="Page" class="single-page">
-    <header class="post-header" style="background: url({{post.featured_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
-        <div class="post-header-text-outer">
-            <div class="post-header-text-inner">
-                <h1 class="single-post-header-date">{{post.title.rendered}}</h1>
-            </div>
-        </div>
-    </header>
-    <section class="single-post-social-media-links">
-        <div class="social-links-inner clearfix">
-            <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
-                <a href="{{social_link.link}}">
-                    <img ng-src="{{social_link.image}}" />
-                    <div class="social-link-title">{{social_link.title}}</div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <div id="inner-content" class="row">
-        <section class="post-content" ng-bind-html="post.content.rendered | unsafe"></section>
-        <footer class="post-footer">
-            <section class="post-comments" ng-if="post.comment_status == 'open'">
-                <h3 class="add-comment">{{translations.leave_comment}}</h3>
-                <div class="comment-success">{{translations.comment_success}}</div>
-                <form ng-submit="savecomment()" name="CommentForm" id="comment-form">
-                    <div class="form-group" ng-if="loggedIn == false">
-                        <input type="text" id="name" name="name" ng-model="openComment.author_name" placeholder="Name*" required/>
-                    </div>
-                    <div class="form-group"  ng-if="loggedIn == false">
-                        <input type="email" name="email" id="email" ng-model="openComment.author_email" placeholder="Email Address*" required />
-                    </div>
-                    <div class="form-group" ng-if="loggedIn == true">
-                        <p>Logged in as {{currentUser.data.display_name}}.</p>
-                        <input type="hidden" id="name" name="name" ng-model="openComment.author_name" value="{{currentUser.data.display_name}}" />
-                        <input type="hidden" id="email" name="email" ng-model="openComment.author_email" value="{{currentUser.data.user_email}}" />
-                    </div>
-                    <div class="form-group">
-                        <textarea required id="comment-content" name="comment" ng-model="openComment.content" placeholder="Your Comment..."></textarea><br/>
-                        <input type="hidden" name="parent" id="parent" value="0" ng-model="openComment.parent" />
-                    </div>
-                    <input class="button" type="submit" value="{{translations.add_comment}}" />
-                </form>
-                <div ng-hide="post.comments.length">
-                    <h3 class="comments-header">{{translations.no_comments}} {{translations.on}} "{{post.title.rendered}}"</h3>
+<div ng-controller="Page" class="{{is404 == true ? 'page-404' : 'single-page'}}">
+    <div ng-if="!is404">
+        <header class="post-header" style="background: url({{post.featured_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
+            <div class="post-header-text-outer">
+                <div class="post-header-text-inner">
+                    <h1 class="single-post-header-date">{{post.title.rendered}}</h1>
                 </div>
-                <h3 ng-show="post.comments.length">{{numComments}} {{numComments > 1 ? 'Comments' : 'Comment'}} {{translations.on}} "{{post.title.rendered}}"</h3>
-                <collection collection='post.comments'></collection>
-            </section>
-        </footer>
+            </div>
+        </header>
+        <section class="single-post-social-media-links">
+            <div class="social-links-inner clearfix">
+                <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                    <a href="{{social_link.link}}">
+                        <img ng-src="{{social_link.image}}" />
+                        <div class="social-link-title">{{social_link.title}}</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div id="inner-content" class="row">
+            <section class="post-content" ng-bind-html="post.content.rendered | unsafe"></section>
+            <footer class="post-footer">
+                <section class="post-comments" ng-if="post.comment_status == 'open'">
+                    <h3 class="add-comment">{{translations.leave_comment}}</h3>
+                    <div class="comment-success">{{translations.comment_success}}</div>
+                    <form ng-submit="savecomment()" name="CommentForm" id="comment-form">
+                        <div class="form-group" ng-if="loggedIn == false">
+                            <input type="text" id="name" name="name" ng-model="openComment.author_name" placeholder="Name*" required/>
+                        </div>
+                        <div class="form-group"  ng-if="loggedIn == false">
+                            <input type="email" name="email" id="email" ng-model="openComment.author_email" placeholder="Email Address*" required />
+                        </div>
+                        <div class="form-group" ng-if="loggedIn == true">
+                            <p>Logged in as {{currentUser.data.display_name}}.</p>
+                            <input type="hidden" id="name" name="name" ng-model="openComment.author_name" value="{{currentUser.data.display_name}}" />
+                            <input type="hidden" id="email" name="email" ng-model="openComment.author_email" value="{{currentUser.data.user_email}}" />
+                        </div>
+                        <div class="form-group">
+                            <textarea required id="comment-content" name="comment" ng-model="openComment.content" placeholder="Your Comment..."></textarea><br/>
+                            <input type="hidden" name="parent" id="parent" value="0" ng-model="openComment.parent" />
+                        </div>
+                        <input class="button" type="submit" value="{{translations.add_comment}}" />
+                    </form>
+                    <div ng-hide="post.comments.length">
+                        <h3 class="comments-header">{{translations.no_comments}} {{translations.on}} "{{post.title.rendered}}"</h3>
+                    </div>
+                    <h3 ng-show="post.comments.length">{{numComments}} {{numComments > 1 ? 'Comments' : 'Comment'}} {{translations.on}} "{{post.title.rendered}}"</h3>
+                    <collection collection='post.comments'></collection>
+                </section>
+            </footer>
+        </div>
+    </div>
+    <div ng-if="is404">
+        <header class="error-header" style="background: url({{header_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
+            <div class="error-header-text-outer">
+                <div class="error-header-text-inner">
+                    <h1 class="error-page-title">{{translations.page_404_title}}</h1>
+                </div>
+            </div>
+        </header>
+        <section class="error-social-media-links">
+            <div class="social-links-inner clearfix">
+                <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                    <a href="{{social_link.link}}">
+                        <img ng-src="{{social_link.image}}" />
+                        <div class="social-link-title">{{social_link.title}}</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div id="inner-content" class="row">
+            <p>{{translations.page_404_content_first}} <a href="/">{{translations.page_404_homepage}}</a> {{translations.page_404_content_second}}</p>
+            <search-form></search-form>
+            <div class="post-container row small-up-2 medium-up-4 large-up-5">
+                <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in searched_posts">
+                    <a href="{{post.link}}">
+                        <img ng-src="{{post.featured_image}}" />
+                        <div class="post-overlay">
+                            <span class="day">{{ post.date | date:"dd" }}</span>
+                            <span class="month">{{ post.date | date:"MMMM" }}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

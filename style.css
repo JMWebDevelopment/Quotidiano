@@ -5253,6 +5253,8 @@ COLORS
       padding: 0;
       width: 19%;
       position: relative; }
+      .home #inner-content .post-container .post a {
+        display: block; }
       .home #inner-content .post-container .post:hover .post-overlay {
         display: block;
         background-color: rgba(33, 33, 33, 0.7);
@@ -5264,7 +5266,8 @@ COLORS
         display: flex;
         justify-content: center;
         flex-direction: column;
-        text-align: center; }
+        text-align: center;
+        border-radius: 4px; }
         .home #inner-content .post-container .post:hover .post-overlay .day {
           font-family: 'Cutive', serif;
           font-size: 73px;
@@ -5981,6 +5984,8 @@ COLORS
       padding: 0;
       width: 19%;
       position: relative; }
+      .archive-template #inner-content .post-container .post a {
+        display: block; }
       .archive-template #inner-content .post-container .post:hover .post-overlay {
         display: block;
         background-color: rgba(33, 33, 33, 0.7);
@@ -5992,7 +5997,8 @@ COLORS
         display: flex;
         justify-content: center;
         flex-direction: column;
-        text-align: center; }
+        text-align: center;
+        border-radius: 4px; }
         .archive-template #inner-content .post-container .post:hover .post-overlay .day {
           font-family: 'Cutive', serif;
           font-size: 73px;

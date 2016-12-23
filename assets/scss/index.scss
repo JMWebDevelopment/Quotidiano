@@ -136,6 +136,9 @@
         padding: 0;
         width: 19%;
         position: relative;
+        a {
+          display: block;
+        }
         &:hover {
           .post-overlay {
             display: block;
@@ -149,6 +152,7 @@
             justify-content: center;
             flex-direction: column;
             text-align: center;
+            border-radius: 4px;
             .day {
               @include cutive(73px, 400, $off-white, none);
               line-height: 1;

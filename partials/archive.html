@@ -1,25 +1,63 @@
-<div ng-controller="Archive" id="{{archiveType}}" class="archive-template">
-    <header class="archive-header" style="background: url({{header_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
-        <div class="archive-header-text-outer">
-            <div class="archive-header-text-inner">
-                <h1 class="archive-page-title">{{archiveTitle}}</h1>
+<div ng-controller="Archive" id="{{archiveType}}" class="{{is404 == true ? 'page-404' : 'archive-template'}}">
+    <div ng-if="!is404">
+        <header class="archive-header" style="background: url({{header_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
+            <div class="archive-header-text-outer">
+                <div class="archive-header-text-inner">
+                    <h1 class="archive-page-title">{{archiveTitle}}</h1>
+                </div>
             </div>
-        </div>
-    </header>
-    <section class="archive-social-media-links">
-        <div class="social-links-inner clearfix">
-            <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
-                <a href="{{social_link.link}}">
-                    <img ng-src="{{social_link.image}}" />
-                    <div class="social-link-title">{{social_link.title}}</div>
-                </a>
+        </header>
+        <section class="archive-social-media-links">
+            <div class="social-links-inner clearfix">
+                <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                    <a href="{{social_link.link}}">
+                        <img ng-src="{{social_link.image}}" />
+                        <div class="social-link-title">{{social_link.title}}</div>
+                    </a>
+                </div>
             </div>
+        </section>
+        <div id="inner-content" class="row">
+            <div class="post-area">
+                <div class="post-container row small-up-2 medium-up-4 large-up-5">
+                    <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
+                        <a href="{{post.link}}">
+                            <img ng-src="{{post.featured_image}}" />
+                            <div class="post-overlay">
+                                <span class="day">{{ post.date | date:"dd" }}</span>
+                                <span class="month">{{ post.date | date:"MMMM" }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <archive-load-more></archive-load-more>
+            </div>
+            <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
         </div>
-    </section>
-    <div id="inner-content" class="row">
-        <div class="post-area">
+    </div>
+    <div ng-if="is404">
+        <header class="error-header" style="background: url({{header_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
+            <div class="error-header-text-outer">
+                <div class="error-header-text-inner">
+                    <h1 class="error-page-title">{{translations.page_404_title}}</h1>
+                </div>
+            </div>
+        </header>
+        <section class="error-social-media-links">
+            <div class="social-links-inner clearfix">
+                <div id="quotidiano-{{social_link.slug}}-link" class="quotidiano-social-link" ng-repeat="social_link in social_links">
+                    <a href="{{social_link.link}}">
+                        <img ng-src="{{social_link.image}}" />
+                        <div class="social-link-title">{{social_link.title}}</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div id="inner-content" class="row">
+            <p>{{translations.page_404_content_first}} <a href="/">{{translations.page_404_homepage}}</a> {{translations.page_404_content_second}}</p>
+            <search-form></search-form>
             <div class="post-container row small-up-2 medium-up-4 large-up-5">
-                <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
+                <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in searched_posts">
                     <a href="{{post.link}}">
                         <img ng-src="{{post.featured_image}}" />
                         <div class="post-overlay">
@@ -29,8 +67,6 @@
                     </a>
                 </div>
             </div>
-            <archive-load-more></archive-load-more>
         </div>
-        <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
     </div>
 </div>
