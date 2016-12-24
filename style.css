@@ -5,7 +5,7 @@ Theme URI: http://www.jacobmartella.com/wordpress/wordpress-themes/quotidiano-wo
 Description: We, as humans, love to tell our stories. It's essentially second nature to us. And with the rise of Facebook, Twitter and other forms of social media, we love to tell our stories in a daily fashion. Quotidiano, Italian for daily, helps you do just that. Whether it's a 100-day photo challenge, a 100-day fitness challenge, a regular old daily blog or anything in between, Quotidiano is the perfect WordPress theme to tell and display your story to the world.
 Author: Jacob Martella
 Author URI: http://www.jacobmartella.com/
-Version: 1.0
+Version: 0.1-alpha
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-sidebar, flexible-header, custom-header, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready, photography
@@ -25,9 +25,7 @@ Theme Slug: quotidiano
 * VII. Author
 * VIII. Pages
 *   A. 404
-* IX. Sidebar
-* 	A. Widgets
-* X. Footer
+* IX. Footer
 *
 * NOTE: Theme specific styles begin on line ---.
 */
@@ -4385,9 +4383,9 @@ to display none.
 /**
 * Theme Default Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -4718,9 +4716,9 @@ ul, ol {
 /**
 * WordPress Classes Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /*
 * A. By Author
@@ -4841,9 +4839,9 @@ D. Gallery
 /**
 * Header Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -5101,9 +5099,9 @@ COLORS
 /**
 * Home Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -5238,9 +5236,9 @@ COLORS
 /**
 * Single Post Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -5480,9 +5478,9 @@ pre, code {
 /**
 * Comments Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -5639,9 +5637,9 @@ COLORS
 *
 * This file contains the styles for both the index and archive templates
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -5857,9 +5855,9 @@ COLORS
 /**
 * Page Styles
 *
-* @package ***Theme Name***
+* @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 
@@ -6233,41 +6231,14 @@ pre, code {
   #content .page-404 #inner-content {
     padding: 50px 5%; } }
 /**
-***************** IX. Sidebars ************************
-*/
-/**
-* Sidebar Styles
-*
-* @package ***Theme Name***
-* @author Jacob Martella
-* @version 1.0
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
-/**
-***************** A. Widgets ************************ 
-*/
-/**
-***************** X. Footer ************************
+***************** IX. Footer ************************
 */
 /**
 * Footer Styles
 *
 * @package Quotidiano
 * @author Jacob Martella
-* @version 1.0
+* @version 0.1-alpha
 */
 /******************************************************************
 

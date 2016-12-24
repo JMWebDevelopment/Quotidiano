@@ -2,9 +2,9 @@
 /**
  * functions.php
  *
- * @package **Theme Name**
+ * @package Quotidiano
  * @author Jacob Martella
- * @version 1.0
+ * @version 0.1-alpha
  */
 /**
  * Table of Contents

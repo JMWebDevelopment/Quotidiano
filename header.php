@@ -2,9 +2,9 @@
 /**
  * Header.php
  *
- * @package ***Theme Name***
- * @author  Jacob Martella
- * @version  1.0
+ * @package Quotidiano
+ * @author Jacob Martella
+ * @version 0.1-alpha
  */
 ?>
 <!doctype html>
