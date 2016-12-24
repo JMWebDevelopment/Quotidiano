@@ -62,8 +62,8 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 4. That's it! You're ready to start blogging!
 
 ### Changelog
-**1.0**
-- Initial release to the WordPress theme directory.
+**0.1-alpha**
+- Soft release to the open. Theme now available for others to use and test. If you find any issues, please email jacob.martella@att.net with details. Thank you!
 
 ### Licenses
 **Theme License**
