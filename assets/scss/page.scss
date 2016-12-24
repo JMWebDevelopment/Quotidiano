@@ -199,96 +199,6 @@ pre, code {
   border: 0;
   padding: 3px;
 }
-@-webkit-keyframes fadeInFromNone {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-
-  1% {
-    display: none;
-    opacity: 0;
-  }
-
-  50% {
-    display: inline;
-    opacity: 0;
-  }
-
-  100% {
-    display: inline;
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes fadeInFromNone {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-
-  1% {
-    display: none;
-    opacity: 0;
-  }
-
-  50% {
-    display: inline;
-    opacity: 0;
-  }
-
-  100% {
-    display: inline;
-    opacity: 1;
-  }
-}
-
-@-o-keyframes fadeInFromNone {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-
-  1% {
-    display: none;
-    opacity: 0;
-  }
-
-  50% {
-    display: inline;
-    opacity: 0;
-  }
-
-  100% {
-    display: inline;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInFromNone {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-
-  1% {
-    display: none;
-    opacity: 0;
-  }
-
-  50% {
-    display: inline;
-    opacity: 0;
-  }
-
-  100% {
-    display: inline;
-    opacity: 1;
-  }
-}
-#wp-a11y-speak-polite{
-  display: none;
-}
 
 /**
 ***************** A. 404 ************************
@@ -338,41 +248,19 @@ pre, code {
       margin: auto;
       display: inline-block;
       .quotidiano-social-link {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+        display: block;
         float: left;
-        text-align: left;
         height: 30px;
         width: 30px;
-        padding-top: 3px;
-        -webkit-transition: width 100ms;
-        transition: width 100ms;
         margin-right: 5px;
         overflow: hidden;
         img {
           width: 30px;
           height: auto;
-          margin-top: -6px;
-        }
-        .social-link-title {
-          display: none;
-          /*-webkit-transition: anim 200ms;
-          transition: anim 200ms;*/
-          @include cutive(16px, 400, $off-white, none);
-          padding: 0 3px;
-          opacity: 0;
-          -webkit-animation: fadeInFromNone 0.5s ease-out;
-          -moz-animation: fadeInFromNone 0.5s ease-out;
-          -o-animation: fadeInFromNone 0.5s ease-out;
-          animation: fadeInFromNone 0.5s ease-out;
         }
         &:hover {
-          width: 139px;
-          .social-link-title {
-            display: inline;
-            opacity: 1;
-
+          img {
+            opacity: .7;
           }
         }
         &#quotidiano-facebook-link {
@@ -471,27 +359,6 @@ pre, code {
           }
         }
       }
-      .single-post-social-media-links {
-        .social-links-inner {
-          .quotidiano-social-link {
-            -webkit-transition: none;
-            transition: none;
-            .social-link-title {
-              display: none;
-              -webkit-animation: none;
-              -moz-animation: none;
-              -o-animation: none;
-              animation: none;
-            }
-            &:hover {
-              width: 30px;
-              .social-link-title {
-                display: none;
-              }
-            }
-          }
-        }
-      }
       #inner-content {
         padding: 50px 5%;
       }
@@ -505,27 +372,6 @@ pre, code {
           .error-page-title {
             @include roboto(40px, 700, $off-white, uppercase);
             margin-bottom: 20px;
-          }
-        }
-      }
-      .error-social-media-links {
-        .social-links-inner {
-          .quotidiano-social-link {
-            -webkit-transition: none;
-            transition: none;
-            .social-link-title {
-              display: none;
-              -webkit-animation: none;
-              -moz-animation: none;
-              -o-animation: none;
-              animation: none;
-            }
-            &:hover {
-              width: 30px;
-              .social-link-title {
-                display: none;
-              }
-            }
           }
         }
       }
@@ -550,27 +396,6 @@ pre, code {
           }
         }
       }
-      .single-post-social-media-links {
-        .social-links-inner {
-          .quotidiano-social-link {
-            -webkit-transition: none;
-            transition: none;
-            .social-link-title {
-              display: none;
-              -webkit-animation: none;
-              -moz-animation: none;
-              -o-animation: none;
-              animation: none;
-            }
-            &:hover {
-              width: 30px;
-              .social-link-title {
-                display: none;
-              }
-            }
-          }
-        }
-      }
       #inner-content {
         padding: 50px 5%;
       }
@@ -584,27 +409,6 @@ pre, code {
           .error-page-title {
             @include roboto(40px, 700, $off-white, uppercase);
             margin-bottom: 20px;
-          }
-        }
-      }
-      .error-social-media-links {
-        .social-links-inner {
-          .quotidiano-social-link {
-            -webkit-transition: none;
-            transition: none;
-            .social-link-title {
-              display: none;
-              -webkit-animation: none;
-              -moz-animation: none;
-              -o-animation: none;
-              animation: none;
-            }
-            &:hover {
-              width: 30px;
-              .social-link-title {
-                display: none;
-              }
-            }
           }
         }
       }

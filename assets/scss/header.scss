@@ -186,42 +186,15 @@
 		margin: auto;
 		display: inline-block;
 		.quotidiano-social-link {
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
+			display: block;
 			float: left;
-			text-align: left;
 			height: 30px;
 			width: 30px;
-			padding-top: 3px;
-			-webkit-transition: width 100ms;
-			transition: width 100ms;
 			margin-right: 5px;
 			overflow: hidden;
 			img {
 				width: 30px;
 				height: auto;
-				margin-top: -6px;
-			}
-			.social-link-title {
-				display: none;
-				/*-webkit-transition: anim 200ms;
-				transition: anim 200ms;*/
-				@include cutive(16px, 400, $off-white, none);
-				padding: 0 3px;
-				opacity: 0;
-				-webkit-animation: fadeInFromNone 0.5s ease-out;
-				-moz-animation: fadeInFromNone 0.5s ease-out;
-				-o-animation: fadeInFromNone 0.5s ease-out;
-				animation: fadeInFromNone 0.5s ease-out;
-			}
-			&:hover {
-				width: 139px;
-				.social-link-title {
-					display: inline;
-					opacity: 1;
-
-				}
 			}
 			&#quotidiano-facebook-link {
 				background-color: #3B5998;
@@ -254,97 +227,6 @@
 	}
 }
 
-@-webkit-keyframes fadeInFromNone {
-	0% {
-		display: none;
-		opacity: 0;
-	}
-
-	1% {
-		display: none;
-		opacity: 0;
-	}
-
-	50% {
-		display: inline;
-		opacity: 0;
-	}
-
-	100% {
-		display: inline;
-		opacity: 1;
-	}
-}
-
-@-moz-keyframes fadeInFromNone {
-	0% {
-		display: none;
-		opacity: 0;
-	}
-
-	1% {
-		display: none;
-		opacity: 0;
-	}
-
-	50% {
-		display: inline;
-		opacity: 0;
-	}
-
-	100% {
-		display: inline;
-		opacity: 1;
-	}
-}
-
-@-o-keyframes fadeInFromNone {
-	0% {
-		display: none;
-		opacity: 0;
-	}
-
-	1% {
-		display: none;
-		opacity: 0;
-	}
-
-	50% {
-		display: inline;
-		opacity: 0;
-	}
-
-	100% {
-		display: inline;
-		opacity: 1;
-	}
-}
-
-@keyframes fadeInFromNone {
-	0% {
-		display: none;
-		opacity: 0;
-	}
-
-	1% {
-		display: none;
-		opacity: 0;
-	}
-
-	50% {
-		display: inline;
-		opacity: 0;
-	}
-
-	100% {
-		display: inline;
-		opacity: 1;
-	}
-}
-#wp-a11y-speak-polite{
-	display: none;
-}
-
 @include breakpoint(medium only) {
 	.header {
 		.top-bar {
@@ -371,27 +253,6 @@
 			}
 			.page-header-description {
 				@include cutive(30px, 400, $off-white, none);
-			}
-		}
-	}
-	.social-media {
-		.social-links-inner {
-			.quotidiano-social-link {
-				-webkit-transition: none;
-				transition: none;
-				.social-link-title {
-					display: none;
-					-webkit-animation: none;
-					-moz-animation: none;
-					-o-animation: none;
-					animation: none;
-				}
-				&:hover {
-					width: 30px;
-					.social-link-title {
-						display: none;
-					}
-				}
 			}
 		}
 	}
@@ -425,27 +286,6 @@
 			}
 			.page-header-description {
 				@include cutive(20px, 400, $off-white, none);
-			}
-		}
-	}
-	.social-media {
-		.social-links-inner {
-			.quotidiano-social-link {
-				-webkit-transition: none;
-				transition: none;
-				.social-link-title {
-					display: none;
-					-webkit-animation: none;
-					-moz-animation: none;
-					-o-animation: none;
-					animation: none;
-				}
-				&:hover {
-					width: 30px;
-					.social-link-title {
-						display: none;
-					}
-				}
 			}
 		}
 	}
