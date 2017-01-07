@@ -137,7 +137,7 @@ function showSiteTitle( home ) {
 }
 
 (function() {
-	angular.module('myapp', ['ui.router', 'ngResource'])
+	angular.module('myapp', ['ui.router', 'ngResource', 'ngSanitize'])
 		.factory('Comments',function($resource){
 			return $resource(quotidiano.api_url+':ID/comments',{
 				ID:'@id'
@@ -159,23 +159,17 @@ function showSiteTitle( home ) {
                         method: 'GET',
                         url: quotidiano.api_url + 'posts?per_page=1'
                     })
-                        .success(function (res, status, headers, config) {
+                        .then(function (res, status, headers, config) {
                             return res;
                         })
-                        .error(function (data, status, headers, config) {
-                            return {"status": false};
-                        });
 				} else {
                     var promise = $http({
                         method: 'GET',
                         url: quotidiano.api_url + 'posts?year=' + currentYear + '&monthnum=' + currentMonth + '&per_page=31'
                     })
-                        .success(function (res, status, headers, config) {
+                        .then(function (res, status, headers, config) {
                             return res;
                         })
-                        .error(function (data, status, headers, config) {
-                            return {"status": false};
-                        });
                 }
                 return promise;
             }
@@ -238,6 +232,7 @@ function showSiteTitle( home ) {
             jQuery('.page-home-header').show();
             jQuery('.social-media').show();
             showSiteTitle(true);
+            $scope.viewLoading = true;
             homePosts.getHomePosts( '', '' ).then( function( promise ) {
             	var post = promise.data[0];
             	var date = new Date( post.date );
@@ -256,6 +251,7 @@ function showSiteTitle( home ) {
                     for ( i = 0; i < $scope.posts.length; i++ ) {
                     	loadedPosts.push( $scope.posts[i].id );
 					}
+                    $scope.viewLoading = false;
 				});
 			});
 		}])
@@ -264,9 +260,11 @@ function showSiteTitle( home ) {
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
             showSiteTitle(false);
-			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').success(function(res){
-			    if ( res.length > 0 ) {
-                    $scope.post = res[0];
+			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').then(function(res){
+                var data = res.data;
+			    if ( data.length > 0 ) {
+                    $scope.post = data[0];
+                    console.log($scope.post);
                     $scope.post.comments = SortComments.arrangeComments($scope.post.comments);
                     $scope.numComments = $scope.post.comments.length;
                     $scope.loggedIn = quotidiano.logged_in;
@@ -274,13 +272,13 @@ function showSiteTitle( home ) {
                     if ($scope.loggedIn == true) {
                         $scope.currentUser = quotidiano.logged_in_user;
                     }
-                    document.querySelector('title').innerHTML = res[0].title.rendered + ' | ' + quotidiano.site_title;
+                    document.querySelector('title').innerHTML = $scope.post.title.rendered + ' | ' + quotidiano.site_title;
                     changeCurrentNavItem();
                 } else {
                     $scope.is404 = true;
                     $scope.header_image = quotidiano.header_image;
                 }
-			}).error( function( res, status ){
+			}, function( res, status ){
                 if ( status == 404 ) {
                     $scope.is404 = true;
                     $scope.header_image = quotidiano.header_image;
@@ -299,7 +297,7 @@ function showSiteTitle( home ) {
                     params: $scope.openComment,
                     headers: { 'Content-Type': 'multipart/form-data', 'X-WP-Nonce': quotidiano.nonce }
                 })
-                    .success(function (result) {
+                    .then(function (result) {
                         $scope.openComment = {};
                         $scope.openComment.post = $scope.post.id;
                         jQuery('#comment-content').val('');
@@ -310,9 +308,7 @@ function showSiteTitle( home ) {
                         jQuery('#comment-form').hide(500, function() {
                             jQuery('.comment-success').show(400);
                         });
-                    }).error(function (result) {
-                    console.log(result);
-                });
+                    });
 			}
 		}])
 		.controller('Page', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
@@ -320,9 +316,10 @@ function showSiteTitle( home ) {
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
             showSiteTitle(false);
-			$http.get( quotidiano.api_url + 'pages?slug=' + $stateParams.slug ).success(function(res){
-			    if ( res.length > 0 ) {
-                    $scope.post = res[0];
+			$http.get( quotidiano.api_url + 'pages?slug=' + $stateParams.slug ).then(function(res){
+			    var data = res.data;
+			    if ( data.length > 0 ) {
+                    $scope.post = data[0];
                     $scope.social_links = quotidiano.social_media_links;
                     document.querySelector('title').innerHTML = res[0].title.rendered + ' | ' + quotidiano.site_title
                     changeCurrentNavItem();
@@ -330,7 +327,7 @@ function showSiteTitle( home ) {
                     $scope.is404 = true;
                     $scope.header_image = quotidiano.header_image;
                 }
-			}).error( function( res, status ){
+			}, function( res, status ){
 			    if ( status == 404 ) {
 			        $scope.is404 = true;
                     $scope.header_image = quotidiano.header_image;
@@ -360,10 +357,10 @@ function showSiteTitle( home ) {
 			url = urls[0];
 			pagedUrl = urls[1];
 			if ( $stateParams.archiveType != 'Search' && $stateParams.archiveType != 'Year' && $stateParams.archiveType != 'Month' && $stateParams.archiveType != 'Day' ) {
-				$http.get(url).success(function (res) {
-				    console.log('success');
-					if( res.length > 0 ) {
-                        $scope.term = res[0];
+				$http.get(url).then(function (res) {
+				    var data = res.data;
+					if( data.length > 0 ) {
+                        $scope.term = data[0];
                         $scope.archiveType = $stateParams.archiveType;
                         document.querySelector('title').innerHTML = $scope.term.name + ' | ' + quotidiano.site_title;
                         if ($stateParams.archiveType == 'Author') {
@@ -373,11 +370,12 @@ function showSiteTitle( home ) {
                         }
                         changeCurrentNavItem();
                         var url = getArchivePosts($stateParams.archiveType, $stateParams.page, $scope.endpoints[0], $scope.term.id);
-                        $http.get(url).success(function (res, status, headers) {
-                            console.log('success');
-                            $scope.posts = res;
-                            $scope.totalPages = headers('X-WP-Total');
-                        }).error(function (res, status) {
+                        $http.get(url).then(function (res) {
+                            var data = res.data;
+                            $scope.posts = data;
+                            console.log(res.headers('X-WP-Total'));
+                            $scope.totalPages = res.headers('X-WP-Total');
+                        }, function (res, status) {
                             console.log('error');
                             if (status == 404) {
                                 $scope.is404 = true;
@@ -389,7 +387,7 @@ function showSiteTitle( home ) {
                         console.log('error 404');
                     }
 
-				}).error( function( res, status ){
+				}, function( res, status ){
 				    console.log('error');
                     if ( status == 404 ) {
                         $scope.is404 = true;
@@ -397,8 +395,9 @@ function showSiteTitle( home ) {
                     }
                 });
 			} else {
-				$http.get(url).success(function (res, status, headers) {
-					$scope.posts = res;
+				$http.get(url).then(function (res, status, headers) {
+                    var data = res.data;
+					$scope.posts = data;
                     $scope.archiveType = $stateParams.archiveType;
 					if ( $stateParams.archiveType == 'Search' ) {
                         document.querySelector('title').innerHTML = $scope.endpoints[0] + ' | ' + quotidiano.site_title;
@@ -413,7 +412,7 @@ function showSiteTitle( home ) {
                         document.querySelector('title').innerHTML = getMonthName ($scope.endpoints[1] ) + ' ' + $scope.endpoints[2] + ', ' + $scope.endpoints[0] + ' | ' + quotidiano.site_title;
                         $scope.archiveTitle = getMonthName( $scope.endpoints[1] ) + ' ' + $scope.endpoints[2] + ', ' +$scope. endpoints[0];
 					}
-				}).error( function( res, status ){
+				}, function( res, status ){
                     if ( status == 404 ) {
                         $scope.is404 = true;
                     }
@@ -636,8 +635,10 @@ function showSiteTitle( home ) {
 							exclude = exclude + '' + ids[i] + sep;
 						}
                         $http.get(quotidiano.api_url + 'posts?exclude=' + exclude + '&per_page=1')
-                            .success(function(data) {
+                            .then(function(result) {
+                                var data = result.data;
                                 var post = data[0];
+                                console.log(post);
                                 var date = new Date( post.date );
                                 var month = date.getMonth() + 1;
                                 if ( month < 10 ) {
@@ -646,7 +647,8 @@ function showSiteTitle( home ) {
                                 console.log(exclude)
                                 var year = date.getFullYear();
                                 $http.get(quotidiano.api_url + 'posts?year=' + year + '&monthnum=' + month + '&per_page=31')
-                                    .success(function(data) {
+                                    .then(function(result) {
+                                        var data = result.data;
                                         month = getMonthName( month );
                                         console.log(data);
                                         $scope.j = j;
@@ -683,10 +685,12 @@ function showSiteTitle( home ) {
                         console.log($scope.$parent.endpoints);
                         var url = getArchiveUrl( archiveType, $scope.$parent.endpoints, $scope.paged  );
                         if ( archiveType == 'Category' || archiveType == 'Tag' || archiveType == 'Author' ) {
-                            $http.get(url[0]).success(function (res) {
-                                var term = res[0];
+                            $http.get(url[0]).then(function (res) {
+                                var data = res.data;
+                                var term = data[0];
                                 var url = getArchivePosts( archiveType, $scope.paged, $scope.$parent.endpoints[0], term.id );
-                                $http.get(url).success(function (data, status, headers) {
+                                $http.get(url).then(function (res) {
+                                    var data = res.data;
                                     $scope.new_archive_posts = data;
                                     $compile(element)($scope, function(cloned, $scope) {
                                         element.parent().append(cloned);
@@ -697,7 +701,7 @@ function showSiteTitle( home ) {
                                         jQuery(this).removeAttr("ng-repeat");
                                         jQuery(this).addClass('removed');
                                     })
-                                    var totalPages = headers( 'X-WP-Total' );
+                                    var totalPages = res.headers( 'X-WP-Total' );
                                     if ( $scope.paged == totalPages ) {
 
                                     } else {
@@ -708,7 +712,8 @@ function showSiteTitle( home ) {
                         } else {
                         	url[0] = url[0] + '&page=' + $scope.paged;
                             $http.get(url[0])
-                                .success(function(data, status, headers) {
+                                .then(function(res) {
+                                    var data = res.data;
                                     $scope.new_archive_posts = data;
                                     $compile(element)($scope, function(cloned, $scope) {
                                         element.parent().append(cloned);
@@ -719,7 +724,7 @@ function showSiteTitle( home ) {
                                         jQuery(this).removeAttr("ng-repeat");
                                         jQuery(this).addClass('removed');
                                     })
-                                    var totalPages = headers( 'X-WP-Total' );
+                                    var totalPages = res.headers( 'X-WP-Total' );
                                     if ( $scope.paged == totalPages ) {
 
                                     } else {
@@ -740,16 +745,11 @@ function showSiteTitle( home ) {
                         s: ''
                     };
                     $scope.search = function() {
-                        $http.get(quotidiano.api_url + 'posts?search=' + $scope.filter.s + '&per_page=99').success(function(res){
+                        $http.get(quotidiano.api_url + 'posts?search=' + $scope.filter.s + '&per_page=99').then(function(res){
                             $scope.searched_posts = res;
                         });
                     };
                 }
             };
         })
-		.filter('unsafe', function($sce) {
-			return function(val) {
-				return $sce.trustAsHtml(val);
-			};
-		});
 })();

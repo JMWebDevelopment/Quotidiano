@@ -4,7 +4,7 @@
  *
  * @package Quotidiano
  * @author Jacob Martella
- * @version 0.1-alpha
+ * @version 1.0
  */
 /**
  * Table of Contents
@@ -35,10 +35,11 @@ function quotidiano_scripts() {
 	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/js/foundation.min.js', array( 'jquery' ), '6.0', true );
 
 	// Add the AngularJS files
-	wp_enqueue_script( 'angularjs', get_stylesheet_directory_uri() . '/bower_components/angular/angular.js' );
-	wp_enqueue_script( 'angularjs-route', get_stylesheet_directory_uri() . '/bower_components/angular-route/angular-route.min.js' );
-	wp_enqueue_script( 'angularjs-ui-route', get_stylesheet_directory_uri() . '/bower_components/angular-ui/angular-ui-router.min.js' );
-    wp_enqueue_script( 'angularjs-ui-resource', get_stylesheet_directory_uri() . '/bower_components/angular/angular-resource.min.js' );
+	wp_enqueue_script( 'angularjs', get_template_directory_uri() . '/bower_components/angular/angular.js' );
+	wp_enqueue_script( 'angularjs-route', get_template_directory_uri() . '/bower_components/angular-route/angular-route.min.js' );
+	wp_enqueue_script( 'angularjs-ui-route', get_template_directory_uri() . '/bower_components/angular-ui/angular-ui-router.min.js' );
+    wp_enqueue_script( 'angularjs-ui-resource', get_template_directory_uri() . '/bower_components/angular/angular-resource.min.js' );
+    wp_enqueue_script( 'angularjs-sanitize', get_template_directory_uri() . '/bower_components/angular/angular-sanitize.min.js' );
 
 	// Adding scripts file in the footer
 	if ( is_user_logged_in() ) {
@@ -46,6 +47,11 @@ function quotidiano_scripts() {
 	} else {
 		$user = '';
 	}
+	$post_classes = get_post_class('', get_the_ID());
+	$classes = '';
+	foreach ( $post_classes as $post_class ) {
+	    $classes = $classes . ' ' . $post_class;
+    }
 	$args = array(
 		'partials' 				=> trailingslashit( get_template_directory_uri() ) . 'partials/',
 		'api_url' 				=> rest_get_url_prefix() . '/wp/v2/',
@@ -60,6 +66,7 @@ function quotidiano_scripts() {
         'header_image'          => get_header_image(),
         'months'                => quotidiano_get_months(),
         'social_media_links'    => quotidiano_social_media_rest_api(),
+        'post-class'            => $classes,
         'translations'          => [
             'page_404_title'            => __( 'Post or Page Not Found!', 'quotidiano' ),
             'page_404_content_first'    => __( 'The post or page you are looking for isn\'t here. Please return to the', 'quotidiano' ),
@@ -162,6 +169,8 @@ function quotidiano_theme_support() {
 			'chat'               // chat transcript
 		)
 	); */
+
+    if ( ! isset( $content_width ) ) $content_width = 1000;
 }
 add_action('after_setup_theme','quotidiano_theme_support', 16);
 /**
@@ -469,3 +478,21 @@ function quotidiano_social_media_rest_api() {
 /**
  ******************** X. Other Functions *********************************
  */
+include_once( 'assets/functions/updater.php' );
+if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+    $config = array(
+        'slug'                  => 'quotidiano', // this is the slug of your plugin
+        'proper_folder_name'    => 'quotidiano', // this is the name of the folder your plugin lives in
+        'api_url'               => 'https://api.github.com/repos/viewfromthebox/quotidiano', // the GitHub API url of your GitHub repo
+        'raw_url'               => 'https://raw.github.com/viewfromthebox/quotidiano/master', // the GitHub raw url of your GitHub repo
+        'github_url'            => 'https://github.com/viewfromthebox/quotidiano', // the GitHub url of your GitHub repo
+        'zip_url'               => 'https://github.com/viewfromthebox/quotidiano/zipball/master', // the zip url of the GitHub repo
+        'sslverify'             => true, // whether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
+        'requires'              => '4.7', // which version of WordPress does your plugin require?
+        'tested'                => '4.7', // which version of WordPress is your plugin tested up to?
+        'readme'                => 'README.md', // which file to use as the readme for the version number
+        'access_token'          => '', // Access private repositories by authorizing under Appearance > GitHub Updates when this example plugin is installed
+    );
+
+    new WP_GitHub_Updater( $config );
+}

@@ -27,7 +27,7 @@
                     <h5>{{translations.filed_under}} <span ng-repeat="category in post.category_name">{{category}}{{$last ? '' : ', '}}</span></h5>
                 </div>
             </section>
-            <section class="post-content" ng-bind-html="post.content.rendered | unsafe"></section>
+            <section class="post-content" ng-bind-html="post.content.rendered"></section>
             <footer class="post-footer">
                 <section class="post-comments" ng-if="post.comment_status == 'open'">
                     <h3 class="add-comment">{{translations.leave_comment}}</h3>

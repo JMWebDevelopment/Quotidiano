@@ -2,11 +2,11 @@
 /**
  * Theme-options.php
  *
- * Theme options file, using the Customizer, for Fotographia
+ * Theme options file, using the Customizer, for Quotidiano
  *
  * @author Jacob Martella
  * @package Quotidiano
- * @version 0.1-alpha
+ * @version 1.0
  */
 
 //* Create the general settings section
@@ -58,7 +58,7 @@ function theme_slug_general_customizer( $wp_customize ) {
     $wp_customize->add_control(
         'quotidiano-allow-anonymous-comments',
         array(
-            'label'     => __( 'Allow not logged-in users to submit comments:', 'fotographia' ),
+            'label'     => __( 'Allow not logged-in users to submit comments:', 'quotidiano' ),
             'section'   => 'general',
             'type'      => 'checkbox',
         )

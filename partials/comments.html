@@ -3,7 +3,7 @@
         <h4 class="comment-name">{{member.comment_author}}</h4>
         <h5 class="comment-date">{{translations.posted_at}} {{ member.comment_date | date:"h:mm a" }} on {{ member.comment_date | date:"MMMM dd, yyyy" }}</h5>
     </header>
-    <div class="comment-content" ng-bind-html="member.comment_content | unsafe"></div>
+    <div class="comment-content" ng-bind-html="member.comment_content"></div>
     <footer class="reply">
         <button id="reply-{{member.comment_ID}}" class="respond-to-comment button" onclick="replyToComment(this.id)">{{translations.reply}}</button>
     </footer>
