@@ -361,11 +361,10 @@ class WP_GitHub_Updater {
      */
     public function upgrader_post_install( $true, $hook_extra, $result ) {
         global $wp_filesystem;
-        $proper_destination = trailingslashit( $result['local_destination'] ) . $hook_extra['theme'];
+        $proper_destination = get_theme_root( $this->config['proper_folder_name'] ) . '/' . $this->config['proper_folder_name'];
         $wp_filesystem->move( $result['destination'], $proper_destination );
-        if( get_option( 'theme_switched' ) == $hook_extra['theme'] && $result['destination_name'] == get_stylesheet() ){
-            switch_theme( $hook_extra['theme'] );
-        }
+        wp_clean_themes_cache();
+        switch_theme( 'quotidiano' );
         $result['destination'] = $proper_destination;
         $result['destination_name'] = $hook_extra['theme'];
         return $true;
