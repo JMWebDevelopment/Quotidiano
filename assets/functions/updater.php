@@ -364,7 +364,6 @@ class WP_GitHub_Updater {
         $proper_destination = trailingslashit( $result['local_destination'] ) . $hook_extra['theme'];
         $wp_filesystem->move( $result['destination'], $proper_destination );
         if( get_option( 'theme_switched' ) == $hook_extra['theme'] && $result['destination_name'] == get_stylesheet() ){
-            wp_clean_themes_cache();
             switch_theme( $hook_extra['theme'] );
         }
         $result['destination'] = $proper_destination;
