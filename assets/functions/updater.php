@@ -361,15 +361,14 @@ class WP_GitHub_Updater {
      */
     public function upgrader_post_install( $true, $hook_extra, $result ) {
         global $wp_filesystem;
-        // Move & Activate
-        $proper_destination = get_theme_root( $this->config['proper_folder_name'] ) . '/' . $this->config['proper_folder_name'];
+        $proper_destination = trailingslashit( $result['local_destination'] ) . $hook_extra['theme'];
         $wp_filesystem->move( $result['destination'], $proper_destination );
+        if( get_option( 'theme_switched' ) == $hook_extra['theme'] && $result['destination_name'] == get_stylesheet() ){
+            wp_clean_themes_cache();
+            switch_theme( $hook_extra['theme'] );
+        }
         $result['destination'] = $proper_destination;
-        $activate = switch_theme( $this->config['slug'] );
-        // Output the update message
-        $fail  = __( 'The theme has been updated, but could not be reactivated. Please reactivate it manually.', 'quotidiano' );
-        $success = __( 'Theme reactivated successfully.', 'quotidiano' );
-        echo is_wp_error( $activate ) ? $fail : $success;
-        return $result;
+        $result['destination_name'] = $hook_extra['theme'];
+        return $true;
     }
 }
