@@ -6,7 +6,7 @@
  *
  * @author Jacob Martella
  * @package Quotidiano
- * @version 1.0
+ * @version 1.0.1
  */
 
 // Prevent loading this file directly and/or if the class is already defined
@@ -73,10 +73,10 @@ class WP_GitHub_Updater {
      */
     public function __construct( $config = array() ) {
         $defaults = array(
-            'slug' => 'quotidiano',
-            'proper_folder_name' => 'quotidiano',
-            'sslverify' => true,
-            'access_token' => '',
+            'slug'                  => 'quotidiano',
+            'proper_folder_name'    => 'quotidiano',
+            'sslverify'             => true,
+            'access_token'          => '',
         );
         $this->config = wp_parse_args( $config, $defaults );
         // if the minimum config isn't set, issue a warning and bail
@@ -87,6 +87,7 @@ class WP_GitHub_Updater {
             return;
         }
         $this->set_defaults();
+        set_site_transient('update_themes', null);
         add_filter( 'pre_set_site_transient_update_themes', array( $this, 'api_check' ) );
         // Hook into the theme details screen
         add_filter( 'themes_api', array( $this, 'get_theme_info' ), 10, 3 );
@@ -310,11 +311,11 @@ class WP_GitHub_Updater {
         // check the version and decide if it's new
         $update = version_compare( $this->config['new_version'], $this->config['version'] );
         if ( 1 === $update ) {
-            $response = new stdClass;
-            $response->new_version = $this->config['new_version'];
-            $response->slug = $this->config['proper_folder_name'];
-            $response->url = add_query_arg( array( 'access_token' => $this->config['access_token'] ), $this->config['github_url'] );
-            $response->package = $this->config['zip_url'];
+            $response = array (
+                'new_version'   => $this->config['new_version'],
+                'package'       => $this->config['zip_url'],
+                'url'           => add_query_arg( array( 'access_token' => $this->config['access_token'] ), $this->config['github_url'] )
+            );
             // If response is false, don't alter the transient
             if ( false !== $response )
                 $transient->response[ $this->config['slug'] ] = $response;
@@ -361,7 +362,7 @@ class WP_GitHub_Updater {
     public function upgrader_post_install( $true, $hook_extra, $result ) {
         global $wp_filesystem;
         // Move & Activate
-        $proper_destination = get_theme_root( $this->config['proper_folder_name'] );
+        $proper_destination = get_theme_root( $this->config['proper_folder_name'] ) . '/' . $this->config['proper_folder_name'];
         $wp_filesystem->move( $result['destination'], $proper_destination );
         $result['destination'] = $proper_destination;
         $activate = switch_theme( $this->config['slug'] );

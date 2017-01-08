@@ -52,6 +52,9 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 4. That's it! You're ready to start blogging!
 
 == Changelog ==
+= 1.0.1 - January 7, 2016 =
+- Fixed an issue with the GitHib updater.
+
 = 1.0 - January 7, 2016 =
 - Initial release to the world.
 

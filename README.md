@@ -7,9 +7,9 @@
 
 **Tested up to:** 4.7
 
-**Stable tag:** 1.0
+**Stable tag:** 1.0.1
 
-~Current Version:1.0~
+~Current Version:1.0.1~
 
 ### Description
 We, as humans, love to tell our stories. It's essentially second nature to us. And with the rise of Facebook, Twitter and other forms of social media, we love to tell our stories in a daily fashion. Quotidiano, Italian for daily, helps you do just that. Whether it's a 100-day photo challenge, a 100-day fitness challenge, a regular old daily blog or anything in between, Quotidiano is the perfect WordPress theme to tell and display your story to the world.
@@ -64,6 +64,9 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 4. That's it! You're ready to start blogging!
 
 ### Changelog
+**1.0.1 - _January 7, 2017_**
+- Fixed an issue with the GitHib updater.
+
 **1.0 - _January 7, 2017_**
 - Initial release to the world.
 
