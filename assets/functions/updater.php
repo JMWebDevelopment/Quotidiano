@@ -365,7 +365,7 @@ class WP_GitHub_Updater {
         $wp_filesystem->move( $result['destination'], $proper_destination );
         $result['destination'] = $proper_destination;
         wp_clean_themes_cache();
-        $activate = switch_theme( get_theme_root( $this->config['proper_folder_name'] ) . '/' . $this->config['proper_folder_name'] );
+        $activate = switch_theme( $this->config['proper_folder_name'] );
 
         // Output the update message
         $fail  = __( 'The plugin has been updated, but could not be reactivated. Please reactivate it manually.', 'quotidiano' );
