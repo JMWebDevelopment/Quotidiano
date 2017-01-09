@@ -374,4 +374,14 @@ class WP_GitHub_Updater {
         return $result;
 
     }
+    
+    function upgrader_source_selection( $source, $remote_source, $upgrader, $hook_extra = null ) {
+        if(  strpos( $source, 'quotidiano' ) === false )
+            return $source;
+
+        $path_parts = pathinfo( $source );
+        $newsource = trailingslashit( $path_parts[ 'dirname' ] ) . trailingslashit( 'quotidiano' );
+        rename( $source, $newsource );
+        return $newsource;
+    }
 }
