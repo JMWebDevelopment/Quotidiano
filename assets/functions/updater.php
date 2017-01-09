@@ -382,6 +382,9 @@ class WP_GitHub_Updater {
         $path_parts = pathinfo( $source );
         $newsource = trailingslashit( $path_parts[ 'dirname' ] ) . trailingslashit( 'quotidiano' );
         rename( $source, $newsource );
+        wp_clean_themes_cache();
+        switch_theme( 'quotidiano' );
+        
         return $newsource;
     }
 }
