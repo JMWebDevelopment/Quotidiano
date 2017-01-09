@@ -4695,6 +4695,33 @@ ul, ol {
 /**
 ***************** C. WordPress Classes ************************
 */
+/**
+* WordPress Classes Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/*
+* A. By Author
+* B. Sticky
+* C. Photos
+* D. Gallery
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 /*
 A. By Author
 ------------------------------------------- */
@@ -4791,6 +4818,27 @@ D. Gallery
 /**
 ***************** II. Header ************************
 */
+/**
+* Header Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 /**
 ***************** A. Top Menu ************************ 
 */
@@ -5030,6 +5078,27 @@ D. Gallery
 /**
 ***************** III. Home ************************
 */
+/**
+* Home Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 .home #inner-content {
   padding: 50px 0;
   text-align: center !important; }
@@ -5146,6 +5215,27 @@ D. Gallery
 /**
 ***************** IV. Single ************************
 */
+/**
+* Single Post Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 .single .social-media {
   display: none; }
 .single .post-header {
@@ -5367,6 +5457,27 @@ pre, code {
 /**
 ***************** V. Comments ************************
 */
+/**
+* Comments Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 #inner-content .post-comments h3 {
   font-family: 'Cutive', serif;
   font-size: 30px;
@@ -5503,6 +5614,29 @@ pre, code {
 /**
 ***************** VI. Index ************************
 */
+/**
+* Index Styles
+*
+* This file contains the styles for both the index and archive templates
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 .archive-template .archive-header {
   color: #EAE9E9;
   text-align: center;
@@ -5700,6 +5834,27 @@ pre, code {
 /**
 ***************** VIII. Pages ************************
 */
+/**
+* Page Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 .single-page .social-media {
   display: none; }
 .single-page .post-header {
@@ -6060,6 +6215,27 @@ pre, code {
 /**
 ***************** IX. Footer ************************
 */
+/**
+* Footer Styles
+*
+* @package Quotidiano
+* @author Jacob Martella
+* @version 1.0.2
+*/
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/*********************
+COLORS
+*********************/
 .footer {
   background-color: #151515;
   color: #EAE9E9;

@@ -7,9 +7,11 @@
 
 **Tested up to:** 4.7
 
-**Stable tag:** 1.0.1
+**Stable tag:** 1.0.2
 
-~Current Version:1.0.1~
+~Current Version:1.0.2~
+
+####If you have a problem updating the theme, try reactivating the theme from the Themes page in the WordPress admin####
 
 ### Description
 We, as humans, love to tell our stories. It's essentially second nature to us. And with the rise of Facebook, Twitter and other forms of social media, we love to tell our stories in a daily fashion. Quotidiano, Italian for daily, helps you do just that. Whether it's a 100-day photo challenge, a 100-day fitness challenge, a regular old daily blog or anything in between, Quotidiano is the perfect WordPress theme to tell and display your story to the world.
@@ -21,16 +23,11 @@ If you have a question, need to report a bug to be fixed or have a feature reque
 If you love this theme and want to see more of this type of work, please consider a donation or a tip . You can donate on the theme page at [http://jacobmartella.com/wordpress/wordpress-themes/quotidiano-wordpress-theme](http://jacobmartella.com/wordpress/wordpress-themes/quotidiano-wordpress-theme).
 
 ### Installation
-**Via WordPress Admin**
-- From your sites admin, go to Themes > Install Themes.
-- In the search box, type 'Quotidiano' and press enter.
-- Locate the entry for 'Quotidiano' (there should be only one) and click the 'Install' link.
-- When installation is finished, click the 'Activate' link.
-
 **Manual Install**
-- Download the file from the theme page.
+- Download the file from the theme page or the zip file from GitHub.
 - In the WordPress Admin area, go to Appearance > Themes > Add Themes > Upload Themes.
 - Upload the theme zip file that you've downloaded.
+- Make sure the theme directory name is 'quotidiano'.
 - Once the theme is uploaded, click the 'Activate' link.
 
 ### Features
@@ -64,6 +61,9 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 4. That's it! You're ready to start blogging!
 
 ### Changelog
+**1.0.2 - _January 8, 2017_**
+- Improved the updater.
+
 **1.0.1 - _January 7, 2017_**
 - Fixed an issue with the GitHib updater.
 

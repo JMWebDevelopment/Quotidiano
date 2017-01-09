@@ -6,7 +6,7 @@
  *
  * @author Jacob Martella
  * @package Quotidiano
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 //* Create the general settings section
