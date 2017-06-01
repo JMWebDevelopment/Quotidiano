@@ -751,7 +751,8 @@ function showSiteTitle( home ) {
                     };
                     $scope.search = function() {
                         $http.get(quotidiano.api_url + 'posts?search=' + $scope.filter.s + '&per_page=99').then(function(res){
-                            $scope.searched_posts = res;
+                            console.log(res.data);
+                            $scope.searched_posts = res.data;
                         });
                     };
                 }
