@@ -137,7 +137,12 @@ function showSiteTitle( home ) {
 }
 
 (function() {
-	angular.module('myapp', ['ui.router', 'ngResource', 'ngSanitize'])
+	angular.module('myapp', ['ui.router', 'ngResource'])
+        .filter('trustAsHtml', function($sce) {
+            return function(html) {
+                return $sce.trustAsHtml(html);
+            };
+        })
 		.factory('Comments',function($resource){
 			return $resource(quotidiano.api_url+':ID/comments',{
 				ID:'@id'
@@ -255,16 +260,16 @@ function showSiteTitle( home ) {
 				});
 			});
 		}])
-		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', 'SortComments', function ($scope, $http, $stateParams, Comments, SortComments) {
+		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', 'SortComments', function ($scope, $http, $stateParams, Comments, SortComments, $sce) {
             $scope.translations = quotidiano.translations;
             jQuery('.page-home-header').hide();
             jQuery('.social-media').hide();
             showSiteTitle(false);
 			$http.get(quotidiano.api_url + 'posts?slug=' + $stateParams.slug + '&_embed').then(function(res){
                 var data = res.data;
+                console.log(data);
 			    if ( data.length > 0 ) {
                     $scope.post = data[0];
-                    console.log($scope.post);
                     $scope.post.comments = SortComments.arrangeComments($scope.post.comments);
                     $scope.numComments = $scope.post.comments.length;
                     $scope.loggedIn = quotidiano.logged_in;
