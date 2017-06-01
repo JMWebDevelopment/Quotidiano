@@ -2,7 +2,7 @@
 Contributors: Jacob Martella
 Tags: one-sidebar, flexible-header, custom-header, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready, photography
 Requires at least: 4.7
-Tested up to: 4.7
+Tested up to: 4.8
 Stable tag: 1.0.2
 
 == If you have a problem updating the theme, try reactivating the theme from the Themes page in the WordPress admin ==
@@ -54,6 +54,13 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 4. That's it! You're ready to start blogging!
 
 == Changelog ==
+= 1.1 - June 7, 2017 =
+- Fixed an issue with oEmbeds (such as tweets) not showing up on the page correctly.
+- Fixed an issue with posts not showing up on the 404 search function.
+- Fixed an issue with comment contents not showing up.
+- Fixed an issue with the page not scrolling up when a post is clicked.
+- Tested to work with WordPress 4.8.
+
 = 1.0.2 - January 8, 2017 =
 - Improved the updater.
 
