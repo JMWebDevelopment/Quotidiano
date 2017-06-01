@@ -22,6 +22,13 @@ jQuery(document).ready(function() {
 		}, 500);
 	});
 
+    jQuery( document.body ).on( 'click', 'a',  function() {
+        console.log('linked clicked');
+        jQuery('html, body').animate({
+            scrollTop: jQuery("html").offset().top
+        }, 500);
+    });
+
 });
 function changeCurrentNavItem() {
 	jQuery(function () {
