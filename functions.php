@@ -4,7 +4,7 @@
  *
  * @package Quotidiano
  * @author Jacob Martella
- * @version 1.0.2
+ * @version 1.1
  */
 /**
  * Table of Contents
@@ -488,8 +488,8 @@ if ( is_admin() ) { // note the use of is_admin() to double check that this is h
         'github_url'            => 'https://github.com/viewfromthebox/quotidiano', // the GitHub url of your GitHub repo
         'zip_url'               => 'https://github.com/viewfromthebox/quotidiano/zipball/master', // the zip url of the GitHub repo
         'sslverify'             => true, // whether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
-        'requires'              => '4.7', // which version of WordPress does your plugin require?
-        'tested'                => '4.7', // which version of WordPress is your plugin tested up to?
+        'requires'              => '4.8', // which version of WordPress does your plugin require?
+        'tested'                => '4.8', // which version of WordPress is your plugin tested up to?
         'readme'                => 'README.md', // which file to use as the readme for the version number
         'access_token'          => '', // Access private repositories by authorizing under Appearance > GitHub Updates when this example plugin is installed
     );

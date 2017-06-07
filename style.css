@@ -5,7 +5,7 @@ Theme URI: http://www.jacobmartella.com/wordpress/wordpress-themes/quotidiano-wo
 Description: We, as humans, love to tell our stories. It's essentially second nature to us. And with the rise of Facebook, Twitter and other forms of social media, we love to tell our stories in a daily fashion. Quotidiano, Italian for daily, helps you do just that. Whether it's a 100-day photo challenge, a 100-day fitness challenge, a regular old daily blog or anything in between, Quotidiano is the perfect WordPress theme to tell and display your story to the world.
 Author: Jacob Martella
 Author URI: http://www.jacobmartella.com/
-Version: 1.0.2
+Version: 1.1
 License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: flexible-header, custom-header, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready, photography
@@ -4383,27 +4383,6 @@ to display none.
 /**
 ***************** B. Theme Defaults ************************
 */
-/**
-* Theme Default Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 textarea {
   overflow: auto;
   vertical-align: top; }
@@ -4716,33 +4695,6 @@ ul, ol {
 /**
 ***************** C. WordPress Classes ************************
 */
-/**
-* WordPress Classes Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/*
-* A. By Author
-* B. Sticky
-* C. Photos
-* D. Gallery
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 /*
 A. By Author
 ------------------------------------------- */
@@ -4839,27 +4791,6 @@ D. Gallery
 /**
 ***************** II. Header ************************
 */
-/**
-* Header Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 /**
 ***************** A. Top Menu ************************ 
 */
@@ -5099,27 +5030,6 @@ COLORS
 /**
 ***************** III. Home ************************
 */
-/**
-* Home Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 .home #inner-content {
   padding: 50px 0;
   text-align: center !important; }
@@ -5236,27 +5146,6 @@ COLORS
 /**
 ***************** IV. Single ************************
 */
-/**
-* Single Post Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 .single .social-media {
   display: none; }
 .single .post-header {
@@ -5478,27 +5367,6 @@ pre, code {
 /**
 ***************** V. Comments ************************
 */
-/**
-* Comments Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 #inner-content .post-comments h3 {
   font-family: 'Cutive', serif;
   font-size: 30px;
@@ -5635,29 +5503,6 @@ COLORS
 /**
 ***************** VI. Index ************************
 */
-/**
-* Index Styles
-*
-* This file contains the styles for both the index and archive templates
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 .archive-template .archive-header {
   color: #EAE9E9;
   text-align: center;
@@ -5855,27 +5700,6 @@ COLORS
 /**
 ***************** VIII. Pages ************************
 */
-/**
-* Page Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 .single-page .social-media {
   display: none; }
 .single-page .post-header {
@@ -6236,27 +6060,6 @@ pre, code {
 /**
 ***************** IX. Footer ************************
 */
-/**
-* Footer Styles
-*
-* @package Quotidiano
-* @author Jacob Martella
-* @version 1.0.2
-*/
-/******************************************************************
-
-Stylesheet: Mixins & Constants Stylesheet
-
-This is where you can take advantage of Sass' great features:
-Mixins & Constants.
-
-******************************************************************/
-/*********************
-FONTS
-*********************/
-/*********************
-COLORS
-*********************/
 .footer {
   background-color: #151515;
   color: #EAE9E9;

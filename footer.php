@@ -4,7 +4,7 @@
  *
  * @package Quotidiano
  * @author Jacob Martella
- * @version 1.0.2
+ * @version 1.1
  */
 ?>
 					<footer class="footer" role="contentinfo">

@@ -6,7 +6,7 @@
  *
  * @author Jacob Martella
  * @package Quotidiano
- * @version 1.0.1
+ * @version 1.1
  */
 
 // Prevent loading this file directly and/or if the class is already defined

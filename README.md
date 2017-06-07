@@ -7,9 +7,9 @@
 
 **Tested up to:** 4.8
 
-**Stable tag:** 1.0.2
+**Stable tag:** 1.1
 
-~Current Version:1.0.2~
+~Current Version:1.1~
 
 ####If you have a problem updating the theme, try reactivating the theme from the Themes page in the WordPress admin####
 

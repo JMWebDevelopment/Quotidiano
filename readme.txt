@@ -3,7 +3,7 @@ Contributors: Jacob Martella
 Tags: one-sidebar, flexible-header, custom-header, custom-menu, editor-style, featured-images, theme-options, threaded-comments, translation-ready, photography
 Requires at least: 4.7
 Tested up to: 4.8
-Stable tag: 1.0.2
+Stable tag: 1.1
 
 == If you have a problem updating the theme, try reactivating the theme from the Themes page in the WordPress admin ==
 
@@ -64,10 +64,10 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 = 1.0.2 - January 8, 2017 =
 - Improved the updater.
 
-= 1.0.1 - January 7, 2016 =
+= 1.0.1 - January 7, 2017 =
 - Fixed an issue with the GitHib updater.
 
-= 1.0 - January 7, 2016 =
+= 1.0 - January 7, 2017 =
 - Initial release to the world.
 
 = 0.1-alpha =
