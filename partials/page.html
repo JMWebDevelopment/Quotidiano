@@ -3,7 +3,10 @@
         <header class="post-header" style="background: url({{post.featured_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
             <div class="post-header-text-outer">
                 <div class="post-header-text-inner">
-                    <h1 class="single-post-header-date">{{post.title.rendered}}</h1>
+                    <div ng-if="isLoaded == false">
+                        <div class="quotidiano-loading-spinner"></div>
+                    </div>
+                    <h1 class="single-post-header-date" ng-if="isLoaded == true">{{post.title.rendered}}</h1>
                 </div>
             </div>
         </header>
@@ -17,7 +20,7 @@
             </div>
         </section>
         <div id="inner-content" class="row">
-            <section class="post-content" ng-bind-html="post.content.rendered"></section>
+            <section class="post-content" ng-bind-html="post.content.rendered | trustAsHtml"></section>
             <footer class="post-footer">
                 <section class="post-comments" ng-if="post.comment_status == 'open'">
                     <h3 class="add-comment">{{translations.leave_comment}}</h3>
@@ -69,7 +72,10 @@
         <div id="inner-content" class="row">
             <p>{{translations.page_404_content_first}} <a href="/">{{translations.page_404_homepage}}</a> {{translations.page_404_content_second}}</p>
             <search-form></search-form>
-            <div class="post-container row small-up-2 medium-up-4 large-up-5">
+            <div ng-if="isMoreLoaded == false">
+                <div class="quotidiano-loading-spinner"></div>
+            </div>
+            <div ng-if="isMoreLoaded == true" class="post-container row small-up-2 medium-up-4 large-up-5">
                 <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in searched_posts">
                     <a href="{{post.link}}">
                         <img ng-src="{{post.featured_image}}" />

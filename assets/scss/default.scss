@@ -290,3 +290,11 @@ ol > li {
 ul, ol {
      list-style-position: inside;
 }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#wp-a11y-speak-polite {
+  display: none;
+}

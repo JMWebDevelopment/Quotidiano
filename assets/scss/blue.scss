@@ -99,6 +99,15 @@ table {
 //* Home Styles
 .home {
   #inner-content {
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-blue; /* Light grey */
+      border-top: 16px solid $deep-blue; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     .home-date {
       color: $deep-blue;
     }
@@ -112,6 +121,19 @@ table {
 
 //* Single Post Styles
 .single {
+  .post-header {
+    .post-header-text-outer {
+      .quotidiano-loading-spinner {
+        border: 16px solid $medium-blue; /* Light grey */
+        border-top: 16px solid $deep-blue; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        margin: auto;
+      }
+    }
+  }
   #inner-content {
     .post-meta {
       .post-info {
@@ -152,9 +174,33 @@ blockquote {
 }
 
 //* Page Styles
+.page {
+  .post-header {
+    .post-header-text-outer {
+      .quotidiano-loading-spinner {
+        border: 16px solid $medium-blue; /* Light grey */
+        border-top: 16px solid $deep-blue; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        margin: auto;
+      }
+    }
+  }
+}
 .page-404 {
   #inner-content {
     text-align: left;
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-blue; /* Light grey */
+      border-top: 16px solid $deep-blue; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     input.ng-valid, textarea.ng-valid {
       background-color: #ffffff;
     }
@@ -164,6 +210,15 @@ blockquote {
 //* Archive Styles
 .archive-template {
   #inner-content {
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-blue; /* Light grey */
+      border-top: 16px solid $deep-blue; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     .post-container {
       .post {
         border: 1px solid $deep-blue;

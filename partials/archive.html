@@ -17,8 +17,11 @@
             </div>
         </section>
         <div id="inner-content" class="row">
+            <div ng-if="isLoaded == false">
+                <div class="quotidiano-loading-spinner"></div>
+            </div>
             <div class="post-area">
-                <div class="post-container row small-up-2 medium-up-4 large-up-5">
+                <div class="post-container row small-up-2 medium-up-4 large-up-5" ng-if="isLoaded == true">
                     <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in posts">
                         <a href="{{post.link}}">
                             <img ng-src="{{post.featured_image}}" />
@@ -30,6 +33,9 @@
                     </div>
                 </div>
                 <archive-load-more></archive-load-more>
+            </div>
+            <div ng-if="isMoreLoaded == false">
+                <div class="quotidiano-loading-spinner"></div>
             </div>
             <button id="load-more" ng-click="loadMorePosts()">{{translations.load_more}}</button>
         </div>
@@ -54,6 +60,9 @@
         <div id="inner-content" class="row">
             <p>{{translations.page_404_content_first}} <a href="/">{{translations.page_404_homepage}}</a> {{translations.page_404_content_second}}</p>
             <search-form></search-form>
+            <div ng-if="isMoreLoaded == false">
+                <div class="quotidiano-loading-spinner"></div>
+            </div>
             <div class="post-container row small-up-2 medium-up-4 large-up-5">
                 <div id="post-{{post.id}}" class="post post-{{post.id}} column" ng-repeat="post in searched_posts">
                     <a href="{{post.link}}">

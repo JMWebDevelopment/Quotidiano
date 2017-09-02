@@ -8,7 +8,7 @@
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="scss" />
       <option name="immediateSync" value="true" />
-      <option name="name" value="SCSS" />
+      <option name="name" value="Compass SCSS" />
       <option name="output" value="$ProjectFileDir$/assets/css/$FileNameWithoutExtension$.css" />
       <option name="outputFilters">
         <array />

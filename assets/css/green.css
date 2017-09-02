@@ -109,11 +109,31 @@ table tbody tr {
 .social-media, .single .single-post-social-media-links, .single-page .single-post-social-media-links, .archive-template .archive-social-media-links, .page-404 .error-social-media-links {
   background-color: #024B19; }
 
+.home #inner-content .quotidiano-loading-spinner {
+  border: 16px solid #86D690;
+  /* Light grey */
+  border-top: 16px solid #024B19;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: auto; }
 .home #inner-content .home-date {
   color: #024B19; }
 .home #inner-content .post-container .post {
   border: 1px solid #024B19; }
 
+.single .post-header .post-header-text-outer .quotidiano-loading-spinner {
+  border: 16px solid #86D690;
+  /* Light grey */
+  border-top: 16px solid #024B19;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: auto; }
 .single #inner-content .post-meta .post-info h5 {
   color: #024B19; }
 
@@ -133,11 +153,42 @@ blockquote:before {
   #inner-content .post-comments ul li h5 {
     color: #024B19; }
 
+.page .post-header .post-header-text-outer .quotidiano-loading-spinner {
+  border: 16px solid #86D690;
+  /* Light grey */
+  border-top: 16px solid #024B19;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: auto; }
+
 .page-404 #inner-content {
   text-align: left; }
+  .page-404 #inner-content .quotidiano-loading-spinner {
+    border: 16px solid #86D690;
+    /* Light grey */
+    border-top: 16px solid #024B19;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto; }
   .page-404 #inner-content input.ng-valid, .page-404 #inner-content textarea.ng-valid {
     background-color: #ffffff; }
 
+.archive-template #inner-content .quotidiano-loading-spinner {
+  border: 16px solid #86D690;
+  /* Light grey */
+  border-top: 16px solid #024B19;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: auto; }
 .archive-template #inner-content .post-container .post {
   border: 1px solid #024B19; }
 

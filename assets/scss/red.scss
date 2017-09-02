@@ -101,6 +101,15 @@ table {
 //* Home Styles
 .home {
   #inner-content {
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-red; /* Light grey */
+      border-top: 16px solid $deep-red; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     .home-date {
       color: $deep-red;
     }
@@ -115,6 +124,15 @@ table {
 //* Single Post Styles
 .single {
   #inner-content {
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-red; /* Light grey */
+      border-top: 16px solid $deep-red; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     .post-meta {
       .post-info {
         h5 {
@@ -129,24 +147,39 @@ blockquote {
     color: $medium-red;
   }
 }
-#inner-content {
-  .post-comments {
-    h3 {
-      color: $deep-red;
-      border-bottom: 1px solid $deep-red;
+.single {
+  .post-header {
+    .post-header-text-outer {
+      .quotidiano-loading-spinner {
+        border: 16px solid $medium-red; /* Light grey */
+        border-top: 16px solid $deep-red; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        margin: auto;
+      }
     }
-    .comment-success {
-      background-color: $dark-red;
-    }
-    ul {
-      li {
-        list-style: none;
-        margin-left: 0;
-        h4 {
-          color: $deep-red;
-        }
-        h5 {
-          color: $deep-red;
+  }
+  #inner-content {
+    .post-comments {
+      h3 {
+        color: $deep-red;
+        border-bottom: 1px solid $deep-red;
+      }
+      .comment-success {
+        background-color: $dark-red;
+      }
+      ul {
+        li {
+          list-style: none;
+          margin-left: 0;
+          h4 {
+            color: $deep-red;
+          }
+          h5 {
+            color: $deep-red;
+          }
         }
       }
     }
@@ -154,9 +187,33 @@ blockquote {
 }
 
 //* Page Styles
+.page {
+  .post-header {
+    .post-header-text-outer {
+      .quotidiano-loading-spinner {
+        border: 16px solid $medium-red; /* Light grey */
+        border-top: 16px solid $deep-red; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        margin: auto;
+      }
+    }
+  }
+}
 .page-404 {
   #inner-content {
     text-align: left;
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-red; /* Light grey */
+      border-top: 16px solid $deep-red; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     input.ng-valid, textarea.ng-valid {
       background-color: #ffffff;
     }
@@ -166,6 +223,15 @@ blockquote {
 //* Archive Styles
 .archive-template {
   #inner-content {
+    .quotidiano-loading-spinner {
+      border: 16px solid $medium-red; /* Light grey */
+      border-top: 16px solid $deep-red; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+    }
     .post-container {
       .post {
         border: 1px solid $deep-red;

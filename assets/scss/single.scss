@@ -34,6 +34,15 @@
        justify-content: center;
        flex-direction: column;
        text-align: center;
+       .quotidiano-loading-spinner {
+         border: 16px solid $light-grey; /* Light grey */
+         border-top: 16px solid $off-black; /* Blue */
+         border-radius: 50%;
+         width: 120px;
+         height: 120px;
+         animation: spin 2s linear infinite;
+         margin: auto;
+       }
        .single-post-header-date {
          @include roboto(50px, 700, $off-white, uppercase);
          border: 5px solid $off-white;

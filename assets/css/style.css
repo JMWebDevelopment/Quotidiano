@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: Quotidiano
-Theme URI: http://www.jacobmartella.com/wordpress/wordpress-themes/quotidiano-wordpress-theme
+Theme URI: https://www.jacobmartella.com/wordpress/wordpress-themes/quotidiano-wordpress-theme
 Description: We, as humans, love to tell our stories. It's essentially second nature to us. And with the rise of Facebook, Twitter and other forms of social media, we love to tell our stories in a daily fashion. Quotidiano, Italian for daily, helps you do just that. Whether it's a 100-day photo challenge, a 100-day fitness challenge, a regular old daily blog or anything in between, Quotidiano is the perfect WordPress theme to tell and display your story to the world.
 Author: Jacob Martella
 Author URI: http://www.jacobmartella.com/
@@ -4713,6 +4713,14 @@ ol > li {
 ul, ol {
   list-style-position: inside; }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+#wp-a11y-speak-polite {
+  display: none; }
+
 /**
 ***************** C. WordPress Classes ************************
 */
@@ -5123,6 +5131,16 @@ COLORS
 .home #inner-content {
   padding: 50px 0;
   text-align: center !important; }
+  .home #inner-content .quotidiano-loading-spinner {
+    border: 16px solid #CBC7C7;
+    /* Light grey */
+    border-top: 16px solid #151515;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto; }
   .home #inner-content .home-date {
     font-family: 'Cutive', serif;
     font-size: 30px;
@@ -5280,6 +5298,16 @@ COLORS
     justify-content: center;
     flex-direction: column;
     text-align: center; }
+    .single .post-header .post-header-text-outer .quotidiano-loading-spinner {
+      border: 16px solid #CBC7C7;
+      /* Light grey */
+      border-top: 16px solid #151515;
+      /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto; }
     .single .post-header .post-header-text-outer .single-post-header-date {
       font-family: 'Roboto', sans-serif;
       font-size: 50px;
@@ -5734,6 +5762,16 @@ COLORS
 .archive-template #inner-content {
   padding: 50px 0;
   text-align: center !important; }
+  .archive-template #inner-content .quotidiano-loading-spinner {
+    border: 16px solid #CBC7C7;
+    /* Light grey */
+    border-top: 16px solid #151515;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto; }
   .archive-template #inner-content .post-container {
     margin-left: auto;
     margin-right: auto; }
@@ -5899,6 +5937,16 @@ COLORS
     justify-content: center;
     flex-direction: column;
     text-align: center; }
+    .single-page .post-header .post-header-text-outer .quotidiano-loading-spinner {
+      border: 16px solid #CBC7C7;
+      /* Light grey */
+      border-top: 16px solid #151515;
+      /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto; }
     .single-page .post-header .post-header-text-outer .single-post-header-date {
       font-family: 'Roboto', sans-serif;
       font-size: 50px;
@@ -6133,6 +6181,16 @@ pre, code {
         margin-right: 0; }
 .page-404 #inner-content {
   text-align: left; }
+  .page-404 #inner-content .quotidiano-loading-spinner {
+    border: 16px solid #CBC7C7;
+    /* Light grey */
+    border-top: 16px solid #151515;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto; }
   .page-404 #inner-content input.ng-valid, .page-404 #inner-content textarea.ng-valid {
     background-color: #ffffff; }
   .page-404 #inner-content .post-container {

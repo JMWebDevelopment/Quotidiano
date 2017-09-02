@@ -3,8 +3,11 @@
         <header class="post-header" style="background: url({{post.featured_image}}); background-position-x: center; background-position-y: center; background-repeat: no-repeat; background-size: cover;">
             <div class="post-header-text-outer">
                 <div class="post-header-text-inner">
-                    <h1 class="single-post-header-date">{{ post.date | date:"MMMM dd, yyyy" }}</h1>
-                    <h3 class="single-post-header-title">{{post.title.rendered}}</h3>
+                    <div ng-if="isLoaded == false">
+                        <div class="quotidiano-loading-spinner"></div>
+                    </div>
+                    <h1 class="single-post-header-date" ng-if="isLoaded == true">{{ post.date | date:"MMMM dd, yyyy" }}</h1>
+                    <h3 class="single-post-header-title" ng-if="isLoaded == true">{{post.title.rendered}}</h3>
                 </div>
             </div>
         </header>
