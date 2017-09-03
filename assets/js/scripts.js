@@ -144,7 +144,7 @@ function showSiteTitle( home ) {
 }
 
 (function() {
-	angular.module('myapp', ['ui.router', 'ngResource'])
+	angular.module('myapp', ['ui.router', 'ngResource', 'ngSanitize'])
         .filter('trustAsHtml', function($sce) {
             return function(html) {
                 return $sce.trustAsHtml(html);
@@ -270,7 +270,7 @@ function showSiteTitle( home ) {
 				});
 			});
 		}])
-		.controller('SinglePost', ['$scope', '$http', '$stateParams', 'Comments', 'SortComments', function ($scope, $http, $stateParams, Comments, SortComments, $sce) {
+		.controller('SinglePost', ['$scope', '$sce', '$http', '$stateParams', 'Comments', 'SortComments', function ($scope, $sce, $http, $stateParams, Comments, SortComments) {
             $scope.translations = quotidiano.translations;
             $scope.isMoreLoaded = true;
             $scope.isLoaded = false;
@@ -309,8 +309,9 @@ function showSiteTitle( home ) {
 				$scope.openComment.author_name = jQuery('#name').val();
 				$scope.openComment.author_email = jQuery('#email').val();
 				$scope.openComment.parent = jQuery('#parent').val();
-				$scope.openComment.content = jQuery('#comment-content').val();
+				$scope.openComment.content = $sce.trustAsHtml( jQuery('#comment-content').val() );
                 $scope.openComment.post = jQuery('.single-view').attr('id').replace('post-', '');
+                console.log( $scope.openComment.content );
                 $http({
                     method: 'POST',
                     url: '/wp-json/wp/v2/comments',

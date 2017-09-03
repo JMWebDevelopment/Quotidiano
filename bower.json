@@ -3,7 +3,7 @@
   "private": true,
   "ignore":  [],
   "dependencies": {
-    "foundation-sites": ">=6.1",
+    "foundation-sites": ">=6.4.2",
     "motion-ui" : ">=1.1.0"
   }
 }

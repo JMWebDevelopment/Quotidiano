@@ -38,8 +38,8 @@ function quotidiano_scripts() {
 	wp_enqueue_script( 'angularjs', get_template_directory_uri() . '/bower_components/angular/angular.js' );
 	wp_enqueue_script( 'angularjs-route', get_template_directory_uri() . '/bower_components/angular-route/angular-route.min.js' );
 	wp_enqueue_script( 'angularjs-ui-route', get_template_directory_uri() . '/bower_components/angular-ui/angular-ui-router.min.js' );
-    wp_enqueue_script( 'angularjs-ui-resource', get_template_directory_uri() . '/bower_components/angular/angular-resource.min.js' );
-    wp_enqueue_script( 'angularjs-sanitize', get_template_directory_uri() . '/bower_components/angular/angular-sanitize.min.js' );
+    wp_enqueue_script( 'angularjs-ui-resource', get_template_directory_uri() . '/bower_components/angular-resource/angular-resource.min.js' );
+    wp_enqueue_script( 'angularjs-sanitize', get_template_directory_uri() . '/bower_components/angular-sanitize/angular-sanitize.min.js' );
 
 	// Adding scripts file in the footer
 	if ( is_user_logged_in() ) {
