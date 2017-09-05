@@ -7,9 +7,9 @@
 
 **Tested up to:** 4.8
 
-**Stable tag:** 1.1
+**Stable tag:** 1.2
 
-~Current Version:1.1~
+~Current Version:1.2~
 
 ####If you have a problem updating the theme, try reactivating the theme from the Themes page in the WordPress admin####
 
@@ -61,6 +61,10 @@ Quotidiano is pretty easy to set up. Like any theme in the WordPress theme direc
 4. That's it! You're ready to start blogging!
 
 ### Changelog
+**1.2 - _September 6, 2017_**
+- Added loading spinners while the data is loaded.
+- Updated to the latest version of Foundation.
+
 **1.1 - _June 7, 2017_**
 - Fixed an issue with oEmbeds (such as tweets) not showing up on the page correctly.
 - Fixed an issue with posts not showing up on the 404 search function.
