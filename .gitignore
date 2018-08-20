@@ -6,3 +6,4 @@
 .sass-cache
 /.idea/workspace.xml
 /.idea/Quotidiano.iml
+/node_modules
