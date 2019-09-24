@@ -23,5 +23,10 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "jshint-stylish": "^2.0.0"
+  },
+  "dependencies": {
+    "clean-css": "^4.2.1",
+    "lodash": "^4.17.15",
+    "lodash.template": "^4.5.0"
   }
 }
