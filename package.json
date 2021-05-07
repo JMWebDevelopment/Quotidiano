@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "clean-css": "^4.2.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0"
   }
 }
